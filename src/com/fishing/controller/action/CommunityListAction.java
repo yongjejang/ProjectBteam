@@ -7,6 +7,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fishing.dao.CommunityDAO;
 import com.fishing.dto.CommunityVO;
@@ -18,10 +19,11 @@ public class CommunityListAction implements Action {
 	public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String outputUrl = "communityboard/communityboardList.jsp";
 		String command = request.getParameter("command");
-		System.out.println(command);
+		HttpSession session = request.getSession();
+		//System.out.println(command);
 		CommunityDAO cDao = CommunityDAO.getInstance();
 		
-		System.out.println(request.getParameter("page"));
+		//System.out.println(request.getParameter("page"));
 		
 		int page = 1;
 		
@@ -31,7 +33,7 @@ public class CommunityListAction implements Action {
 		
 		List<CommunityVO> list = cDao.selectAllBoard(page);
 		int allNum= cDao.AllBoardcount();
-		System.out.println(allNum);
+		//System.out.println(allNum);
 		System.out.println(list);
 		
 		

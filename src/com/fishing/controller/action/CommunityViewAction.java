@@ -6,6 +6,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fishing.dao.CommunityDAO;
 import com.fishing.dto.CommunityVO;
@@ -18,6 +19,7 @@ public class CommunityViewAction implements Action {
 		// request에 있는 num을 DAO에 selectOneBoard()로 호출하고
 		String url ="/communityboard/communityboardView.jsp";
 		String communityNum = request.getParameter("communityNum");
+		HttpSession session = request.getSession();
 
 //		System.out.println(communityNum);
 	
@@ -32,6 +34,7 @@ public class CommunityViewAction implements Action {
 		
 		//받아온 BoardVo를 communityboardView.jsp에 포워딩
 		request.setAttribute("cboard1", cvo);
+		
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);

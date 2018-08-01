@@ -106,7 +106,7 @@ public class CommunityDAO {
 
 		public boolean insertBoard(CommunityVO cvo) {
 			boolean result = false;
-			String query = "insert into community(title, nicname, content) values (?,?,?);";
+			String query = "insert into community(title,nicname,content) values (?,?,?);";
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -115,12 +115,7 @@ public class CommunityDAO {
 			try {
 				con = DBMangement.getConnection();
 				pstmt = con.prepareStatement(query);
-				
-				/*pstmt.setString(1, bvo.getTitle());
-				pstmt.setString(2, bvo.getnicname());
-				pstmt.setString(3,  bvo.getContent());
-				 */
-				
+
 				pstmt.setString(1, cvo.getTitle());
 				pstmt.setString(2, cvo.getnicname());
 				pstmt.setString(3, cvo.getContent());

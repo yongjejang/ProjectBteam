@@ -137,8 +137,9 @@ public class MemberDao {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         MemberVO mv = null;
+      
         
-      String query ="select * from fishing.member";
+      String query ="select * from fishing.member where userid = ?";
       
       
       try {
@@ -149,7 +150,7 @@ public class MemberDao {
               rs = pstmt.executeQuery();
               if(rs.next()){
                  mv = new MemberVO();
-                 mv.setAddr(rs.getString("userid"));
+                 mv.setId(rs.getString("userid"));
                  mv.setPw(rs.getString("password"));
                  mv.setBirthday(rs.getString("birthday"));
                  mv.setAddr(rs.getString("address"));
@@ -170,6 +171,7 @@ public class MemberDao {
       
           
    }
+
 
         
     

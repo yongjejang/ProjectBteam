@@ -47,20 +47,25 @@ CKEDITOR.editorConfig = function( config ) {
 
 </head>
 <body>
-
+<% 
+session.getAttribute("memberinfo");
+%>
  
 <div class="container">
-    <form action="/insertProc" method="post" class="form-write">
+    <form action="community.do" method="post" class="form-write">
+  <!--  <form method="post" action="../login.do" name="loginForm">  -->
     <h2> 게시글 작성 </h2>
       <div class="form-group">
         <label for="subject">제목</label>
-        <input type="text" class="form-control" id="subject" name="subject" placeholder="제목을 입력하세요.">
+        <input type="text" class="form-control" id="subject" name="title" placeholder="제목을 입력하세요.">
       </div>
       <div class="form-group">
         <label for=content">내용</label>
-        <textarea class="form-control" id="content" name="editor" rows="20" placeholder="내용을 입력하세요."></textarea>
+        <textarea class="form-control" id="content" name="content" rows="20" placeholder="내용을 입력하세요."></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">작성</button>
+      <input type="hidden" name="command" value="community_write">
+      <input type="hidden" name="nickname" value=${memberinfo.nickName }>
+      <input type="submit" class="btn btn-primary" value = "저장">
       <input type="button" value="목록으로" class="btn btn-primary" onclick="location.href='community.do?command=community_list';" />
     </form>
 </div>		

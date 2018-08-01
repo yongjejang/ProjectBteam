@@ -2,6 +2,7 @@ package com.fishing.member.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,8 @@ public class MemberLoginAction implements Action {
      
       HttpSession session = request.getSession();
       MemberVO mvo = new MemberVO();
-      
+     
+      ArrayList<MemberVO> list = new ArrayList<MemberVO>();
       
       String id = request.getParameter("id");
       String pw = request.getParameter("pw");
@@ -32,16 +34,18 @@ public class MemberLoginAction implements Action {
       mvo.setId(id);
       mvo.setPw(pw);
       PrintWriter w = response.getWriter();
-    
+      //System.out.println(mvo);
       
       
       if(mdao.login(mvo) != null){
-        
-         session.setAttribute("login",mvo);
+        MemberVO mv = mdao.getMember(id);
+         System.out.println(mv);
+         session.setAttribute("memberinfo", mv);
             w.print("<script>");
             w.print("alert('loginSuccess!!');");
             w.print("location.href='index.jsp';");
             w.print("</script>");
+            
          
       }else{
          response.setContentType("text/html;charset=utf-8");
@@ -51,6 +55,7 @@ public class MemberLoginAction implements Action {
             w.print("location.href='member/loginForm.jsp';");
             w.print("</script>");
       }
+      
    }
 
 }
