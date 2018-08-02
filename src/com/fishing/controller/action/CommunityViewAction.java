@@ -17,6 +17,9 @@ public class CommunityViewAction implements Action {
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// request에 있는 num을 DAO에 selectOneBoard()로 호출하고
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
 		String url ="/communityboard/communityboardView.jsp";
 		String communityNum = request.getParameter("communityNum");
 		HttpSession session = request.getSession();

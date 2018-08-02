@@ -11,7 +11,10 @@ public class CommunityWriteFormAction implements Action {
 
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	String url = "/communityboard/communityboardWrite.jsp";
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		String url = "/communityboard/communityboardWrite.jsp";
 			
 	RequestDispatcher rd = request.getRequestDispatcher(url);
 	rd.forward(request, response);
