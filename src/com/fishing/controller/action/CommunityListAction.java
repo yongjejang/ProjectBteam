@@ -17,8 +17,13 @@ public class CommunityListAction implements Action {
 
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+				
 		String outputUrl = "communityboard/communityboardList.jsp";
 		String command = request.getParameter("command");
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
 		HttpSession session = request.getSession();
 		//System.out.println(command);
 		CommunityDAO cDao = CommunityDAO.getInstance();
