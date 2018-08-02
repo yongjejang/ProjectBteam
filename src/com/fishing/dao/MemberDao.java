@@ -29,13 +29,13 @@ public class MemberDao {
    
 //    모델 패키지에 있는 Member꺼 가져와서 쓰기
 //    회원정보셋 데이터 추가하기
-    public boolean joinMember(MemberVO mvo)
+    public int joinMember(MemberVO mvo)
     
     {
        //INSERT INTO fishing.member (USERID, PASSWORD, nickname, NAME,EMAIL) VALUES('test1','1234','hkd','홍길동','hkd@naver.com');
        //INSERT INTO fishing.member (USERID, PASSWORD, BIRTHDAY,ADDRESS,NAME,EMAIL,PHONE, NICKNAME) VALUES('test1','1234',780124,'서울시','홍길동','hkd@naver.com','010-1234-5678','hkd');
        String query ="INSERT INTO fishing.member (USERID, PASSWORD,EMAIL,PHONE,NICKNAME) VALUES(?,?,?,?,?)";
-       int result = 0;
+       int insertCount = 0;
        Connection con = null;
       PreparedStatement pstmt = null;
        try {
@@ -50,16 +50,14 @@ public class MemberDao {
          
          
 
-         pstmt.executeUpdate();
-         if(result!=0){
-            return true;
-         }
+         insertCount=pstmt.executeUpdate();
+         
       } catch (Exception e) {
          System.out.println("joinMember 에러" + e);
       } finally {
          DBMangement.close(pstmt, con);
       }
-      return false;
+      return insertCount;
        
        
     }

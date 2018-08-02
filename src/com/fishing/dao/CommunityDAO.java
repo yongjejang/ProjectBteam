@@ -105,9 +105,8 @@ public class CommunityDAO {
 		// ref : 현재글의 글 번호를 저장
 
 		public boolean insertBoard(CommunityVO cvo) {
-			boolean result = false;
 			String query = "insert into community(title,nicname,content) values (?,?,?);";
-			
+			boolean result = false;
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			

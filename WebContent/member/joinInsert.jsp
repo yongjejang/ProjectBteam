@@ -39,11 +39,11 @@
 			    			패스워드 확인(*)  <input class="form-control" placeholder="PassWord" name="password" type="password" value="">
 			    		</div>
 			    		<div class="form-group">
-			    		     닉네임  <input class="form-control" placeholder="nickName" name="email" type="text">
+			    		     닉네임  <input class="form-control" placeholder="nickName" name="nickname" type="text">
 			    		</div>
 			    		
 			    		<div class="form-group">
-			    		   전화번호(*)   <input class="form-control" placeholder="phone" name="email" type="text">
+			    		   전화번호(*)   <input class="form-control" placeholder="phone" name="phone" type="text">
 			    		</div>
 			    		<div class="form-group">
 			    		    이메일  <input class="form-control" placeholder="email" name="email" type="text">

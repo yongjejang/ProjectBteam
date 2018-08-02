@@ -14,6 +14,8 @@ public class CommunityUpdateFormAction implements Action {
 
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		
 		//수정할때 조회수 증가하는 소스
 		String communityNum = request.getParameter("communityNum");

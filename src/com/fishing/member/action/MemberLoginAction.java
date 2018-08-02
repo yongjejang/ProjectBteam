@@ -1,3 +1,5 @@
+
+
 package com.fishing.member.action;
 
 import java.io.IOException;
@@ -17,9 +19,11 @@ public class MemberLoginAction implements Action {
 
    @Override
    public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      
+	   request.setCharacterEncoding("UTF-8");
+	   response.setContentType("text/html; charset=UTF-8");
+	   
       String command = request.getParameter("command");
-      request.setCharacterEncoding("UTF-8");
+     // request.setCharacterEncoding("UTF-8");
      
       HttpSession session = request.getSession();
       MemberVO mvo = new MemberVO();
@@ -41,8 +45,9 @@ public class MemberLoginAction implements Action {
         MemberVO mv = mdao.getMember(id);
          System.out.println(mv);
          session.setAttribute("memberinfo", mv);
+         // w.print("<meta charset='utf-8'>");
             w.print("<script>");
-            w.print("alert('loginSuccess!!');");
+            w.print("alert('로그인 되었습니다.');");
             w.print("location.href='index.jsp';");
             w.print("</script>");
             
