@@ -4,6 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -32,14 +37,21 @@ function save(){
 	console.log(data);
 	$.ajax({
 	    type: 'POST', // 통신방식(get/post) 
-	    url: 'boardComment', // 통신할 대상 페이지(서블릿)
+	    url: 'community.do', // 통신할 대상 페이지(서블릿)
 	    data: data, //서버에 보낼 데이터
 	    success: function (data) { // 통신에 성공했을때
 	        console.log(data);
+	        $('#a').empty("");
+	    	
+	    for(var i=0;i<data.length;i++){
+	    	$('#a').append('<tr><td>' + data[i].nicname + '</td><td>' + data[i].content + '</td><td>' + data[i].date + '</td></tr>');
+
+	    }
+	    
 	        
 	    }
-	    , error: function () { // 통신에 실패했을때
-	        alert('통신실패');
+	    , error: function (req) { // 통신에 실패했을때
+	    	alert('통신실패,상태 : ' +req.responseText);
 	    }
 	});
 }
@@ -49,6 +61,9 @@ function save(){
  
 </head>
 <body>
+<% 
+session.getAttribute("memberinfo");
+%>
 	<div id="container">
 		<h2>게시글 보기</h2>
 	</div>
@@ -60,6 +75,7 @@ function save(){
 		<td>글번호</td>
 		<td>${cboard1.communityNum}</td>
 	</tr>
+	
 	<tr>
 		<td>제목</td>
 		<td>${cboard1.title }</td>
@@ -92,6 +108,35 @@ function save(){
 		<input type="button" value="댓글달기" onclick="location.href='community.do?command=community_reply_form&communityNum =${cboard1.communityNum }&ref=${cboard1.ref}&step=${cboard1.step }&reforder=${cboard1.reforder }';" />
 	
 	</div>
+	<hr/>
+	<div class="container">           
+  <table class="table table-borderless" id ="table">
+    <thead>
+      <tr>
+        <th>닉네임</th>
+        <th>내용</th>
+        <th>작성시간</th>
+      </tr>
+    </thead>
+    <tbody id ='a'>
+      <tr><td>ssss</td>
+      <td>aaaa</td>
+      <td>aaaa</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="container">
+  <form id = "frmData">
+    <div class="form-group">
+      <!--<label for="comment">Comment:</label>-->
+      <textarea class="form-control" rows="5" id="comment" name="content"></textarea>
+    </div>
+  <input type="hidden" name="nickname" value =${memberinfo.nickName }>
+  <input type="hidden" name="command" value ="community_reply">
+  <input type="hidden" name= ref value = ${cboard1.communityNum }>
+  <input type="button" class="btn btn-info" value="등록" onclick="save()">
+  </form>
+</div>
 
 </body>
 </html>

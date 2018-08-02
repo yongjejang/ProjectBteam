@@ -134,7 +134,7 @@ li.active > a.nav-button {
 	   
 	    %>
 	    <li class="nav-item2"><a href="member/logoutPro.jsp" class="left-underline nav-button" data-scroll>로그아웃</a></li>
-        <li class="nav-item1"><a href="" class="left-underline nav-button" data-scroll>${memberinfo.id }님 로그인 중 </a></li>
+        <li class="nav-item1"><a href="" class="left-underline nav-button" data-scroll>${memberinfo.nickName }님 로그인 중 </a></li>
         
         <% 
         
