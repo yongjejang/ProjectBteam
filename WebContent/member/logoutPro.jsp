@@ -10,7 +10,7 @@
 <%
 
 
-if(session.getAttribute("login")!= null){
+if(session.getAttribute("memberinfo")!= null){
 	//session.removeAttribute("userID");//"userID"라는 속성의 값을 지우고
 	session.invalidate(); //현재 세션영역에 있는 모든 속성 제거
 
