@@ -328,9 +328,36 @@ public class CommunityDAO {
 	         
 	         return list;
 	      }
-
-
-	
+		
+		public List<CommunityVO> sea5() {
+		     Connection con = null;
+	         PreparedStatement pstmt = null;
+	         ResultSet rs = null;
+	         List<CommunityVO> indexlist = new ArrayList<CommunityVO>();
+	         String sql = "select * from  fishing.community order by count desc limit 5 ";  //여기에  getAttribute로 nickname 넣어줘야 함
+	         
+	         try{
+	            con = DBMangement.getConnection();
+	            pstmt = con.prepareStatement(sql);
+	            rs = pstmt.executeQuery();
+	            
+	            while (rs.next()) {
+	            	indexlist.add(
+	                     new CommunityVO(
+	                        rs.getInt("communityNum"),
+	                        rs.getString("title"),
+	                        rs.getDate("date"),
+	                        rs.getString("nicname"),
+	                        rs.getInt("count")
+	                    	));
+	               }
+	         }catch (SQLException e) {
+	            System.out.println(e.getMessage());
+	         }finally{
+	            DBMangement.close(rs, pstmt, con);
+	         }
+	         return indexlist;
+	      }
 
 
 		
