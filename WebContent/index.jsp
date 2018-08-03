@@ -141,7 +141,6 @@ hgroup{
 </style>
     
 <script>
-
         function EasyPeasyParallax() {
 	scrollPos = $(this).scrollTop();
 	$('.p1').css({
@@ -187,9 +186,7 @@ $(document).ready(function(){
         <h1>바다 낚시 게시판</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus maximus quam et dignissim. Praesent felis arcu, euismod et ullamcorper ut, condimentum ut ante. Vestibulum vel libero commodo, aliquam libero eu, gravida arcu. Proin scelerisque faucibus ligula quis efficitur. Donec at sollicitudin purus, suscipit tempus augue. Sed imperdiet volutpat sapien at hendrerit. Mauris egestas ex a quam tincidunt gravida. Quisque interdum tempor lacinia. Nulla eget varius purus. Integer non sollicitudin dui. Phasellus sem turpis, maximus in auctor vulputate, porta id nunc.</p>
       </div>
-      <div>
       
-      </div>
       <div class="col-3">
         <h1>민물 낚시 게시판</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet est id leo facilisis, quis egestas erat vehicula. Aenean nec facilisis leo, et tristique lorem. Aliquam porttitor, elit ac ornare lacinia, sapien augue sagittis dolor, tempor ultricies lorem arcu et ante. Nulla facilisi. Praesent facilisis lacus at blandit maximus. Ut at libero nisi. Cras eu augue tellus. Nam pretium eget nisi non viverra. Maecenas eget tincidunt nibh, vitae interdum dolor.</p>
@@ -205,4 +202,3 @@ $(document).ready(function(){
 
   </body>
 </html>
-

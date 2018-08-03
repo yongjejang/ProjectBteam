@@ -58,7 +58,7 @@ public class CommunityDAO {
 		} finally {
 			DBMangement.close(rs,  pstmt, con);
 		}
-		System.out.println(list);
+		
 		return list;
 	}
 	
@@ -303,7 +303,7 @@ public class CommunityDAO {
 	         PreparedStatement pstmt = null;
 	         ResultSet rs = null;
 	         System.out.println(ref);
-	         List<CommunityVO> replylist = new ArrayList<CommunityVO>();
+	         List<CommunityVO> list = new ArrayList<CommunityVO>();
 	         String sql = "SELECT nicname,content,date from community where ref = ?";  //여기에  getAttribute로 nickname 넣어줘야 함
 	         
 	         try{
@@ -313,7 +313,7 @@ public class CommunityDAO {
 	            rs = pstmt.executeQuery();
 	            
 	            while (rs.next()) {
-	            	replylist.add(
+	               list.add(
 	                     new CommunityVO(
 	                        rs.getString("nicname"),
 	                        rs.getString("content"),
@@ -326,7 +326,7 @@ public class CommunityDAO {
 	            DBMangement.close(rs, pstmt, con);
 	         }
 	         
-	         return replylist;
+	         return list;
 	      }
 
 
