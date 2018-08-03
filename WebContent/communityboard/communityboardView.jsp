@@ -3,15 +3,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script>
 
 function boardCheck() {
@@ -64,51 +67,54 @@ function save(){
 <% 
 session.getAttribute("memberinfo");
 %>
-	<div id="container">
-		<h2>게시글 보기</h2>
-	</div>
-	<div>
-	
-	<table table border="3">
-	
+	<div class="row">
+    <div class="col-xs-2 col-md-2"></div>
+    <div class="col-xs-8 col-md-8">
+    <br/>
+    <h2 class="text-center">게시글 보기</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+    
+    <div class="table table-responsive">
+    <table class="table">
 	<tr>
-		<td>글번호</td>
+        <th class="success">글번호</th>
 		<td>${cboard1.communityNum}</td>
-	</tr>
-	
-	<tr>
-		<td>제목</td>
-		<td>${cboard1.title }</td>
-	</tr>
-	<tr>
-		<td>작성자</td>
-		<td>${cboard1.nicname } &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-	</tr>
-	<tr>
-		<td>작성일</td>
-		<td>${cboard1.date }</td>
-	</tr>
-	<tr>
-		<td>조회수</td>
+		<th class="success">조회수</th>
 		<td>${cboard1.count }</td>
 	</tr>
 	<tr>
-		<td>내용</td>
-		<td>${cboard1.content }</td>
+		<th class="success">닉네임</th>
+		<td>${cboard1.nicname }</td>
+		<th class="success">작성일</th>
+		<td>${cboard1.date }</td>
+	</tr>
+	
+	<tr>
+		<th class="success">제목</th>
+		<td colspan="3">${cboard1.title }</td>
+	</tr>
+	<tr>
+		<td>글 내용</td>
+		<td colspan="3">${cboard1.content }</td>
 	</tr>
 
-	</table>
-	<br/>
 
-		<input type="button" value="목록으로" onclick="location.href='community.do?command=community_list';" />
-		<input type="button" value="수정" onclick="location.href='community.do?command=community_update_form&communityNum=${cboard1.communityNum}'" />
+	<tr>
+		<td colspan="4" class="text-center">
+		<input type="button" class="btn btn-primary" value="목록으로" onclick="location.href='community.do?command=community_list';" />
+		<input type="button" class="btn btn-warning" value="수정" onclick="location.href='community.do?command=community_update_form&communityNum=${cboard1.communityNum}'" />
 		
 
-		<input type="button" value="삭제" onclick="location.href='community.do?command=community_delete&communityNum=${cboard1.communityNum}'" />
-		<input type="button" value="댓글달기" onclick="location.href='community.do?command=community_reply_form&communityNum =${cboard1.communityNum }&ref=${cboard1.ref}&step=${cboard1.step }&reforder=${cboard1.reforder }';" />
+		<input type="button" class="btn btn-danger" value="삭제" onclick="location.href='community.do?command=community_delete&communityNum=${cboard1.communityNum}'" />
+		<%-- <input type="button" class="btn btn-success" value="댓글달기" onclick="location.href='community.do?command=community_reply_form&communityNum =${cboard1.communityNum }&ref=${cboard1.ref}&step=${cboard1.step }&reforder=${cboard1.reforder }';" /> --%>
 	
-	</div>
-	<hr/>
+		</td>
+	</tr>
+	</table>
+	 </div>
+     
+    </div>
+</div>
+	
 	<div class="container">           
   <table class="table table-borderless" id ="table">
     <thead>

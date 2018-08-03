@@ -17,7 +17,7 @@ public class CommunityReplyAction implements Action {
 
 	@Override
 	public void excute(HttpServletRequest requsst, HttpServletResponse response) throws ServletException, IOException {
-<<<<<<< HEAD
+
 		CommunityDAO cdao = CommunityDAO.getInstance();
 		CommunityVO cvo = new CommunityVO();
 		String nickname = requsst.getParameter("nickname");
@@ -36,10 +36,7 @@ public class CommunityReplyAction implements Action {
         System.out.println(list);
         w.flush();
         w.close();
-=======
 
-		// TODO Auto-generated method stub
->>>>>>> 7188b6fc00654aa0c626bbc07a27277e3bd065b4
 
 	}
 
