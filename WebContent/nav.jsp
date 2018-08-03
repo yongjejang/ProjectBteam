@@ -75,6 +75,12 @@ div.navbar > ul > li.nav-item1 {
   transition: all 0.5s ease;
 }
 
+div.navbar > ul > li.nav-item2 {
+  float: right;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+
 
 div.navbar > ul > li.active {
   background-color: rgba(0, 0, 0, 0.18);
@@ -119,7 +125,27 @@ li.active > a.nav-button {
         <li class="nav-item"><a href="community.do?command=community_list" class="left-underline nav-button" data-scroll>민물게시판</a></li>
         <li class="nav-item active"><a href="#" class="left-underline nav-button" data-scroll>숙박</a></li>
         <li class="nav-item"><a href="#" class="left-underline nav-button" data-scroll>고객센터</a></li>
-        <li class="nav-item1"><a href="member/loginForm.jsp" class="left-underline nav-button" data-scroll>로그인</a></li>
+        <!-- <li class="nav-item1"><a href="member/loginForm.jsp" class="left-underline nav-button" data-scroll>로그인</a></li> -->
+        
+         <%  
+	     
+	    
+	    if(session.getAttribute("memberinfo")!=null){
+	   
+	    %>
+	    <li class="nav-item2"><a href="member/logoutPro.jsp" class="left-underline nav-button" data-scroll>로그아웃</a></li>
+        <li class="nav-item1"><a href="" class="left-underline nav-button" data-scroll>${memberinfo.nickName }님 로그인 중 </a></li>
+        
+        <% 
+        
+        } else if(session.getAttribute("memberinfo")== null){
+           %>
+           <li class="nav-item1"><a href="member/loginForm.jsp" class="left-underline nav-button" data-scroll>로그인</a> </li>
+           
+          
+        <%
+        }
+        %>
         
       </ul>
     </div>

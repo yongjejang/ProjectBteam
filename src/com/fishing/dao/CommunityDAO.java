@@ -105,9 +105,8 @@ public class CommunityDAO {
 		// ref : 현재글의 글 번호를 저장
 
 		public boolean insertBoard(CommunityVO cvo) {
-			boolean result = false;
 			String query = "insert into community(title,nicname,content) values (?,?,?);";
-			
+			boolean result = false;
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			
@@ -265,6 +264,76 @@ public class CommunityDAO {
 			String query = "select * from ";
 
 		}
+
+
+		public boolean insertreply(CommunityVO cvo) {
+			boolean result = false;
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			String sql = "insert into community(nicname,content,ref) values (?,?,?)";
+			try{
+				con = DBMangement.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, cvo.getnicname());
+				pstmt.setString(2, cvo.getContent());
+				pstmt.setInt(3, cvo.getRef());
+				if(cvo.getContent().equals("")){
+					result = false;
+				}else{
+					pstmt.executeUpdate();
+					result = true;
+				}
+				
+				
+			}catch (SQLException e) {
+				System.out.println("에러다" + e.getMessage());
+			}finally{
+				DBMangement.close(pstmt, con);
+			}
+			return result;
+		}
+
+
+		
+
+
+		public List<CommunityVO> selectreply(int ref) {
+		     Connection con = null;
+	         PreparedStatement pstmt = null;
+	         ResultSet rs = null;
+	         System.out.println(ref);
+	         List<CommunityVO> list = new ArrayList<CommunityVO>();
+	         String sql = "SELECT nicname,content,date from community where ref = ?";  //여기에  getAttribute로 nickname 넣어줘야 함
+	         
+	         try{
+	            con = DBMangement.getConnection();
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setInt(1, ref);
+	            rs = pstmt.executeQuery();
+	            
+	            while (rs.next()) {
+	               list.add(
+	                     new CommunityVO(
+	                        rs.getString("nicname"),
+	                        rs.getString("content"),
+	                        rs.getDate("date") 
+	                    	));
+	               }
+	         }catch (SQLException e) {
+	            System.out.println(e.getMessage());
+	         }finally{
+	            DBMangement.close(rs, pstmt, con);
+	         }
+	         
+	         return list;
+	      }
+
+
+	
+
+
+		
 
 }
 		

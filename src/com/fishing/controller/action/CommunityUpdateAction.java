@@ -16,6 +16,9 @@ public class CommunityUpdateAction implements Action {
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
 		CommunityVO cvo = new CommunityVO();
 		String communityNum = request.getParameter("communityNum");
 		String title = request.getParameter("title");
