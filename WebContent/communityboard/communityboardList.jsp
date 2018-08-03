@@ -36,6 +36,10 @@
 </style>
 <jsp:include page="../nav.jsp"></jsp:include>
 
+
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 <div class="container">
@@ -74,8 +78,13 @@
 	</table>
 	</div>
 	<div id = "writing">
-	
-	<input type= button value="글쓰기" onclick="location.href='community.do?command=community_write_form';" />
+	<%
+if(session.getAttribute("memberinfo") != null){
+%>
+<input type= button value="글쓰기" onclick="location.href='community.do?command=community_write_form';" />
+<% 
+}
+%>
 	</div>
 	<div id = "search">
 	     <select>

@@ -23,7 +23,7 @@ public class CommunityReplyAction implements Action {
 		String nickname = requsst.getParameter("nickname");
 		String content = requsst.getParameter("content");
 		int ref = Integer.parseInt(requsst.getParameter("ref"));
-		List<CommunityVO> list = cdao.selectreply(ref);
+		List<CommunityVO> replylist = cdao.selectreply(ref);
 		PrintWriter w = response.getWriter();
 		cvo.setnicname(nickname);
 		cvo.setContent(content);
@@ -32,8 +32,8 @@ public class CommunityReplyAction implements Action {
 		cdao.insertreply(cvo);
 		response.setContentType("application/json; charset=UTF-8");   
         Gson gson = new Gson();
-        w.print(gson.toJson(list));
-        System.out.println(list);
+        w.print(gson.toJson(replylist));
+//        System.out.println(list);
         w.flush();
         w.close();
 
