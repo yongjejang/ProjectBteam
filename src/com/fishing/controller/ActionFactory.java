@@ -9,6 +9,8 @@ import com.fishing.controller.action.CommunityUpdateFormAction;
 import com.fishing.controller.action.CommunityViewAction;
 import com.fishing.controller.action.CommunityWriteAction;
 import com.fishing.controller.action.CommunityWriteFormAction;
+import com.fishing.controller.action.MemberPasswordUpadateAction;
+import com.fishing.controller.action.MemberPasswordUpadateFormAction;
 import com.fishing.member.action.MemberJoinAction;
 import com.fishing.member.action.MemberJoinFormAction;
 import com.fishing.member.action.MemberLoginAction;
@@ -56,6 +58,10 @@ public class ActionFactory {
 			action = new MemberJoinAction();
 		}else if(command.equals("member_join_form")){
 			action = new MemberJoinFormAction();
+		}else if(command.equals("member_password_update")){
+			action = new MemberPasswordUpadateAction();
+		}else if(command.equals("member_password_update_Form")){
+			action = new MemberPasswordUpadateFormAction();
 		}
 		
 		return action;

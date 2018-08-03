@@ -13,13 +13,13 @@
 	MemberVO member = (MemberVO) request.getAttribute("member");
 	%>
 	<form action = "memberUpdate.do" method="post">
-	아이디 : <input type = "text" name = "id"
-	value="<%=member.getId() %>"><br>
-	비 번 : <input type = "password" name = "pw"><br>
+	아이디 : <input type = "text" name = "id" value="<%=member.getId() %>"><br>
+	
+	비밀번호 변경하기 : <a href="../member.do?command=member_password_update">비밀번호 바꾸기</a>
+	
 	<%-- 이 름 : <input type = "text" name = "name"
 	value="<%=member.getName() %>"><br> --%>
-	이메일 : <input type = "text" name = "email"
-	value="<%=member.getEmail() %>"><br>
+	이메일 : <input type = "text" name = "email" value="<%=member.getEmail() %>"><br>
 	<input type="submit" value="수정하기">
 	<input type="reset" value="다시쓰기">
 	</form>
