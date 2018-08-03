@@ -27,7 +27,6 @@ public class CommunityListAction implements Action {
 		HttpSession session = request.getSession();
 		//System.out.println(command);
 		CommunityDAO cDao = CommunityDAO.getInstance();
-		
 		//System.out.println(request.getParameter("page"));
 		
 		int page = 1;

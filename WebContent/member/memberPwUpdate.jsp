@@ -11,11 +11,16 @@
 
 
 
+
+
+
 function pwChange() {
+	
+}
 	var success = true;
 	var pwCheck1= document.frm.pw1.value;
 	var pwCheck2= document.frm.pw2.value;
-	   if(pwCheck1.equals(pwCheck2) && pwCheck1.length<4 && pwCheck1.length>13){
+	   if(pwCheck1.equals(pwCheck2) && pwCheck1.length<6 && pwCheck1.length>13){
 		   success = true;
 	   }else{
 		   success = false;

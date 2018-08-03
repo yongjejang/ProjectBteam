@@ -1,4 +1,4 @@
-package com.fishing.controller.action;
+package com.fishing.member.action;
 
 import java.io.IOException;
 
@@ -6,6 +6,8 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.fishing.controller.action.Action;
 
 public class MemberPasswordUpadateFormAction implements Action {
 

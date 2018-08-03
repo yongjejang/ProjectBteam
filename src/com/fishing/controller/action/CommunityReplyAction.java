@@ -28,7 +28,7 @@ public class CommunityReplyAction implements Action {
 		cvo.setnicname(nickname);
 		cvo.setContent(content);
 		cvo.setRef(ref);
-//		System.out.println(cvo);
+		System.out.println(cvo);
 		cdao.insertreply(cvo);
 		response.setContentType("application/json; charset=UTF-8");   
         Gson gson = new Gson();

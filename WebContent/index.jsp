@@ -1,3 +1,9 @@
+<%@page import="util.DBMangement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -141,6 +147,9 @@ hgroup{
 </style>
     
 <script>
+if(location.href.indexOf("?") == -1) {
+	   location.href="community.do?command=index&CO";   
+	}
         function EasyPeasyParallax() {
 	scrollPos = $(this).scrollTop();
 	$('.p1').css({
@@ -160,6 +169,7 @@ hgroup{
 $(document).ready(function(){
 	$(window).scroll(function() {
 		EasyPeasyParallax();
+	
 	});
 });
 </script>
@@ -183,16 +193,30 @@ $(document).ready(function(){
     </div>
     <div class="row">
       <div class="col-3">
-        <h1>바다 낚시 게시판</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam cursus maximus quam et dignissim. Praesent felis arcu, euismod et ullamcorper ut, condimentum ut ante. Vestibulum vel libero commodo, aliquam libero eu, gravida arcu. Proin scelerisque faucibus ligula quis efficitur. Donec at sollicitudin purus, suscipit tempus augue. Sed imperdiet volutpat sapien at hendrerit. Mauris egestas ex a quam tincidunt gravida. Quisque interdum tempor lacinia. Nulla eget varius purus. Integer non sollicitudin dui. Phasellus sem turpis, maximus in auctor vulputate, porta id nunc.</p>
+        <h2>바다 낚시 게시판 조회수 top5</h2>
+        <table border="1" size="250"> 
+        <tr>
+         <th>제목</th>   
+
+      	</tr>
+      
+      <c:forEach var="bestsea" items="${communityList }">
+			
+			<tr>
+
+				<td><a href='community.do?command=community_view&communityNum=${bestsea.communityNum}'>${bestsea.title }</a></td>
+
+			</tr>
+		</c:forEach>
+   </table>
       </div>
       
       <div class="col-3">
-        <h1>민물 낚시 게시판</h1>
+        <h2>민물 낚시 게시판 조회수 top5</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet est id leo facilisis, quis egestas erat vehicula. Aenean nec facilisis leo, et tristique lorem. Aliquam porttitor, elit ac ornare lacinia, sapien augue sagittis dolor, tempor ultricies lorem arcu et ante. Nulla facilisi. Praesent facilisis lacus at blandit maximus. Ut at libero nisi. Cras eu augue tellus. Nam pretium eget nisi non viverra. Maecenas eget tincidunt nibh, vitae interdum dolor.</p>
       </div>
       <div class="col-3">
-        <h1>고객센터 게시판</h1>
+        <h2>고객센터</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac nibh dolor. Cras rutrum molestie ligula posuere hendrerit. Donec luctus vitae elit in gravida. Duis in viverra nunc. Nunc et metus blandit, blandit quam in, laoreet mi. In vitae mauris sit amet tellus dictum rhoncus malesuada non arcu. Ut lacus lacus, dignissim at commodo id, dapibus sed felis. Cras in nunc id est lobortis euismod. Sed egestas nulla et augue sagittis lacinia. Quisque finibus bibendum risus, vitae accumsan ante mollis ac. Aliquam fermentum, mauris eu gravida dictum, tortor risus finibus nibh, in tincidunt velit tortor vehicula mi.</p>
       </div>
     </div>
