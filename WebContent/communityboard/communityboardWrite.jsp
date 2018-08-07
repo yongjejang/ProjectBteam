@@ -45,7 +45,20 @@ CKEDITOR.editorConfig = function( config ) {
 
 	config.removeButtons = 'Underline,Subscript,Superscript,About';
 };
-	
+
+
+//function writeConfirm() {
+//	var success = true;
+//	var titleCheck= document.frm.title.value;
+//	var contentCheck = document.frm.content.value;
+//	   if(titleCheck.length != 0 && contentCheck.length != 0){
+//		   success = true;
+//	   }else if(titleCheck.length => 50){
+//		   success = false;
+//		   alert("제목은 50자까지 입니다.");
+//	   }
+//}
+
 </script>
 
 </head>
@@ -55,19 +68,20 @@ session.getAttribute("memberinfo");
 %>
  
 <div class="container">
-    <form action="community.do" method="post" class="form-write">
+    <form action="community.do?command=community_write" method="post" class="form-write" name="frm" onsubmit="return writeConfirm()" enctype="multipart/form-data">
+		
   <!--  <form method="post" action="../login.do" name="loginForm">  -->
     <h2> 게시글 작성 </h2>
       <div class="form-group">
         <label for="subject">제목</label>
        
-        <input type="text" class="form-control" id="subject" name="title" placeholder="제목을 입력하세요.">
+        <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요." required>
        <select name="category">
         	<option value="1">민물게시판</option>
         	<option value="2">바다게시판</option>
         	<option value="3">문의하기</option>
         	<c:choose>
-            <c:when test="${ sessionScope.memberinfo.id eq 'aaa' }">
+            <c:when test="${ sessionScope.memberinfo.id eq 'aaa' }">     <%--이거고쳐야해해해해해ㅐ해해해해해햏해해해해해해해해ㅐ해해해해해해해해해해해해해 --%>
             <option value="4">공지사항</option>
         	<option value="5">관리자</option>
 			</c:when>
@@ -76,9 +90,9 @@ session.getAttribute("memberinfo");
       </div>
       <div class="form-group">
         <label for=content">내용</label>
-        <textarea class="form-control" id="content" name="content" rows="20" placeholder="내용을 입력하세요."></textarea>
+        <textarea class="form-control" id="content" name="content" rows="20" placeholder="내용을 입력하세요." required></textarea>
       </div>
-      <input type="hidden" name="command" value="community_write">
+      <input type="file" name = "file">
       <input type="hidden" name="nickname" value=${memberinfo.nickName }>
       <input type="submit" class="btn btn-primary" value = "저장">
       <input type="button" value="목록으로" class="btn btn-primary" onclick="location.href='community.do?command=community_list';" />

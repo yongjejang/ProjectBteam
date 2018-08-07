@@ -40,12 +40,10 @@
 		return true;
 	}
 	
-	function deleteCheck(){
-		
+	function deleteCheck(){	
 		var deleteConfirm = confirm("정말삭제하시겠습니까?");
-	if (deleteConfirm == true) { //확인
-	location.href="community.do?command=community_delete&communityNum=" + ${cboard1.communityNum};
-			
+		if (deleteConfirm == true) { //확인
+			location.href="community.do?command=community_delete&communityNum="+${cboard1.communityNum};
 		} else if(deleteConfirm == false) { 
 			return false;
 		}
@@ -124,7 +122,10 @@
 						<td>글 내용</td>
 						<td colspan="3">${cboard1.content }</td>
 					</tr>
-
+					<tr>
+						<th class="success">이미지</th>
+						<td colspan="3"><img src="${cboard1.file }"></td>
+					</tr>	
 
 					<tr>
 						<td colspan="4" class="text-center"><input type="button"

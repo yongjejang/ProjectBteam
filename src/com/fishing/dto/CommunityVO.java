@@ -62,13 +62,14 @@ public class CommunityVO {
 		
 	}
 
-	public CommunityVO(int communityNum, String title, String nicname, Date date, int count, String content) {
+	public CommunityVO(int communityNum, String title, String nicname, Date date, int count, String content,String file) {
 		this.communityNum = communityNum;
 		this.title = title;
 		this.nicname = nicname;
 		this.date = date;
 		this.count = count;
 		this.content = content;
+		this.file = file;
 	}
 
 

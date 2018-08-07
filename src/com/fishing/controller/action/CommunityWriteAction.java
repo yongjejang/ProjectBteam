@@ -5,15 +5,15 @@ package com.fishing.controller.action;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.fishing.dao.CommunityDAO;
 import com.fishing.dto.CommunityVO;
-import com.fishing.dto.MemberVO;
-import com.mysql.cj.jdbc.ha.ReplicationMySQLConnection;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 
@@ -33,11 +33,24 @@ public class CommunityWriteAction implements Action {
 //	System.out.println(request.getParameter("nickname"));
 //	System.out.println(request.getParameter("content"));
 		
-
-		cvo.setTitle(request.getParameter("title"));
-		cvo.setnicname(request.getParameter("nickname"));
+		String savePath = "";
+		ServletContext context = request.getServletContext();
+		String filepath = context.getRealPath(savePath);
+		int uploadFileSize = 5*1024*1024; 
+	    String fileEncType = "UTF-8";
+	    
+	    MultipartRequest  mr= new MultipartRequest(	
+	            request,
+	            filepath,
+	            uploadFileSize,
+	            fileEncType,
+	            new DefaultFileRenamePolicy());
+		String realFile = mr.getFilesystemName("file");
+		cvo.setTitle(mr.getParameter("title"));
+		cvo.setnicname(mr.getParameter("nickname"));
 		// 줄바꿈 처리(탭처리, &처리)를 위한 로직
-		cvo.setContent(request.getParameter("content").replace("\r\n", "<br />").replace("&","&amp;"));
+		cvo.setContent(mr.getParameter("content").replace("\r\n", "<br />").replace("&","&amp;"));
+		cvo.setFile(realFile);
 		System.out.println(cvo);
 		
 		if(CommunityDAO.getInstance().insertBoard(cvo)) {

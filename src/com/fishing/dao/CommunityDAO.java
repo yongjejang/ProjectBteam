@@ -105,7 +105,7 @@ public class CommunityDAO {
 		// ref : 현재글의 글 번호를 저장
 
 		public boolean insertBoard(CommunityVO cvo) {
-			String query = "insert into community(title,nicname,content) values (?,?,?);";
+			String query = "insert into community(title,nicname,content,file) values (?,?,?,?);";
 			boolean result = false;
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -118,7 +118,7 @@ public class CommunityDAO {
 				pstmt.setString(1, cvo.getTitle());
 				pstmt.setString(2, cvo.getnicname());
 				pstmt.setString(3, cvo.getContent());
-				
+				pstmt.setString(4, cvo.getFile());
 				
 				if (pstmt.executeUpdate() == 1) {
 					result = true;
@@ -157,7 +157,8 @@ public class CommunityDAO {
 							rs.getString("nicname"),
 							rs.getDate("date"),
 							rs.getInt("count"),
-							rs.getString("content")
+							rs.getString("content"),
+							rs.getString("file")
 					);
 				}
 			} catch (SQLException e) {
