@@ -30,12 +30,12 @@ public class CommunityReplyAction implements Action {
 		cvo.setRef(ref);
 		System.out.println(cvo);
 		cdao.insertreply(cvo);
-		List<CommunityVO> list = cdao.selectreply(ref);
-		
+		List<CommunityVO> replylist = cdao.selectreply(ref);
+		session.setAttribute("reply", replylist);
 		response.setContentType("application/json; charset=UTF-8");   
         Gson gson = new Gson();
-        w.print(gson.toJson(list));
-        System.out.println(list);
+        w.print(gson.toJson(replylist));
+        System.out.println(replylist);
         w.flush();
         w.close();
 

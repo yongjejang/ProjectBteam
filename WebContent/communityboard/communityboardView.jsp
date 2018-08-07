@@ -81,16 +81,17 @@
 
 </head>
 <body>
-<<<<<<< HEAD
+
 <% 
-session.getAttribute("memberinfo");
-session.getAttribute("reply");
+
 %>
-=======
 	<%
+		
 		session.getAttribute("memberinfo");
+		session.getAttribute("reply");
+		
 	%>
->>>>>>> 224da4e83d2557735b9dd1e4e30f5176323292bb
+
 	<div class="row">
 		<div class="col-xs-2 col-md-2"></div>
 		<div class="col-xs-8 col-md-8">
@@ -99,7 +100,6 @@ session.getAttribute("reply");
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
 			<div class="table table-responsive">
-				<td>${cboard1 }</td>
 				<table class="table">
 					<tr>
 						<th class="success">글번호</th>
@@ -142,61 +142,7 @@ session.getAttribute("reply");
 
 								</c:when>
 
-							</c:choose> <script>
-								//function deleteCheck() {
-									//console.log("dd");
-									
-									
-								
-		
-<<<<<<< HEAD
-		<input type="button" class="btn btn-primary" value="목록으로" onclick="location.href='community.do?command=community_list';" />
-		<c:choose>
-            <c:when test="${ cboard1.nicname eq sessionScope.memberinfo.nickName }">
-		<input type="button" class="btn btn-warning" value="수정" onclick="location.href='community.do?command=community_update_form&communityNum=${cboard1.communityNum}'" />
-		<input type="button" class="btn btn-danger" value="삭제" onclick="location.href='community.do?command=community_delete&communityNum=${cboard1.communityNum}'" />
-		<%-- <input type="button" class="btn btn-success" value="댓글달기" onclick="location.href='community.do?command=community_reply_form&communityNum =${cboard1.communityNum }&ref=${cboard1.ref}&step=${cboard1.step }&reforder=${cboard1.reforder }';" /> --%>
-	   </c:when>
-      	
-      </c:choose>
-		</td>
-	</tr>
-	</table>
-	 </div>
-     
-    </div>
-</div>
-	
-	<div class="container">           
-  <table class="table table-borderless" id ="table">
-    <thead>
-      <tr>
-        <th>닉네임</th>
-        <th>내용</th>
-        <th>작성시간</th>
-      </tr>
-    </thead>
-    <tbody id ='a'>
-      <tr>
-      <td>${reply.nicname }</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="container">
-  <form id = "frmData">
-    <div class="form-group">
-      <!--<label for="comment">Comment:</label>-->
-      <textarea class="form-control" rows="5" id="comment" name="content"></textarea>
-    </div>
-  <input type="hidden" name="nickname" value =${memberinfo.nickName }>
-  <input type="hidden" name="command" value ="community_reply">
-  <input type="hidden" name= ref value = ${cboard1.communityNum }>
-  <input type="button" class="btn btn-info" value="등록" onclick="save()">
-  </form>
-</div>
-=======
-							</script></td>
+							</c:choose> </td>
 					</tr>
 				</table>
 			</div>
@@ -214,7 +160,18 @@ session.getAttribute("reply");
 				</tr>
 			</thead>
 			<tbody id='a'>
-				<tr></tr>
+				<c:forEach var="reply" items="${reply }">
+			<tr>
+				<td>${reply.nicname }</td>
+				<td>${reply.content }</td>
+				<td><fmt:formatDate value="${reply.date }" /></td>
+				</tr>
+		</c:forEach>
+			</tbody>
+			<tbody>
+			<tr>
+			<td></td>
+			</tr>
 			</tbody>
 		</table>
 	</div>
@@ -230,7 +187,7 @@ session.getAttribute("reply");
 			<input type="button" class="btn btn-info" value="등록" onclick="save()">
 		</form>
 	</div>
->>>>>>> 224da4e83d2557735b9dd1e4e30f5176323292bb
+
 
 </body>
 </html>
