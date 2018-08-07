@@ -81,9 +81,17 @@
 
 </head>
 <body>
+
+<% 
+
+%>
 	<%
+		
 		session.getAttribute("memberinfo");
+		session.getAttribute("reply");
+		
 	%>
+
 	<div class="row">
 		<div class="col-xs-2 col-md-2"></div>
 		<div class="col-xs-8 col-md-8">
@@ -92,7 +100,6 @@
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
 			<div class="table table-responsive">
-				<td>${cboard1 }</td>
 				<table class="table">
 					<tr>
 						<th class="success">글번호</th>
@@ -135,14 +142,7 @@
 
 								</c:when>
 
-							</c:choose> <script>
-								//function deleteCheck() {
-									//console.log("dd");
-									
-									
-								
-		
-							</script></td>
+							</c:choose> </td>
 					</tr>
 				</table>
 			</div>
@@ -160,7 +160,18 @@
 				</tr>
 			</thead>
 			<tbody id='a'>
-				<tr></tr>
+				<c:forEach var="reply" items="${reply }">
+			<tr>
+				<td>${reply.nicname }</td>
+				<td>${reply.content }</td>
+				<td><fmt:formatDate value="${reply.date }" /></td>
+				</tr>
+		</c:forEach>
+			</tbody>
+			<tbody>
+			<tr>
+			<td></td>
+			</tr>
 			</tbody>
 		</table>
 	</div>
@@ -176,6 +187,7 @@
 			<input type="button" class="btn btn-info" value="등록" onclick="save()">
 		</form>
 	</div>
+
 
 </body>
 </html>
