@@ -35,7 +35,7 @@ public class CommunityDAO {
 			con = DBMangement.getConnection();
 			pstmt = con.prepareStatement(query);
 			
-			pstmt.setInt(1, (page - 1) * 10 + 1);
+			pstmt.setInt(1, (page - 1) * 10);
 			pstmt.setInt(2, 10);
 			
 			rs = pstmt.executeQuery();

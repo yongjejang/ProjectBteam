@@ -45,7 +45,8 @@ public class CommunityWriteAction implements Action {
             w.print("<script>");
             w.print("alert('저장 되었습니다.')");
             w.print("</script>");
-				//new CommunityListAction().excute(request, response); // 리스트 페이지로 이동
+				
+            //new CommunityListAction().excute(request, response); // 리스트 페이지로 이동
 				
 				response.sendRedirect("community.do?command=community_list&page=1");
 			} else {//저장 안됨
