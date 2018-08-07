@@ -20,9 +20,8 @@ public class CommunityUpdateFormAction implements Action {
 		//수정할때 조회수 증가하는 소스
 		String communityNum = request.getParameter("communityNum");
 		String url = "communityboard/communityboardUpdate.jsp";
-		CommunityDAO bdao = CommunityDAO.getInstance();
-		bdao.readCountUp(communityNum);
-		CommunityVO cvo = bdao.selectOneBoard(communityNum);
+		CommunityDAO cdao = CommunityDAO.getInstance();
+		CommunityVO cvo = cdao.selectOneBoard(communityNum);
 		request.setAttribute("cboard1", cvo);
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);

@@ -74,8 +74,12 @@
 	</table>
 	</div>
 	<div id = "writing">
-	
-	<input type= button value="글쓰기" onclick="location.href='community.do?command=community_write_form';" />
+	<c:choose>
+            <c:when test="${ sessionScope.memberinfo.id != null }">
+            <input type= button value="글쓰기" onclick="location.href='community.do?command=community_write_form';" />
+            </c:when>
+      	
+      </c:choose>
 	</div>
 	<div id = "search">
 	     <select>

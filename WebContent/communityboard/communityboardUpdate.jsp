@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,46 +18,35 @@
 		}
 	} */
 	function boardCheck() {
-		if(document.frm.userId.value.length == 0){
+		if (document.frm.userId.value.length == 0) {
 			alert("작성자를 입력하세요");
 			return false;
 		}
-		if(document.frm.password.value.length == 0){
-			alert("비밀번호를 입력하세요");
-			return false;
-		}
-		if(document.frm.title.value.length == 0){
+		if (document.frm.title.value.length == 0) {
 			alert("제목을 입력하세요");
 			return false;
 		}
 		return true;
 	}
-	function open_win(url,name){
-		window.open(url, name, "width=800, height=500");
-	}
-	function passCheck() {
-			if(document.frm.password.value.length == 0){
-				alert('비밀번호를 입력하세요.');
-				return false;
-			}
-			return true;
-	}
-		
+
+	
 </script>
 </head>
 <body>
 	<h2>게시글 수정</h2>
 	<form method="post" name="frm" action="community.do">
-	<input type="hidden" name="command" value="community_update" />
-	<input type="hidden" name="communityNum" value="${cboard1.communityNum }" />
-	
-		제목(*) : <input type="text" name="title" /> <br />
-		작성자(*) : <input type="text" name="userid"  value="${cboard1.userid }"/> <br />
-		내용(*) : <textarea rows="15" cols="70" name="content"></textarea> <br />
-		
-		<input type="submit" value="수정" onclick="return boardCheck()"/> 
-		<input type="reset" value="다시작성" />
-		<input type="button" value="목록으로" onclick="location.href='community.do?command=community_list';" />
+		<input type="hidden" name="command" value="community_update" /> <input
+			type="hidden" name="communityNum" value="${cboard1.communityNum }" />
+
+		제목(*) : <input type="text" name="title" value = '${cboard1.title }' /> <br /> 작성자(*) : 
+		${cboard1.nicname }<br /> 내용(*)
+		:
+		<textarea rows="15" cols="70" name="content" >
+		${cboard1.content }
+		</textarea>
+		<br /> <input type="submit" value="수정" onclick="return boardCheck()" />
+		<input type="reset" value="다시작성" /> <input type="button" value="목록으로"
+			onclick="location.href='community.do?command=community_list';" />
 	</form>
 </body>
 </html>

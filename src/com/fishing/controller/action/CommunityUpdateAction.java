@@ -2,6 +2,7 @@ package com.fishing.controller.action;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,9 +22,13 @@ public class CommunityUpdateAction implements Action {
 		
 		CommunityVO cvo = new CommunityVO();
 		String communityNum = request.getParameter("communityNum");
+		System.out.println(communityNum);
 		String title = request.getParameter("title");
+		System.out.println(title);
 		String nicname = request.getParameter("nicname");
+		System.out.println(nicname);
 		String content = request.getParameter("content");
+		System.out.println(content);
 		
 		//CommunityVO 객체에 저장
 		cvo.setCommunityNum(Integer.parseInt(communityNum));
@@ -35,7 +40,8 @@ public class CommunityUpdateAction implements Action {
 		CommunityDAO cdao = CommunityDAO.getInstance();
 		cdao.updateBoard(cvo);
 		
-		new CommunityListAction().excute(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("community.do?command=community_view&communityNo=" + communityNum);
+		rd.forward(request, response);
 	}
 
 }

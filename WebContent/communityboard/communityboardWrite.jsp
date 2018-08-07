@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 
@@ -57,7 +60,19 @@ session.getAttribute("memberinfo");
     <h2> 게시글 작성 </h2>
       <div class="form-group">
         <label for="subject">제목</label>
+       
         <input type="text" class="form-control" id="subject" name="title" placeholder="제목을 입력하세요.">
+       <select name="category">
+        	<option value="1">민물게시판</option>
+        	<option value="2">바다게시판</option>
+        	<option value="3">문의하기</option>
+        	<c:choose>
+            <c:when test="${ sessionScope.memberinfo.id eq 'aaa' }">
+            <option value="4">공지사항</option>
+        	<option value="5">관리자</option>
+			</c:when>
+      </c:choose>
+        	        </select>
       </div>
       <div class="form-group">
         <label for=content">내용</label>

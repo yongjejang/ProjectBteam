@@ -6,7 +6,6 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.fishing.dao.CommunityDAO;
 import com.fishing.dto.CommunityVO;
@@ -22,7 +21,6 @@ public class CommunityViewAction implements Action {
 		
 		String url ="/communityboard/communityboardView.jsp";
 		String communityNum = request.getParameter("communityNum");
-		HttpSession session = request.getSession();
 
 //		System.out.println(communityNum);
 	

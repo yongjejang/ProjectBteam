@@ -134,7 +134,7 @@ public class CommunityDAO {
 		}
 		// -------------------------------- 게시판 글을 조회하는 메서드(상세보기) ---------------------------------
 		// 글번호로 찾아본다. 실패 : null
-		public CommunityVO selectOneBoard(String communityNum ) {
+		public CommunityVO selectOneBoard(String communityNum) {
 			String query = "select * from fishing.community where communityNum = ?";
 			
 			Connection con = null;
@@ -172,7 +172,7 @@ public class CommunityDAO {
 		
 		//------------------------------------ 조회수 증가 메서드 -------------------------------------------
 		public void readCountUp(String communityNum) {
-			String query = "UPDATE fishing.community SET count = Count + 1 WHERE communityNum = ?";
+			String query = "UPDATE fishing.community SET count = count + 1 WHERE communityNum = ?";
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;

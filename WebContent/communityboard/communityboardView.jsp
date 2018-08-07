@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +14,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 
 
@@ -74,12 +77,15 @@ session.getAttribute("memberinfo");
     <h2 class="text-center">게시글 보기</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
     
     <div class="table table-responsive">
+    <td>${cboard1 }</td>
     <table class="table">
 	<tr>
         <th class="success">글번호</th>
 		<td>${cboard1.communityNum}</td>
 		<th class="success">조회수</th>
 		<td>${cboard1.count }</td>
+		
+		
 	</tr>
 	<tr>
 		<th class="success">닉네임</th>
@@ -100,13 +106,16 @@ session.getAttribute("memberinfo");
 
 	<tr>
 		<td colspan="4" class="text-center">
-		<input type="button" class="btn btn-primary" value="목록으로" onclick="location.href='community.do?command=community_list';" />
-		<input type="button" class="btn btn-warning" value="수정" onclick="location.href='community.do?command=community_update_form&communityNum=${cboard1.communityNum}'" />
 		
-
+		<input type="button" class="btn btn-primary" value="목록으로" onclick="location.href='community.do?command=community_list';" />
+		<c:choose>
+            <c:when test="${ cboard1.nicname eq sessionScope.memberinfo.nickName }">
+		<input type="button" class="btn btn-warning" value="수정" onclick="location.href='community.do?command=community_update_form&communityNum=${cboard1.communityNum}'" />
 		<input type="button" class="btn btn-danger" value="삭제" onclick="location.href='community.do?command=community_delete&communityNum=${cboard1.communityNum}'" />
 		<%-- <input type="button" class="btn btn-success" value="댓글달기" onclick="location.href='community.do?command=community_reply_form&communityNum =${cboard1.communityNum }&ref=${cboard1.ref}&step=${cboard1.step }&reforder=${cboard1.reforder }';" /> --%>
-	
+	   </c:when>
+      	
+      </c:choose>
 		</td>
 	</tr>
 	</table>
@@ -125,9 +134,7 @@ session.getAttribute("memberinfo");
       </tr>
     </thead>
     <tbody id ='a'>
-      <tr><td>ssss</td>
-      <td>aaaa</td>
-      <td>aaaa</td></tr>
+      <tr></tr>
     </tbody>
   </table>
 </div>

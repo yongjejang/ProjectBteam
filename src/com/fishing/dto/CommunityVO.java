@@ -76,12 +76,7 @@ public class CommunityVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getcount(){
-		return allNum;
-	}
-	public void setcount(int count){
-		this.allNum = count;
-	}
+	
 	public int getCommunityNum() {
 		return communityNum;
 	}
@@ -168,33 +163,5 @@ public class CommunityVO {
 				+ ", reforder=" + reforder + ", replynum=" + replynum + ", cartegory=" + cartegory + ", communityNum="
 				+ communityNum + ", allNum=" + allNum + "]";
 	}
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

@@ -148,7 +148,7 @@ hgroup{
     
 <script>
 if(location.href.indexOf("?") == -1) {
-	   location.href="community.do?command=index&CO";   
+	   location.href="community.do?command=index";   
 	}
         function EasyPeasyParallax() {
 	scrollPos = $(this).scrollTop();
