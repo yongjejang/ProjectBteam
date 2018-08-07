@@ -1,3 +1,4 @@
+<%@page import="com.fishing.dto.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -136,7 +137,21 @@ li.active > a.nav-button {
 	    <li class="nav-item2"><a href="member/logoutPro.jsp" class="left-underline nav-button" data-scroll>로그아웃</a></li>
         <li class="nav-item1"><a href="" class="left-underline nav-button" data-scroll>${memberinfo.nickName }님 로그인 중 </a></li>
         
-        <% 
+        <%
+        	//System.out.println(session.getAttribute("login").toString());
+        	MemberVO mvo = (MemberVO) session.getAttribute("memberinfo");
+        	
+        	//mvo.getId();
+        	System.out.println(mvo.getId().toString());
+        	if(mvo.getId().toString().equals("admin")){
+           %>
+           		<li class="nav-item2"><a href="member.do?command=member_list" class="left-underline nav-button" data-scroll>회원보기</a> </li>
+           
+          
+        	<%
+        	}
+        
+        
         
         } else if(session.getAttribute("memberinfo")== null){
            %>
