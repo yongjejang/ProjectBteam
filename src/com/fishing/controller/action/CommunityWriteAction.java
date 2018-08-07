@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fishing.dao.CommunityDAO;
 import com.fishing.dto.CommunityVO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 
@@ -31,15 +33,24 @@ public class CommunityWriteAction implements Action {
 //	System.out.println(request.getParameter("nickname"));
 //	System.out.println(request.getParameter("content"));
 		
-		String file = request.getParameter("file");
+		String savePath = "";
 		ServletContext context = request.getServletContext();
-		String filepath = context.getRealPath(file);
-		
-		cvo.setTitle(request.getParameter("title"));
-		cvo.setnicname(request.getParameter("nickname"));
+		String filepath = context.getRealPath(savePath);
+		int uploadFileSize = 5*1024*1024; 
+	    String fileEncType = "UTF-8";
+	    
+	    MultipartRequest  mr= new MultipartRequest(	
+	            request,
+	            filepath,
+	            uploadFileSize,
+	            fileEncType,
+	            new DefaultFileRenamePolicy());
+		String realFile = mr.getFilesystemName("file");
+		cvo.setTitle(mr.getParameter("title"));
+		cvo.setnicname(mr.getParameter("nickname"));
 		// 줄바꿈 처리(탭처리, &처리)를 위한 로직
-		cvo.setContent(request.getParameter("content").replace("\r\n", "<br />").replace("&","&amp;"));
-		cvo.setFile(filepath);
+		cvo.setContent(mr.getParameter("content").replace("\r\n", "<br />").replace("&","&amp;"));
+		cvo.setFile(realFile);
 		System.out.println(cvo);
 		
 		if(CommunityDAO.getInstance().insertBoard(cvo)) {

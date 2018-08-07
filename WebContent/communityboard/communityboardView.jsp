@@ -122,7 +122,10 @@
 						<td>글 내용</td>
 						<td colspan="3">${cboard1.content }</td>
 					</tr>
-
+					<tr>
+						<th class="success">이미지</th>
+						<td colspan="3"><img src="${cboard1.file }"></td>
+					</tr>	
 
 					<tr>
 						<td colspan="4" class="text-center"><input type="button"

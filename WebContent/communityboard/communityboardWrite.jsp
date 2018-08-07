@@ -68,11 +68,8 @@ session.getAttribute("memberinfo");
 %>
  
 <div class="container">
-<<<<<<< HEAD
-    <form action="community.do" method="post" class="form-write"> <!-- enctype="multipart/form-data" -->
-=======
-    <form action="community.do" method="post" class="form-write" name="frm" onsubmit="return writeConfirm()">
->>>>>>> 565db9c3e7ed27cfe3d798f9b9fdeec18ba90bd0
+    <form action="community.do?command=community_write" method="post" class="form-write" name="frm" onsubmit="return writeConfirm()" enctype="multipart/form-data">
+		
   <!--  <form method="post" action="../login.do" name="loginForm">  -->
     <h2> 게시글 작성 </h2>
       <div class="form-group">
@@ -96,7 +93,6 @@ session.getAttribute("memberinfo");
         <textarea class="form-control" id="content" name="content" rows="20" placeholder="내용을 입력하세요." required></textarea>
       </div>
       <input type="file" name = "file">
-      <input type="hidden" name="command" value="community_write">
       <input type="hidden" name="nickname" value=${memberinfo.nickName }>
       <input type="submit" class="btn btn-primary" value = "저장">
       <input type="button" value="목록으로" class="btn btn-primary" onclick="location.href='community.do?command=community_list';" />
