@@ -40,12 +40,10 @@
 		return true;
 	}
 	
-	function deleteCheck(){
-		
+	function deleteCheck(){	
 		var deleteConfirm = confirm("정말삭제하시겠습니까?");
-	if (deleteConfirm == true) { //확인
-	location.href="community.do?command=community_delete&communityNum=" + ${cboard1.communityNum};
-			
+		if (deleteConfirm == true) { //확인
+			location.href="community.do?command=community_delete&communityNum="+${cboard1.communityNum};
 		} else if(deleteConfirm == false) { 
 			return false;
 		}

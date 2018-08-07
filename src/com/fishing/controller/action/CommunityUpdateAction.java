@@ -22,13 +22,13 @@ public class CommunityUpdateAction implements Action {
 		
 		CommunityVO cvo = new CommunityVO();
 		String communityNum = request.getParameter("communityNum");
-		System.out.println(communityNum);
+		//System.out.println(communityNum);
 		String title = request.getParameter("title");
-		System.out.println(title);
+		//System.out.println(title);
 		String nicname = request.getParameter("nicname");
 		System.out.println(nicname);
 		String content = request.getParameter("content");
-		System.out.println(content);
+		//System.out.println(content);
 		
 		//CommunityVO 객체에 저장
 		cvo.setCommunityNum(Integer.parseInt(communityNum));
