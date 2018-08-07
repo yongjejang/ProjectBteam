@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+<div>
+<jsp:include page="nav.jsp"></jsp:include>
+</div>
 <script>
    function search() {
       var inputText = $('#inputTextBox').val().trim();
@@ -111,6 +113,9 @@
    <div id="result"></div>
    <div id="map" style="width: 500px; height: 400px;"></div>
 
+<div>
+	<jsp:include page="footer.jsp"></jsp:include>
+	</div>
    
 </body>
 </html>

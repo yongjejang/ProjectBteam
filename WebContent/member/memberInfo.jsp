@@ -45,6 +45,9 @@ table{
 
 </head>
 <body>
+<div>
+<jsp:include page="../nav.jsp"></jsp:include>
+</div>
 <div class="container">
   <h2>회원관리 시스템 관리자모드(회원정보보기)</h2>
        
@@ -72,5 +75,9 @@ table{
   <a href="member.do?command=member_list">리스트로 돌아가기</a>
 </div>
 	<!-- <a href="member.do?command=member_list">리스트로 돌아가기</a> -->
+	
+	<div>
+<jsp:include page="../footer.jsp"></jsp:include>
+</div>
 </body>
 </html>
