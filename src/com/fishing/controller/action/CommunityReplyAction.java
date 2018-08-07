@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fishing.dao.CommunityDAO;
 import com.fishing.dto.CommunityVO;
@@ -17,23 +18,24 @@ public class CommunityReplyAction implements Action {
 
 	@Override
 	public void excute(HttpServletRequest requsst, HttpServletResponse response) throws ServletException, IOException {
-
+		HttpSession session = requsst.getSession();
 		CommunityDAO cdao = CommunityDAO.getInstance();
 		CommunityVO cvo = new CommunityVO();
 		String nickname = requsst.getParameter("nickname");
 		String content = requsst.getParameter("content");
 		int ref = Integer.parseInt(requsst.getParameter("ref"));
-		List<CommunityVO> list = cdao.selectreply(ref);
 		PrintWriter w = response.getWriter();
 		cvo.setnicname(nickname);
 		cvo.setContent(content);
 		cvo.setRef(ref);
 		System.out.println(cvo);
 		cdao.insertreply(cvo);
+		List<CommunityVO> replylist = cdao.selectreply(ref);
+		session.setAttribute("reply", replylist);
 		response.setContentType("application/json; charset=UTF-8");   
         Gson gson = new Gson();
-        w.print(gson.toJson(list));
-        System.out.println(list);
+        w.print(gson.toJson(replylist));
+        System.out.println(replylist);
         w.flush();
         w.close();
 
