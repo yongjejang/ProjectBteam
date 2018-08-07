@@ -42,8 +42,7 @@ public class MemberLoginAction implements Action {
       
       
       if(mdao.login(mvo) != null){
-        //MemberVO mv = mdao.getMember(id);
-    	  MemberVO mv = mdao.selectDetailMember(id);
+        MemberVO mv = mdao.getMember(id);
          System.out.println(mv);
          session.setAttribute("memberinfo", mv);
          // w.print("<meta charset='utf-8'>");

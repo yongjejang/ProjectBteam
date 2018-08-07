@@ -130,44 +130,47 @@ public class MemberDao {
          
       }
 
-      public MemberVO selectDetailMember(String viewid) {
-  		Connection con = null;
-          PreparedStatement pstmt = null;
-          ResultSet rs = null;
-          MemberVO mvo = null;
-         
-          
-  		String query ="select userid,password, email,phone,nickname from fishing.member where userid = ?";
-  		
-  		
-  		try {
-  	           con = DBMangement.getConnection();
-  	           pstmt = con.prepareStatement(query);
-  	           pstmt.setString(1,viewid);
-  	
-  	           rs = pstmt.executeQuery();
-  	           if(rs.next()){
-  	        	   mvo = new MemberVO();
-  					  mvo.setId(rs.getString("userid"));
-  					  mvo.setPw(rs.getString("password"));
-  					  //mvo.setBirthday(rs.getString("birthday"));
-  					 // mvo.setAddr(rs.getString("address"));
-  					  mvo.setEmail(rs.getString("email"));
-  					  mvo.setPhone(rs.getString("phone"));
-  					  mvo.setNickName(rs.getString("nickname"));
-  					 
-  					  
-  	           }
-  	           
-  	        } catch (SQLException e) {
-  	           System.out.println("getDetaliMember에러" + e.getMessage());
-  	        } finally {
-  	           DBMangement.close(rs, pstmt, con);
-  	        }
-  		return mvo;
-  	}  
-
+   public MemberVO getMember(String id) {
+      Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        MemberVO mv = null;
+      
+        
+      String query ="select * from fishing.member where userid = ?";
+      
+      
+      try {
+              con = DBMangement.getConnection();
+              pstmt = con.prepareStatement(query);
+              pstmt.setString(1, id);
    
+              rs = pstmt.executeQuery();
+              if(rs.next()){
+                 mv = new MemberVO();
+                 mv.setId(rs.getString("userid"));
+                 mv.setPw(rs.getString("password"));
+                 mv.setBirthday(rs.getString("birthday"));
+                 mv.setAddr(rs.getString("address"));
+                 mv.setEmail(rs.getString("email"));
+                 mv.setPhone(rs.getString("phone"));
+                 mv.setNickName(rs.getString("nickname"));
+                 
+              }
+              
+           } catch (SQLException e) {
+              System.out.println("에러" + e.getMessage());
+           } finally {
+              DBMangement.close(rs, pstmt, con);
+           }
+      return mv;
+      
+      
+      
+          
+   }
+
+
         
     
 }
