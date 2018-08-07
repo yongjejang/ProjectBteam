@@ -11,6 +11,7 @@ import com.fishing.controller.action.CommunityWriteAction;
 import com.fishing.controller.action.CommunityWriteFormAction;
 import com.fishing.controller.action.IndexAction;
 import com.fishing.member.action.MemberViewAction;
+import com.fishing.member.action.MemberDeleteAction;
 import com.fishing.member.action.MemberJoinAction;
 import com.fishing.member.action.MemberJoinFormAction;
 import com.fishing.member.action.MemberListAction;
@@ -67,6 +68,8 @@ public class ActionFactory {
 			action = new MemberViewAction();
 		}else if(command.equals("member_list")){
 			action = new MemberListAction();
+		}else if(command.equals("member_delete")){
+			action = new MemberDeleteAction();
 		}else if(command.equals("member_password_update")){
 			action = new MemberPasswordUpadateAction();
 		}else if(command.equals("member_password_update_Form")){

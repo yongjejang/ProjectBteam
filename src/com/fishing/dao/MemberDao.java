@@ -165,11 +165,34 @@ public class MemberDao {
   	           DBMangement.close(rs, pstmt, con);
   	        }
   		return mvo;
-  	
-      
-      
+  
           
    }
+    public int deleteMember(String id){
+      	//delete from fishing.member where userid = 'aaaa';
+      	String query ="delete from fishing.member where userid = ?";
+  		int deleteCount = 0;
+  		Connection con = null;
+  		PreparedStatement pstmt = null;
+
+  		
+
+  		try {
+  	           con = DBMangement.getConnection();
+  	           pstmt = con.prepareStatement(query);
+  	           pstmt.setString(1, id);
+  	
+  	           deleteCount = pstmt.executeUpdate();
+  	           
+  	           
+  	        } catch (SQLException e) {
+  	           System.out.println("에러" + e.getMessage());
+  	        } finally {
+  	           DBMangement.close(pstmt, con);
+  	        }
+  		
+      	return deleteCount;
+      }
 
 
         
