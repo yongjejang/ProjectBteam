@@ -1,6 +1,8 @@
 package com.fishing.controller;
 
 import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +36,7 @@ public class FishingServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		
 		
 		String command = request.getParameter("command");
 		System.out.println("CommunityServlet에서 받은 요청 : " + command);

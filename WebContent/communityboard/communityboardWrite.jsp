@@ -55,7 +55,7 @@ session.getAttribute("memberinfo");
 %>
  
 <div class="container">
-    <form action="community.do" method="post" class="form-write">
+    <form action="community.do" method="post" class="form-write"> <!-- enctype="multipart/form-data" -->
   <!--  <form method="post" action="../login.do" name="loginForm">  -->
     <h2> 게시글 작성 </h2>
       <div class="form-group">
@@ -78,6 +78,7 @@ session.getAttribute("memberinfo");
         <label for=content">내용</label>
         <textarea class="form-control" id="content" name="content" rows="20" placeholder="내용을 입력하세요."></textarea>
       </div>
+      <input type="file" name = "file">
       <input type="hidden" name="command" value="community_write">
       <input type="hidden" name="nickname" value=${memberinfo.nickName }>
       <input type="submit" class="btn btn-primary" value = "저장">
