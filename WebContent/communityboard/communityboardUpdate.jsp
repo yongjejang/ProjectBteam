@@ -20,9 +20,11 @@
 	function boardCheck() {
 		if (document.frm.userId.value.length == 0) {
 			alert("작성자를 입력하세요");
-			return false;
+			return fals;
 		}
-		if (document.frm.title.value.length == 0) {
+		else {
+			
+		}if (document.frm.title.value.length == 0) {
 			alert("제목을 입력하세요");
 			return false;
 		}
@@ -37,11 +39,11 @@
 	<form method="post" name="frm" action="community.do">
 		<input type="hidden" name="command" value="community_update" /> <input
 			type="hidden" name="communityNum" value="${cboard1.communityNum }" />
-
-		제목(*) : <input type="text" name="title" value = '${cboard1.title }' /> <br /> 작성자(*) : 
-		${cboard1.nicname }<br /> 내용(*)
-		:
-		<textarea rows="15" cols="70" name="content" >
+			<input type="hidden" name = "nicname" value="${cboard1.nicname }">
+		제목(*) : <input type="text" name="title" value = '${cboard1.title }' required/> <br />
+		 작성자(*) : ${cboard1.nicname }<br /> 
+		 내용(*):
+		<textarea rows="15" cols="70" name="content" required>
 		${cboard1.content }
 		</textarea>
 		<br /> <input type="submit" value="수정" onclick="return boardCheck()" />
