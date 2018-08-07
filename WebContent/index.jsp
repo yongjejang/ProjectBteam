@@ -108,6 +108,7 @@ hgroup{
   color: #fff;
   border: 5px solid #fff;
   padding: .5em 3em;
+  
   background-color: rgba(0,0,0,.2);
   z-index: 2;
 }

@@ -33,6 +33,8 @@ public class CommunityViewAction implements Action {
 			cDao.readCountUp(communityNum);
 		}
 		
+		
+		
 		//받아온 BoardVo를 communityboardView.jsp에 포워딩
 		request.setAttribute("cboard1", cvo);
 		

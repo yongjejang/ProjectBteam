@@ -69,6 +69,7 @@ function save(){
 <body>
 <% 
 session.getAttribute("memberinfo");
+session.getAttribute("reply");
 %>
 	<div class="row">
     <div class="col-xs-2 col-md-2"></div>
@@ -134,7 +135,9 @@ session.getAttribute("memberinfo");
       </tr>
     </thead>
     <tbody id ='a'>
-      <tr></tr>
+      <tr>
+      <td>${reply.nicname }</td>
+      </tr>
     </tbody>
   </table>
 </div>
