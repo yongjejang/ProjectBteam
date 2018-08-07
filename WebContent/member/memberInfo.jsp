@@ -19,7 +19,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <title>회원관리 시스템 관리자모드(회원정보보기)</title>
 
-<!-- <style>
+<style>
 
 #memberInfoArea{
 
@@ -38,7 +38,7 @@ table{
 
 }
 
-</style> -->
+</style>
 
 
 
