@@ -17,7 +17,6 @@
   margin-top: 50px;
   height: 200px;
   position:absolute;
-  <!-- bottom:0;-->
 
 }
 

@@ -6,6 +6,8 @@
 <style>
 <style>
         body {
+  position : absolute;
+  top : 0;
   background-color: #ECECEC;
   color: #444444;
   padding: 0;
