@@ -174,7 +174,8 @@ public class CommunityDAO {
 							rs.getDate("date"),
 							rs.getInt("count"),
 							rs.getString("content"),
-							rs.getString("file")
+							rs.getString("file"),
+							rs.getInt("category")
 					);
 				}
 			} catch (SQLException e) {
