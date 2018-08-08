@@ -46,10 +46,13 @@ public class CommunityWriteAction implements Action {
 	            fileEncType,
 	            new DefaultFileRenamePolicy());
 		String realFile = mr.getFilesystemName("file");
+		int category = Integer.parseInt(mr.getParameter("category"));
+		System.out.println("여기봐"+category);
 		cvo.setTitle(mr.getParameter("title"));
 		cvo.setnicname(mr.getParameter("nickname"));
 		// 줄바꿈 처리(탭처리, &처리)를 위한 로직
 		cvo.setContent(mr.getParameter("content").replace("\r\n", "<br />").replace("&","&amp;"));
+		cvo.setCartegory(category);
 		cvo.setFile(realFile);
 		System.out.println(cvo);
 		

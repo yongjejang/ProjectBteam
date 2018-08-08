@@ -77,13 +77,13 @@ session.getAttribute("memberinfo");
        
         <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요." required>
        <select name="category">
-        	<option value="1">민물게시판</option>
-        	<option value="2">바다게시판</option>
-        	<option value="3">문의하기</option>
+        	<option value="0">민물게시판</option>
+        	<option value="1">바다게시판</option>
+        	<option value="2">문의하기</option>
         	<c:choose>
             <c:when test="${ sessionScope.memberinfo.id eq 'aaa' }">     <%--이거고쳐야해해해해해ㅐ해해해해해햏해해해해해해해해ㅐ해해해해해해해해해해해해해 --%>
-            <option value="4">공지사항</option>
-        	<option value="5">관리자</option>
+            <option value="3">공지사항</option>
+        	<option value="4">관리자</option>
 			</c:when>
       </c:choose>
         	        </select>
