@@ -22,9 +22,9 @@ public class CommunityDAO {
 	
 	
 	// ------------- 전체 글 리스트 목록 페이지를 위한 메서드 -------------------------------------
-	public List<CommunityVO> selectAllBoard(int page) {
+	public List<CommunityVO> selectAllBoard(int page,int category) {
 		//select * from fishing.community
-		String query = "select * from fishing.community order by Communitynum desc limit ? , ?";
+		String query = "select * from fishing.community  where category = ? order by Communitynum desc limit ? , ?";
 		List<CommunityVO> list = new ArrayList<CommunityVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -35,11 +35,13 @@ public class CommunityDAO {
 			con = DBMangement.getConnection();
 			pstmt = con.prepareStatement(query);
 			
-			pstmt.setInt(1, (page - 1) * 10);
-			pstmt.setInt(2, 10);
+			
+			pstmt.setInt(1, category);
+			pstmt.setInt(2, (page - 1) * 10);
+			pstmt.setInt(3, 10);
 			
 			rs = pstmt.executeQuery();
-			
+			if(category == 0){
 			while(rs.next()) {
 				list.add(
 					new CommunityVO(
@@ -50,7 +52,20 @@ public class CommunityDAO {
 								rs.getInt("count")
 								));
 			}
+		}
 			
+			if(category == 1){
+				while(rs.next()) {
+					list.add(
+						new CommunityVO(
+									rs.getInt("communityNum"),
+									rs.getString("title"),
+									rs.getDate("date"),
+									rs.getString("nicname"),
+									rs.getInt("count")
+									));
+				}
+			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -76,7 +76,7 @@ table{
 </div>
 	<!-- <a href="member.do?command=member_list">리스트로 돌아가기</a> -->
 	
-	<div>
+<div>
 <jsp:include page="../footer.jsp"></jsp:include>
 </div>
 </body>
