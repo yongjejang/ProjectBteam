@@ -45,6 +45,9 @@ table{
 </head>
 <body>
 
+<div>
+<jsp:include page="../nav.jsp"></jsp:include>
+</div>
 <div class="container">
 
           
@@ -70,7 +73,9 @@ table{
   </table>
   <a href="index.jsp" >홈으로 돌아가기</a>
 </div>
-
+<div>
+<jsp:include page="../footer.jsp"></jsp:include>
+</div>
 
 
 </body>
