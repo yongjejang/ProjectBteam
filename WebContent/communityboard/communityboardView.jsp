@@ -9,16 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap-theme.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <title>Insert title here</title>
 
@@ -43,7 +36,7 @@
 	function deleteCheck(){	
 		var deleteConfirm = confirm("정말삭제하시겠습니까?");
 		if (deleteConfirm == true) { //확인
-			location.href="community.do?command=community_delete&communityNum="+${cboard1.communityNum};
+			location.href="community.do?command=community_delete&communityNum="+${cboard1.communityNum } + "&cartegory="+ ${cboard1.cartegory };
 		} else if(deleteConfirm == false) { 
 			return false;
 		}
@@ -79,7 +72,9 @@
 
 </head>
 <body>
-
+<div>
+<jsp:include page="../nav.jsp"></jsp:include>
+</div>
 <% 
 
 %>
@@ -99,6 +94,7 @@
 
 			<div class="table table-responsive">
 				<table class="table">
+				
 					<tr>
 						<th class="success">글번호</th>
 						<td>${cboard1.communityNum}</td>
@@ -125,17 +121,20 @@
 					<tr>
 						<th class="success">이미지</th>
 						<td colspan="3"><img src="${cboard1.file }"></td>
+ 
 					</tr>	
 
 					<tr>
+					
 						<td colspan="4" class="text-center"><input type="button"
 							class="btn btn-primary" value="목록으로"
-							onclick="location.href='community.do?command=community_list';" />
+							onclick="history.back();" />
 							<c:choose>
 								<c:when
 									test="${ cboard1.nicname eq sessionScope.memberinfo.nickName }">
 									<input type="button" class="btn btn-warning" value="수정"
 										onclick="location.href='community.do?command=community_update_form&communityNum=${cboard1.communityNum}'" />
+										
 									<input type="button" class="btn btn-danger" value="삭제"
 										onclick="deleteCheck()" />
 									<%-- <input type="button" class="btn btn-success" value="댓글달기" onclick="location.href='community.do?command=community_reply_form&communityNum =${cboard1.communityNum }&ref=${cboard1.ref}&step=${cboard1.step }&reforder=${cboard1.reforder }';" /> --%>
