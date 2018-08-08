@@ -123,9 +123,10 @@
 					</tr>	
 
 					<tr>
+					
 						<td colspan="4" class="text-center"><input type="button"
 							class="btn btn-primary" value="목록으로"
-							onclick="location.href='community.do?command=community_list';" />
+							onclick="history.back();" />
 							<c:choose>
 								<c:when
 									test="${ cboard1.nicname eq sessionScope.memberinfo.nickName }">

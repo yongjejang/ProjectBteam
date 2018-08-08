@@ -95,7 +95,7 @@ session.getAttribute("memberinfo");
       <input type="file" name = "file">
       <input type="hidden" name="nickname" value=${memberinfo.nickName }>
       <input type="submit" class="btn btn-primary" value = "저장">
-      <input type="button" value="목록으로" class="btn btn-primary" onclick="location.href='community.do?command=community_list';" />
+      <input type="button" value="목록으로" class="btn btn-primary" onclick="history.back();" />
     </form>
 </div>		
 <jsp:include page="../footer.jsp"></jsp:include>
