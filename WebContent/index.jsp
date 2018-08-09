@@ -18,9 +18,11 @@
     
 </head>
 <style>
-.img{
-
+.img-rounded{
+ magin:auto;
  width : 100%;
+ border-radius: 30px;
+ 
 }
         body {
   background-color: #ECECEC;
@@ -190,35 +192,29 @@ $(document).ready(function(){
    <jsp:include page="nav.jsp"></jsp:include>
 
 
-   <!--   <div class="parallax p1" id="section-1">
-      <hgroup>
-        <h1>Hello.</h1>
-        <h2>I’m a startup.</h2>
-      </hgroup>
-    </div>
-     -->
-   
-  <!-- Slideshow container -->
-  
-  <!-- 이미지 슬라이드쇼 추가 (HTML영역) -->
-  
-  <!-- ------------------------------------------------------------------------ -->
-  
-  
-  
-  
   
   <style>
 * {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
+body {
+	font-family: Verdana, sans-serif; margin:0
+}
+
+.mySlides {
+	display: none;
+	padding-top : 70px;
+
+}
+
+img {
+	vertical-align: middle;
+}
 
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
   position: relative;
   margin: auto;
+  padding-top : 30px;
 }
 
 /* Next & previous buttons */
@@ -311,30 +307,58 @@ img {vertical-align: middle;}
   position: relative;
 }
 .slideshow-container{
-	margin-top : 70px;
+	margin-top : 10px;
+}
+
+
+/* 플러스친구 배너 위치 */
+.fltBanner1 {
+	position: fixed;
+	right: 20px; /* 좌측면으로부터 거리(px) */
+	top: 260px; /* 상단으로부터 거리(px) */
+	display: inline;
+	z-index: 999;
+}
+/* 전화걸기 배너 위치 */
+.fltBanner2 {
+	position: fixed;
+	right: 20px; /* 좌측면으로부터 거리(px) */
+	top: 400px; /* 상단으로부터 거리(px) */
+	display: inline;
+	z-index: 999;
 }
 
 </style>
 </head>
 <body>
 
+<!-- 플러스친구 -->
+<a href="http://pf.kakao.com/_xnVlxfxl" class="fltBanner1" target="_blank">
+	<img src="https://cdn.imweb.me/upload/S20170530592cf901c1430/5a5d4a959dc39.png" width="128px" height="128px">
+</a>
+
+<!-- 전화연락 -->
+<a href="tel:02-123-1234" class="fltBanner2" target="_blank">
+	<img src="https://cdn.imweb.me/upload/S20170530592cf901c1430/5a5d4a9583340.png" width="128px" height="128px">
+</a>
+
 <div class="slideshow-container">
 
 <div class="mySlides fade">
   <div class="numbertext">1 / 3</div>
-  <img src="img1.jpg" class="img">
+  <img src="img1.jpg" class="img-rounded" alt="Cinque Terre" width="100%" height="500px">
   <div class="text">Caption Text</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
-  <img src="img4.jpg"class="img">
+  <img src="img4.jpg"class="img-rounded" alt="Cinque Terre" width="100%"height="500px">
   <div class="text">Caption Two</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
-  <img src="img3.jpg"class="img">
+  <img src="img3.jpg" class="img-rounded" alt="Cinque Terre" width="100%"height="500px">
   <div class="text">Caption Three</div>
 </div>
 
@@ -350,34 +374,57 @@ img {vertical-align: middle;}
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
 
-<script>
-var slideIndex = 1;
-showSlides(slideIndex);
+		<script>
+	//	var slideIndex = 1;
+	//	showSlides(slideIndex);
+		
+	//	function plusSlides(n) {
+	//	  showSlides(slideIndex += n);
+	//	}
+		
+	//	function currentSlide(n) {
+	//	  showSlides(slideIndex = n);
+	//	}
+		
+	//	function showSlides(n) {
+	//	  var i;
+	//	  var slides = document.getElementsByClassName("mySlides");
+	//	  var dots = document.getElementsByClassName("dot");
+	//	  if (n > slides.length) {slideIndex = 1}    
+	//	  if (n < 1) {slideIndex = slides.length}
+	//	  for (i = 0; i < slides.length; i++) {
+	//	      slides[i].style.display = "none";  
+	//	  }
+	//	  for (i = 0; i < dots.length; i++) {
+	//	      dots[i].className = dots[i].className.replace(" active", "");
+	//	  }
+	//	  slides[slideIndex-1].style.display = "block";  
+	//	  dots[slideIndex-1].className += " active";
+	//	}
+	
+	
+	
+	
+	var slideIndex = 0;
+showSlides();
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 5000); // Change image every 2 seconds
 }
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
-</script>
+		</script>
 
 
     
@@ -420,7 +467,7 @@ function showSlides(n) {
    </table>
       </div>
       <div class="col-3">
-        <h2>고객센터</h2>
+        <h2>Q&A</h2>
                 <table border="0" width="100%" height="100%" align="center" class="table"> 
         <tr>
          <th>제목</th>   
