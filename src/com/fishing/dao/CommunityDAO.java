@@ -355,16 +355,18 @@ public class CommunityDAO {
 	         return list;
 	      }
 		
-		public List<CommunityVO> sea5() {
-		     Connection con = null;
+		public List<CommunityVO> sea5(int i) {
+			System.out.println("다오단 sea5의 숫자는 ? " + i);
+			Connection con = null;
 	         PreparedStatement pstmt = null;
 	         ResultSet rs = null;
 	         List<CommunityVO> indexlist = new ArrayList<CommunityVO>();
-	         String sql = "select * from  fishing.community order by count desc limit 5 ";  //여기에  getAttribute로 nickname 넣어줘야 함
+	         String sql = "select * from  fishing.community where category =?  order by count desc limit 5 ";  //여기에  getAttribute로 nickname 넣어줘야 함
 	         
 	         try{
 	            con = DBMangement.getConnection();
 	            pstmt = con.prepareStatement(sql);
+	            pstmt.setInt(1, i);
 	            rs = pstmt.executeQuery();
 	            
 	            while (rs.next()) {
@@ -440,9 +442,6 @@ public class CommunityDAO {
 			
 			return allNum;
 		}
-		
-		
-
 }
 		
 		

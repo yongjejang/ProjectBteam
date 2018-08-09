@@ -147,7 +147,7 @@ hgroup{
 
 /* Blank lines for ease and view */
 /* */
-</style>
+</style> 
     
 <script>
  
@@ -428,7 +428,7 @@ function showSlides() {
 
 
     
-    <div class="row">
+   <div class="row">
       <div class="col-3">
         <h2>바다 낚시 게시판 조회수 top5</h2>
         <table border="0" width="100%" height="100%" align="center" class="table"> 
@@ -456,11 +456,11 @@ function showSlides() {
 
       	</tr>
       
-      <c:forEach var="bestsea" items="${communityList }">
+      <c:forEach var="bestmin" items="${minList }">
 			
 			<tr>
 
-				<td><a href='community.do?command=community_view&communityNum=${bestsea.communityNum}'>${bestsea.title }</a></td>
+				<td><a href='community.do?command=community_view&communityNum=${bestmin.communityNum}'>${bestmin.title }</a></td>
 
 			</tr>
 		</c:forEach>
@@ -474,11 +474,11 @@ function showSlides() {
 
       	</tr>
       
-      <c:forEach var="bestsea" items="${communityList }">
+      <c:forEach var="bestqna" items="${qnaList }">
 			
 			<tr>
 
-				<td><a href='community.do?command=community_view&communityNum=${bestsea.communityNum}'>${bestsea.title }</a></td>
+				<td><a href='community.do?command=community_view&communityNum=${bestqna.communityNum}'>${bestqna.title }</a></td>
 
 			</tr>
 		</c:forEach>
