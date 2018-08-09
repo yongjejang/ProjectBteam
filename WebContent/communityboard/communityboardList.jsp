@@ -131,20 +131,20 @@
 			}
 
 			if(nowPage > 1){
-				out.print("<a href='community.do?command=community_list&page=1'>◀◀</a>&nbsp;&nbsp;&nbsp;"); // 첫페이지
-				out.print("<a href='community.do?command=community_list&page=" + prevPage + "'>&nbsp;이전</a>&nbsp;&nbsp;&nbsp;");  //이전페이지로 이동
+				out.print("<a href='community.do?command=community_list&page=1&category=1'>◀◀</a>&nbsp;&nbsp;&nbsp;"); // 첫페이지
+				out.print("<a href='community.do?command=community_list&page=" + prevPage + "&category=1'>&nbsp;이전</a>&nbsp;&nbsp;&nbsp;");  //이전페이지로 이동
 			}
 			
 			
 			for(int i=startPage; i <= endPage; i++){ 
-				out.print("<a href='community.do?command=community_list&page=" + i + "'>" + i + "</a>&nbsp;&nbsp;&nbsp;");
+				out.print("<a href='community.do?command=community_list&page=" + i + "&category=1'>" + i + "</a>&nbsp;&nbsp;&nbsp;");
 			}
 
 			int nextPage = nowPage + 1;
 			
 			if(nowPage < totalPage){
-				out.print("<a href='community.do?command=community_list&page=" + nextPage + "'>&nbsp;다음</a>&nbsp;&nbsp;&nbsp;");
-				out.print("<a href='community.do?command=community_list&page=" + totalPage + "'>▶▶</a>&nbsp;&nbsp;&nbsp;");
+				out.print("<a href='community.do?command=community_list&page=" + nextPage + "&category=1'>&nbsp;다음</a>&nbsp;&nbsp;&nbsp;");
+				out.print("<a href='community.do?command=community_list&page=" + totalPage + "&category=1'>▶▶</a>&nbsp;&nbsp;&nbsp;");
 			}
 		%>
 		

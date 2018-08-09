@@ -39,7 +39,7 @@ public class CommunityListAction implements Action {
 		}
 		if(category == 1){
 		List<CommunityVO> list = cDao.selectAllBoard(page,category);
-		int allNum= cDao.AllBoardcount();
+		int allNum= cDao.AllBoardcount(category);
 		//System.out.println(allNum);
 		System.out.println(list);
 		
@@ -54,7 +54,7 @@ public class CommunityListAction implements Action {
 		}
 		if(category == 0){
 			List<CommunityVO> list = cDao.selectAllBoard(page,category);
-			int allNum= cDao.AllBoardcount();
+			int allNum= cDao.AllBoardcount(category);
 			//System.out.println(allNum);
 			System.out.println(list);
 			
