@@ -110,6 +110,11 @@ li.active > a.nav-button {
   float: left;
   cursor: default;
 }
+
+.logo{
+	width:100px;
+	height:60px;
+}
 }
 </style>
 <html>
@@ -122,12 +127,12 @@ li.active > a.nav-button {
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
     <div class="navbar">
       <ul class="navbar-container">
-        <li><a href="#" class="left-underline nav-button brand-logo">Brand Logo</a></li>
+        <li><a href="#" class="left-underline nav-button brand-logo"><img src="logo.jpg" class="logo" /></a></li>
         <li class="nav-item"><a href="index.jsp" class="left-underline nav-button" data-scroll >홈</a></li>
         <li class="nav-item"><a href="community.do?command=community_list&page=1&category=1" class="left-underline nav-button" data-scroll>바다게시판</a></li>
         <li class="nav-item"><a href="community.do?command=community_list&page=1&category=0" class="left-underline nav-button" data-scroll>민물게시판</a></li>
         <li class="nav-item active"><a href="fishingParse.jsp" class="left-underline nav-button" data-scroll>낚시터 정보</a></li>
-        <li class="nav-item"><a href="#" class="left-underline nav-button" data-scroll>고객센터</a></li>
+        <li class="nav-item"><a href="community.do?command=community_list&page=1&category=2" class="left-underline nav-button" data-scroll>Q&A</a></li>
         <!-- <li class="nav-item1"><a href="member/loginForm.jsp" class="left-underline nav-button" data-scroll>로그인</a></li> -->
         
          <%  

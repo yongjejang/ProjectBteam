@@ -50,11 +50,12 @@
 
 .footer .icons {
   margin-top: 25px;
+
 }
 
 .footer .icons a {
   display: inline-block;
-  width: 35px;
+  width: 30px;
   height: 35px;
   cursor: pointer;
   background-color: #33383b;
@@ -169,11 +170,11 @@
       <span> About the company</span> Ut congue augue non tellus bibendum, in varius tellus condimentum. In scelerisque nibh tortor, sed rhoncus odio condimentum in. 
     </p>
     <div class="icons">
-      <a href="#"><i class="fa fa-facebook"></i></a>
-      <a href="#"><i class="fa fa-twitter"></i></a>
-      <a href="#"><i class="fa fa-linkedin"></i></a>
-      <a href="#"><i class="fa fa-google-plus"></i></a>
-      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><img class="fa fa-facebook" src="facebook.jpg" width="30px" height="30px"/></a>
+      <a href="#"><img class="fa fa-twitter" src="twiter.png" width="30px" height="30px"/></a>
+      <a href="#"><img class="fa fa-linkedin" src="naver.jpg" width="30px" height="30px"/></a>
+      <a href="#"><img class="fa fa-google-plus" src="kakao.png" width="30px" height="30px"/></a>
+      <a href="#"><img class="fa fa-instagram" src="instar.png" width="30px" height="30px"/></a>
     </div>
   </div>
   <div class="footer-center col-md-4 col-sm-6">

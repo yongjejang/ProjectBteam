@@ -65,8 +65,10 @@ public class CommunityWriteAction implements Action {
             //new CommunityListAction().excute(request, response); // 리스트 페이지로 이동
 				if(category == 0){
 					response.sendRedirect("community.do?command=community_list&page=1&category=0");
-				}else{
+				}else if(category == 1){
 					response.sendRedirect("community.do?command=community_list&page=1&category=1");
+				}else{
+					response.sendRedirect("community.do?command=community_list&page=1&category=2");
 				}
 				
 			} else {//저장 안됨
