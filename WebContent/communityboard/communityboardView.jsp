@@ -137,10 +137,6 @@
 							class="btn btn-primary" value="목록으로"
 							onclick="location.href='community.do?command=community_list&page=1&category=1'" />
 							</c:if>
-						
-							
-							
-							
 							<c:choose>
 								<c:when
 									test="${ cboard1.nicname eq sessionScope.memberinfo.nickName }">
