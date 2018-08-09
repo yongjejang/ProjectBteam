@@ -20,6 +20,7 @@ public class CommunityListAction implements Action {
 				
 		String outputUrl = "communityboard/communityboardList.jsp";
 		String minoutputUrl = "communityboard/communityboardminList.jsp";
+		String qnaoutputUrl = "communityboard/communityboardQna.jsp";
 		String command = request.getParameter("command");
 		//int category = Integer.parseInt(request.getParameter("category"));
 		int category = Integer.parseInt(request.getParameter("category"));
@@ -51,8 +52,7 @@ public class CommunityListAction implements Action {
 		
 		RequestDispatcher rd = request.getRequestDispatcher(outputUrl);
 		rd.forward(request, response);
-		}
-		if(category == 0){
+		}else if(category == 0){
 			List<CommunityVO> list = cDao.selectAllBoard(page,category);
 			int allNum= cDao.AllBoardcount(category);
 			//System.out.println(allNum);
@@ -65,6 +65,21 @@ public class CommunityListAction implements Action {
 			
 			
 			RequestDispatcher rd = request.getRequestDispatcher(minoutputUrl);
+			rd.forward(request, response);
+			
+		}else{
+			List<CommunityVO> list = cDao.selectAllBoard(page,category);
+			int allNum= cDao.AllBoardcount(category);
+			//System.out.println(allNum);
+			System.out.println(list);
+			
+			
+			
+			request.setAttribute("communityList", list);
+			request.setAttribute("allNum", allNum);
+			
+			
+			RequestDispatcher rd = request.getRequestDispatcher(qnaoutputUrl);
 			rd.forward(request, response);
 			
 		}

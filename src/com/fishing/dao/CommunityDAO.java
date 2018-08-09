@@ -52,9 +52,18 @@ public class CommunityDAO {
 								rs.getInt("count")
 								));
 			}
-		}
-			
-			if(category == 1){
+		}else if(category == 1){
+				while(rs.next()) {
+					list.add(
+						new CommunityVO(
+									rs.getInt("communityNum"),
+									rs.getString("title"),
+									rs.getDate("date"),
+									rs.getString("nicname"),
+									rs.getInt("count")
+									));
+				}
+			}else{
 				while(rs.next()) {
 					list.add(
 						new CommunityVO(
