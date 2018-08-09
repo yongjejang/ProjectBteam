@@ -277,10 +277,7 @@ public class CommunityDAO {
 			return allNum;
 		}
 
-		public void topTenBoard(){
-			String query = "select * from ";
-
-		}
+		
 
 
 		public boolean insertreply(CommunityVO cvo) {
@@ -376,7 +373,36 @@ public class CommunityDAO {
 	         return indexlist;
 	      }
 
-
+		public List<CommunityVO> search(String search1 , String search2) {
+		     Connection con = null;
+	         PreparedStatement pstmt = null;
+	         ResultSet rs = null;
+	         String sql = "select * from community where "+search1+" like ? order by communityNum desc";
+	         List<CommunityVO> indexlist = new ArrayList<CommunityVO>();
+	         try{
+	        		con = DBMangement.getConnection();
+		            pstmt = con.prepareStatement(sql);
+		            pstmt.setString(1, "%"+search2+"%");
+		            System.out.println(pstmt);
+		            rs = pstmt.executeQuery();
+	            while (rs.next()) {
+	            	indexlist.add(
+	                     new CommunityVO(
+	                        rs.getInt("communityNum"),
+	                        rs.getString("title"),
+	                        rs.getDate("date"),
+	                        rs.getString("nicname"),
+	                        rs.getInt("count")
+	                    	));
+	               }
+	         }catch (SQLException e) {
+	            System.out.println(e.getMessage());
+	         }finally{
+	            DBMangement.close(rs, pstmt, con);
+	         }
+	         System.out.println(indexlist);
+	         return indexlist;
+	      }
 		
 
 }

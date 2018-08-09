@@ -4,6 +4,7 @@ import com.fishing.controller.action.Action;
 import com.fishing.controller.action.CommunityDeleteAction;
 import com.fishing.controller.action.CommunityListAction;
 import com.fishing.controller.action.CommunityReplyAction;
+import com.fishing.controller.action.CommunitySearchAction;
 import com.fishing.controller.action.CommunityUpdateAction;
 import com.fishing.controller.action.CommunityUpdateFormAction;
 import com.fishing.controller.action.CommunityViewAction;
@@ -76,7 +77,8 @@ public class ActionFactory {
 			action = new MemberPasswordUpadateFormAction();
 		}else if(command.equals("index")){
 			action = new IndexAction();
-			
+		}else if(command.equals("community_search")){
+			action = new CommunitySearchAction();
 		}
 		
 		return action;

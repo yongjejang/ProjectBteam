@@ -81,14 +81,19 @@
       	
       </c:choose>
 	</div>
-	<div id = "search">
-	     <select>
-    		 <option selected>제목</option>
-    		 <option>작성자</option>
+	
+	
+	<form method="post" action="community.do?command=community_search">
+	
+	     <select name="search1">
+    		 <option value="title" selected>제목</option>
+    		 <option value="content" selected>내용</option>
+    		 <option value="nicName">작성자</option>
 	     </select>
-<input type="text" class="search">
-<input type="button" value="검색">
-</div>
+<input type="text" placeholder="내용을 입력해주세요" name="search2" class="search">
+<input type="submit" value="검색">
+
+</form>
 <div class="paging">
 		<%
 // -----------------------------현제 페이지 처리----------------------
