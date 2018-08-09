@@ -378,7 +378,7 @@ public class CommunityDAO {
 		     Connection con = null;
 	         PreparedStatement pstmt = null;
 	         ResultSet rs = null;
-	         String sql = "select * from community where "+search1+" like ? order by communityNum desc";
+	         String sql = "select * from community where "+search1+" like ? && ref = 0 order by communityNum desc";
 	         List<CommunityVO> indexlist = new ArrayList<CommunityVO>();
 	         try{
 	        		con = DBMangement.getConnection();
@@ -404,6 +404,32 @@ public class CommunityDAO {
 	         System.out.println(indexlist);
 	         return indexlist;
 	      }
+		
+		public int searchBoardcount(){
+			String query = "select count(communityNum) from community where title like '%a%' && ref = 0 order by communityNum desc";
+			
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			int allNum = 0;
+			
+			try {
+				con = DBMangement.getConnection();
+				pstmt = con.prepareStatement(query);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					allNum = rs.getInt("allNum");
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				DBMangement.close(rs, pstmt, con);
+			}
+			
+			return allNum;
+		}
+		
 		
 
 }
