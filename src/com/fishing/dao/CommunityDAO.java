@@ -356,7 +356,6 @@ public class CommunityDAO {
 	      }
 		
 		public List<CommunityVO> sea5(int i) {
-			System.out.println("다오단 sea5의 숫자는 ? " + i);
 			Connection con = null;
 	         PreparedStatement pstmt = null;
 	         ResultSet rs = null;
