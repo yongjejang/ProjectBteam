@@ -174,7 +174,8 @@ public class CommunityDAO {
 							rs.getDate("date"),
 							rs.getInt("count"),
 							rs.getString("content"),
-							rs.getString("file")
+							rs.getString("file"),
+							rs.getInt("category")
 					);
 				}
 			} catch (SQLException e) {
@@ -251,18 +252,18 @@ public class CommunityDAO {
 		   }
 		
 		//----------------------------------------총게시글의 수를 세는 메서드---------------------------------------
-		public int AllBoardcount() {
-			String query = "select count(communityNum)as allNum from fishing.community";
+		public int AllBoardcount(int category) {
+			String query = "select count(communityNum)as allNum from fishing.community where category = ?";
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			int allNum = 0;
 			
-			
 			try {
 				con = DBMangement.getConnection();
 				pstmt = con.prepareStatement(query);
+				pstmt.setInt(1, category);
 				rs = pstmt.executeQuery();
 				while (rs.next()) {
 					allNum = rs.getInt("allNum");

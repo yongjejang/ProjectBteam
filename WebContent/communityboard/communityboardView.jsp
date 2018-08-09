@@ -36,7 +36,7 @@
 	function deleteCheck(){	
 		var deleteConfirm = confirm("정말삭제하시겠습니까?");
 		if (deleteConfirm == true) { //확인
-			location.href="community.do?command=community_delete&communityNum="+${cboard1.communityNum};
+			location.href="community.do?command=community_delete&communityNum="+${cboard1.communityNum } + "&cartegory="+ ${cboard1.cartegory };
 		} else if(deleteConfirm == false) { 
 			return false;
 		}
@@ -94,6 +94,7 @@
 
 			<div class="table table-responsive">
 				<table class="table">
+				
 					<tr>
 						<th class="success">글번호</th>
 						<td>${cboard1.communityNum}</td>
@@ -120,18 +121,32 @@
 					<tr>
 						<th class="success">이미지</th>
 						<td colspan="3"><img src="${cboard1.file }"></td>
+ 
 					</tr>	
 
 					<tr>
-					
+						
+						
+						<c:if test="${cboard1.cartegory eq 0}">
 						<td colspan="4" class="text-center"><input type="button"
 							class="btn btn-primary" value="목록으로"
-							onclick="history.back();" />
+							onclick="location.href='community.do?command=community_list&page=1&category=0'" />
+							</c:if>
+							<c:if test="${cboard1.cartegory eq 1}">
+						<td colspan="4" class="text-center"><input type="button"
+							class="btn btn-primary" value="목록으로"
+							onclick="location.href='community.do?command=community_list&page=1&category=1'" />
+							</c:if>
+						
+							
+							
+							
 							<c:choose>
 								<c:when
 									test="${ cboard1.nicname eq sessionScope.memberinfo.nickName }">
 									<input type="button" class="btn btn-warning" value="수정"
 										onclick="location.href='community.do?command=community_update_form&communityNum=${cboard1.communityNum}'" />
+										
 									<input type="button" class="btn btn-danger" value="삭제"
 										onclick="deleteCheck()" />
 									<%-- <input type="button" class="btn btn-success" value="댓글달기" onclick="location.href='community.do?command=community_reply_form&communityNum =${cboard1.communityNum }&ref=${cboard1.ref}&step=${cboard1.step }&reforder=${cboard1.reforder }';" /> --%>

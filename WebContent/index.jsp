@@ -13,8 +13,15 @@
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
 </head>
 <style>
+.img{
+
+ width : 100%;
+}
         body {
   background-color: #ECECEC;
   color: #444444;
@@ -67,21 +74,9 @@
   margin: 0;
   padding: 0;
 }
-.parallax.p1 {
-  background: url(http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-70374.jpg) no-repeat fixed 50% 0;
-  background-size: cover;
-  color: #fff;
-}
-.parallax.p2 {
-  background: url(http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-126549.jpg) no-repeat fixed 50% 0;
-  background-size: cover;
-  color: #fff;
-}
-.parallax.p3 {
-  background: url(http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-95766.jpg) no-repeat fixed 70% 0;
-  background-size: cover;
-  color: #fff;
-}
+
+
+
 .parallax-text {
   width: 24em;
   position: fixed;
@@ -113,12 +108,15 @@ hgroup{
   z-index: 2;
 }
 .row {
-  width: 80%;
-  padding-left: 10%;
-  padding-right: 10%;
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
   padding-top: 15px;
   padding-bottom: 15px;
   min-height: 150px;
+  text-align: center;
+  position: relative;
+
 }
 .row:after {
   content: "";
@@ -126,13 +124,15 @@ hgroup{
   clear: both;
 }
 .row > .col-3 {
-  width: 30%;
+  display: inline-block;
+  width: 33%;
   height: 100%;
   box-sizing: border-box;
-  float: left;
-  padding-left: 5px;
-  padding-right: 5px;
-}
+  padding-left: 2px;
+  padding-right: 2px;
+  text-align: center;
+  position: relative;
+  }
 
 }
 .container {
@@ -148,6 +148,7 @@ hgroup{
 </style>
     
 <script>
+ 
 if(location.href.indexOf("?") == -1) {
 	   location.href="community.do?command=index";   
 	}
@@ -161,11 +162,11 @@ if(location.href.indexOf("?") == -1) {
 	});
   $('.p3').css({
 		'background-position' : '70% ' + (-scrollPos/16)+"px"
-	});
+	});	
 	$('.parallax-text').css({
 		'margin-top': (scrollPos/2)+"px",
 		'opacity': 1-(scrollPos/230)
-	});
+	});	
 }
 $(document).ready(function(){
 	$(window).scroll(function() {
@@ -174,6 +175,8 @@ $(document).ready(function(){
 	});
 });
 </script>
+    
+    
     
 <body>
 <html>
@@ -185,17 +188,203 @@ $(document).ready(function(){
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
     
    <jsp:include page="nav.jsp"></jsp:include>
-   
-    <div class="parallax p1" id="section-1">
+
+
+   <!--   <div class="parallax p1" id="section-1">
       <hgroup>
         <h1>Hello.</h1>
         <h2>I’m a startup.</h2>
       </hgroup>
     </div>
+     -->
+   
+  <!-- Slideshow container -->
+  
+  <!-- 이미지 슬라이드쇼 추가 (HTML영역) -->
+  
+  <!-- ------------------------------------------------------------------------ -->
+  
+  
+  
+  
+  
+  <style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.row.col-3.table{
+  text-align: center;
+  position: relative;
+}
+.slideshow-container{
+	margin-top : 70px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="img1.jpg" class="img">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="img4.jpg"class="img">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="img3.jpg"class="img">
+  <div class="text">Caption Three</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+
+    
     <div class="row">
       <div class="col-3">
         <h2>바다 낚시 게시판 조회수 top5</h2>
-        <table border="1" size="250"> 
+        <table border="0" width="100%" height="100%" align="center" class="table"> 
         <tr>
          <th>제목</th>   
 
@@ -214,11 +403,39 @@ $(document).ready(function(){
       
       <div class="col-3">
         <h2>민물 낚시 게시판 조회수 top5</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque imperdiet est id leo facilisis, quis egestas erat vehicula. Aenean nec facilisis leo, et tristique lorem. Aliquam porttitor, elit ac ornare lacinia, sapien augue sagittis dolor, tempor ultricies lorem arcu et ante. Nulla facilisi. Praesent facilisis lacus at blandit maximus. Ut at libero nisi. Cras eu augue tellus. Nam pretium eget nisi non viverra. Maecenas eget tincidunt nibh, vitae interdum dolor.</p>
+                <table border="0" width="100%" height="100%" align="center" class="table"> 
+        <tr>
+         <th>제목</th>   
+
+      	</tr>
+      
+      <c:forEach var="bestsea" items="${communityList }">
+			
+			<tr>
+
+				<td><a href='community.do?command=community_view&communityNum=${bestsea.communityNum}'>${bestsea.title }</a></td>
+
+			</tr>
+		</c:forEach>
+   </table>
       </div>
       <div class="col-3">
         <h2>고객센터</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac nibh dolor. Cras rutrum molestie ligula posuere hendrerit. Donec luctus vitae elit in gravida. Duis in viverra nunc. Nunc et metus blandit, blandit quam in, laoreet mi. In vitae mauris sit amet tellus dictum rhoncus malesuada non arcu. Ut lacus lacus, dignissim at commodo id, dapibus sed felis. Cras in nunc id est lobortis euismod. Sed egestas nulla et augue sagittis lacinia. Quisque finibus bibendum risus, vitae accumsan ante mollis ac. Aliquam fermentum, mauris eu gravida dictum, tortor risus finibus nibh, in tincidunt velit tortor vehicula mi.</p>
+                <table border="0" width="100%" height="100%" align="center" class="table"> 
+        <tr>
+         <th>제목</th>   
+
+      	</tr>
+      
+      <c:forEach var="bestsea" items="${communityList }">
+			
+			<tr>
+
+				<td><a href='community.do?command=community_view&communityNum=${bestsea.communityNum}'>${bestsea.title }</a></td>
+
+			</tr>
+		</c:forEach>
+   </table>
       </div>
     </div>
    	<div>
