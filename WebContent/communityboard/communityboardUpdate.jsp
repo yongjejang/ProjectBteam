@@ -49,6 +49,7 @@
 		<textarea rows="15" cols="70"name="content"required>
 		${cboard1.content }
 		</textarea><br />
+		<input type="image" src="${cboard1.file }"/><br />
 		<input type="file" name = file value= "${cboard1.file }"><br />
 		<input type="submit" value="수정" onclick="return boardCheck()" />
 		<input type="reset" value="다시작성" /> 
