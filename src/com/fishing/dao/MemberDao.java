@@ -193,7 +193,35 @@ public class MemberDao {
   		
       	return deleteCount;
       }
-
+    public boolean duplicateIdCheck(String id) {
+		// TODO Auto-generated method stub
+	
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			boolean x= false;
+			
+			try {
+				
+				StringBuffer query = new StringBuffer();
+				query.append("SELECT USERID FROM fishing.member WHERE USERID=?");
+							
+				con = DBMangement.getConnection();
+				pstmt = con.prepareStatement(query.toString());
+				pstmt.setString(1, id);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) x= true; 
+				
+				return x;
+				
+			} catch (Exception sqle) {
+				throw new RuntimeException(sqle.getMessage());
+			} finally {
+				DBMangement.close(rs, pstmt, con);
+			}
+	
+	}  
 
         
     
