@@ -90,9 +90,33 @@ function checkValue(){
 		alert("이메일 형식에 맞지 않습니다. 다시 입력해주세요");		
 		return false;
 		
-	}     
-
+	}    
+	if(idDuplication.value != "idCheck"){
+			alert("아이디 중복체크를 해주세요.");
+			return false;
+	}
+	
 }
+	
+	//취소 버튼 클릭시 첫화면으로 이동
+	function goFirstForm() {
+		location.href="../index.jsp";
+	}
+	// 아이디 중복체크 화면open
+	
+	// 아이디 입력창에 값 입력시 hidden에 idUncheck를 세팅한다.
+	// 이렇게 하는 이유는 중복체크 후 다시 아이디 창이 새로운 아이디를 입력했을 때
+	// 다시 중복체크를 하도록 한다.
+	function inputIdChk(){
+		document.frm.idDuplication.value ="idUncheck";
+	}
+	function openIdChk(){
+		
+		window.name = "parentForm";
+		window.open("./IdCheckForm.jsp",
+				"chkForm", "width=500, height=300, resizable = no, scrollbars = no");	
+	}
+
 
 </script>
 <!------ Include the above in your HEAD tag ---------->
@@ -113,12 +137,14 @@ function checkValue(){
                     <fieldset class="Edit-text">
 			    	  	<div class="form-group">
 			    		   아이디(*)  <input class="form-control" placeholder="ID" name="userId" id="userId" type="text">
+			    		   <input type="button" value="중복확인" onclick="openIdChk()">
+			    		   <input type="hidden" name="idDuplication" id="idDuplication" value="idUncheck">
 			    		</div>
 			    		<div class="form-group">
-			    			패스워드(*)  <input class="form-control" placeholder="PassWord" name="password" id="password" type="text">
+			    			패스워드(*)  <input class="form-control" placeholder="PassWord" name="password" id="password" type="password">
 			    		</div>
 			    		<div class="form-group">
-			    			패스워드 확인(*)  <input class="form-control" placeholder="PassWord" name="passwordcheck" id="passwordcheck"  type="text" >
+			    			패스워드 확인(*)  <input class="form-control" placeholder="PassWord" name="passwordcheck" id="passwordcheck"  type="password" >
 			    		</div>
 			    		<div class="form-group">
 			    		     닉네임  <input class="form-control" placeholder="nickName" name="nickname" id="nickname" type="text">
@@ -137,7 +163,7 @@ function checkValue(){
 			    	    </div>
 			    	  <!--   <input type="hidden" name="command" value="member_join" /> -->
 			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="join us" >
-			    		<input class="btn btn-lg btn-success btn-block" type="reset" value="cancel" >
+			    		<input class="btn btn-lg btn-success btn-block" type="reset" value="cancel" onclick=" goFirstForm();">
 			    	</fieldset>
 			    	
 			      	</form>
