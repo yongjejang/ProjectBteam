@@ -33,7 +33,7 @@ public class CommunitySearchAction implements Action {
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
-		int allNum= cDao.searchBoardcount();
+		int allNum= cDao.searchBoardcount(search1,search2);
 		
 		System.out.println("전체 페이지는 몇개냐?" + allNum);
 		

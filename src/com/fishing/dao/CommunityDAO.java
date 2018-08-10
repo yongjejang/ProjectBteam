@@ -52,18 +52,9 @@ public class CommunityDAO {
 								rs.getInt("count")
 								));
 			}
-		}else if(category == 1){
-				while(rs.next()) {
-					list.add(
-						new CommunityVO(
-									rs.getInt("communityNum"),
-									rs.getString("title"),
-									rs.getDate("date"),
-									rs.getString("nicname"),
-									rs.getInt("count")
-									));
-				}
-			}else{
+		}
+			
+			if(category == 1){
 				while(rs.next()) {
 					list.add(
 						new CommunityVO(
@@ -221,7 +212,7 @@ public class CommunityDAO {
 				// update fishing.community set content = '짜파게티~', title='오늘의 요리는~' where num=3;
 				// cvo ; 새롭게 수정할 글 객체
 		public void updateBoard(CommunityVO cvo) {
-			String query = "update fishing.community set title = ? , nicname= ?, content = ? ,file = ? where communityNum = ? and category = ?";
+			String query = "update fishing.community set title = ? , nicname= ?, content = ? where communityNum = ?";
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -232,9 +223,7 @@ public class CommunityDAO {
 				pstmt.setString(1, cvo.getTitle());
 				pstmt.setString(2, cvo.getnicname());
 				pstmt.setString(3, cvo.getContent());
-				pstmt.setString(4, cvo.getFile());
-				pstmt.setInt(5, cvo.getCommunityNum());
-				pstmt.setInt(6, cvo.getCartegory());
+				pstmt.setInt(4, cvo.getCommunityNum());
 				
 				pstmt.executeUpdate();
 				
@@ -416,8 +405,8 @@ public class CommunityDAO {
 	         return indexlist;
 	      }
 		
-		public int searchBoardcount(){
-			String query = "select count(communityNum) from community where title like '%a%' && ref = 0 order by communityNum desc";
+		public int searchBoardcount(String search1, String search2){
+			String query = "select count(communityNum) from community where "+search1+" like '%?%' && ref = 0 order by communityNum desc";
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -427,6 +416,8 @@ public class CommunityDAO {
 			try {
 				con = DBMangement.getConnection();
 				pstmt = con.prepareStatement(query);
+	            pstmt.setString(1, "%"+search2+"%");
+
 				rs = pstmt.executeQuery();
 				while (rs.next()) {
 					allNum = rs.getInt("allNum");

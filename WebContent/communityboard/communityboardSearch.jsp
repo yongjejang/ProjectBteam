@@ -151,8 +151,8 @@
 			int nextPage = nowPage + 1;
 			
 			if(nowPage < totalPage){
-				out.print("<a href='community.do?command=community_search&page=" + nextPage + "'>&nbsp;다음</a>&nbsp;&nbsp;&nbsp;");
-				out.print("<a href='community.do?command=community_search&page=" + totalPage + "'>▶▶</a>&nbsp;&nbsp;&nbsp;");
+				out.print("<a href='community.do?command=community_search&page=" + nextPage + "&search1="+search1 +"&search2="+search2+"'>&nbsp;다음</a>&nbsp;&nbsp;&nbsp;");
+				out.print("<a href='community.do?command=community_search&page=" + totalPage + "&search1="+search1 +"&search2="+search2+"'>▶▶</a>&nbsp;&nbsp;&nbsp;");
 			}
 		%>
 	</div>
