@@ -4,12 +4,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>Insert title here</title>
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<div>
-<jsp:include page="nav.jsp"></jsp:include>
-</div>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
+<style type="text/css">
+.point{
+margin-top: 8%;
+text-align: center;
+}
+#result{
+text-align: center;
+}
+.sido{
+margin-left: 100px;
+}
+
+</style>
+ <jsp:include page="nav.jsp"></jsp:include>
+ 
 <script>
    function search() {
       var inputText = $('#inputTextBox').val().trim();
@@ -83,7 +99,7 @@
                   $('#result').append(box);
                }
 
-            }
+            }	
 
          }
 
@@ -91,8 +107,11 @@
    }
 </script>
 </head>
-<body>
+<body id = "body">
+<div class="point">
 <h2>원하시는 낚시터 지역을 선택해주세요</h2>
+</div>
+<div id="all">
    <select class="sido" onchange="selectCity()">
       <option value="지역선택">지역선택</option>
       <option value="제주특별자치도">제주도</option>
@@ -110,12 +129,14 @@
       <option value="부산광역시">부산광역시</option>
       <option value="울산광역시">울산광역시</option>
    </select>
-   <div id="result"></div>
-   <div id="map" style="width: 500px; height: 400px;"></div>
+   </div>
+   <div id="result">
+   <img  src="fishing-164977_960_720.jpg"  height="75%" width="75%">
+   	</div>
+   	<div id="map" style="width: 500px; height: 400px; "></div>
 
 <div>
 	<jsp:include page="footer.jsp"></jsp:include>
 	</div>
-   
 </body>
 </html>
