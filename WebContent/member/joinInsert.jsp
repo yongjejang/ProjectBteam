@@ -29,7 +29,7 @@ function checkValue(){
 	var nickname = document.frm.nickname.value; // 닉네임
 	var phone = document.frm.phone.value; // 폰
 	var email = document.frm.email.value; // 이메일 
-	
+	var checked = frm.agree.checked;
 	
 	
 	
@@ -95,6 +95,11 @@ function checkValue(){
 			alert("아이디 중복체크를 해주세요.");
 			return false;
 	}
+	if(checked == false){
+		alert('이용약관에 동의해주세요.');
+		frm.agree.focus();
+		return false;
+	}
 	
 }
 	
@@ -158,7 +163,7 @@ function checkValue(){
 			    		</div>
 			    		<div class="checkbox">
 			    		
-                <input id="agree" type="checkbox" autocomplete="off" chacked>
+                <input id="agree" name="agree" type="checkbox" autocomplete="off" chacked>
                <a href="#">이용약관</a> 에 동의 합니다.
 			    	    </div>
 			    	  <!--   <input type="hidden" name="command" value="member_join" /> -->

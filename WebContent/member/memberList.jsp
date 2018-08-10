@@ -27,7 +27,8 @@
 	width: 400px;
 	border : 1px solid gray;
 	margin : auto;
-
+	margin-top: 100px;
+	
 }
 
 table{
@@ -35,6 +36,8 @@ table{
 	width: 380px;
 	margin : auto;
 	text-align:center;
+	margin-top: 100px;
+	
 
 }
 	

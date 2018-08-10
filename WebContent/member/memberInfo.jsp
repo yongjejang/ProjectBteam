@@ -24,8 +24,9 @@
 #memberInfoArea{
 
 	width: 400px;
-	margin : auto;
+	/* margin : auto; */
 	border: 1px solid gray;
+	margin-top: 100px;
 
 
 }
@@ -33,23 +34,27 @@
 table{
 
 	width: 380px;
-	margin : auto;
+	/* margin : auto; */
 	text-align: center;
+	margin-top: 200px;
 
 }
 
+h2{
+
+	margin-top: 150px;
+	text-align: center
+
+}
 </style>
-
-
-
 
 </head>
 <body>
+<h2>회원관리 시스템 관리자모드(회원정보보기)</h2>
 <div>
 <jsp:include page="../nav.jsp"></jsp:include>
 </div>
 <div class="container">
-  <h2>회원관리 시스템 관리자모드(회원정보보기)</h2>
        
   <table class="table table-striped">
     <thead>

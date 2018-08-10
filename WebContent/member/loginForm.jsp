@@ -45,6 +45,10 @@ function LoginCheck(){
 	}
 	
 }
+//취소 버튼 클릭시 첫화면으로 이동
+function goFirstForm() {
+	location.href="../index.jsp";
+}
 
 </script>
 <!------ Include the above in your HEAD tag ---------->
@@ -71,7 +75,7 @@ function LoginCheck(){
 			    	    	</label>
 			    	    </div>
 			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-			    		<input class="btn btn-lg btn-success btn-block" type="reset" value="Cancel">
+			    		<input class="btn btn-lg btn-success btn-block" type="reset" value="Cancel" onclick=" goFirstForm();">
 			    	</fieldset>
 			      	</form>
 			    </div>
