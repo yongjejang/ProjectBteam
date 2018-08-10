@@ -28,7 +28,7 @@ public class CommunitySearchAction implements Action {
 		
 		
 		CommunityDAO cdao = CommunityDAO.getInstance();
-		List<CommunityVO> indexlist = cdao.search(search1,search2);
+		List<CommunityVO> indexlist = cdao.search(page,search1,search2);
 		
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
