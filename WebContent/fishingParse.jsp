@@ -19,7 +19,7 @@ text-align: center;
 #result{
 text-align: center;
 }
-.sido{
+#sido{
 margin-left: 100px;
 }
 
@@ -71,7 +71,7 @@ margin-left: 100px;
          url : 'fishing2.json',
          dataType : 'json',
          success : function(data) {
-            var sido = $(".sido").val();
+            var sido = $("#sido").val();
             var bigyo;
             var array = new Array();
             $('#result').empty("");
@@ -112,7 +112,7 @@ margin-left: 100px;
 <h2>원하시는 낚시터 지역을 선택해주세요</h2>
 </div>
 <div id="all">
-<select class="sido" onchange="selectCity()"  data-toggle="dropdown">
+<select class="form-control" id="sido" onchange="selectCity()"  data-toggle="dropdown" style="width: 200px"><br>
    
    <span class="caret"></span>
       <option value="지역선택">지역선택</option>
@@ -131,6 +131,7 @@ margin-left: 100px;
       <option value="부산광역시">부산광역시</option>
       <option value="울산광역시">울산광역시</option>
    </select>
+   <br>
    </div>
    <div id="result">
    <img  src="fishing-164977_960_720.jpg"  height="75%" width="75%">
