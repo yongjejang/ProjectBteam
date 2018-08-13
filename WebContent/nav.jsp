@@ -156,8 +156,14 @@ li.active > a.nav-button {
            
           
         	<%
+        	}else
+        	{
+        	%>	
+        	<li class="nav-item1"><a href="member.do?command=member_userinfo" class="left-underline nav-button" data-scroll>내정보</a></li>
+        	<%
         	}
-        
+        	%>
+        <%
         
         
         } else if(session.getAttribute("memberinfo")== null){

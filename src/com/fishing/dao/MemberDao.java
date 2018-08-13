@@ -222,7 +222,35 @@ public class MemberDao {
 			}
 	
 	}  
+    public void updateMember(MemberVO member) throws SQLException{
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
 
+		try {
+			//UPDATE member set password='1111', phone='010-1111-5678', email='cccc@test.com' , nickname='gff' WHERE userid='cccc';;
+			String query = "UPDATE member set password=?, phone=?, email=? WHERE userid=?";
+
+
+			con = DBMangement.getConnection();
+			pstmt = con.prepareStatement(query);
+			
+			pstmt.setString(1, member.getPw());
+			pstmt.setString(2, member.getPhone());
+			pstmt.setString(3, member.getEmail());
+			pstmt.setString(4, member.getId());
+			
+			
+			pstmt.executeUpdate();
+			
+						
+		} catch (SQLException e) {
+	           System.out.println("에러" + e.getMessage());
+			
+		} finally {
+			DBMangement.close(pstmt, con);
+		}
+	} // end updateMember
         
     
 }
