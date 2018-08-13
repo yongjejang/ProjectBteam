@@ -447,6 +447,40 @@ public class CommunityDAO {
 			
 			return allNum;
 		}
+		
+		
+		
+		
+		
+		public List<CommunityVO> pictureTop5() {
+			//select * from fishing.community
+			String query = "select * from community where file is not null order by count desc limit 5";
+
+			List<CommunityVO> list = new ArrayList<CommunityVO>();
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			try {
+				con = DBMangement.getConnection();
+				pstmt = con.prepareStatement(query);
+				rs = pstmt.executeQuery();
+			while (rs.next()) {
+            	list.add(
+                     new CommunityVO(
+                        rs.getString("file"),
+                        rs.getString("title")
+                    		 )
+            			);     
+			}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBMangement.close(rs,  pstmt, con);
+			}
+			
+			return list;
+			}
+		
 }
 		
 		
