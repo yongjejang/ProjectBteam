@@ -20,7 +20,10 @@ public class CommunityVO {
 	private int allNum;
 	
 
-	
+	public CommunityVO(String file, String title){
+		this.file = file;
+		this.title = title;
+	}
 	
 	
 	public CommunityVO(String nicname, Date date, String title, String content, int recommend, String file,
