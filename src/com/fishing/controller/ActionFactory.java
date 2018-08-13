@@ -11,6 +11,8 @@ import com.fishing.controller.action.CommunityViewAction;
 import com.fishing.controller.action.CommunityWriteAction;
 import com.fishing.controller.action.CommunityWriteFormAction;
 import com.fishing.controller.action.IndexAction;
+import com.fishing.member.action.MemberModifyAction;
+import com.fishing.member.action.MemberModifyFormAction;
 import com.fishing.member.action.MemberViewAction;
 import com.fishing.member.action.MemberDeleteAction;
 import com.fishing.member.action.MemberIdCheckAction;
@@ -20,6 +22,7 @@ import com.fishing.member.action.MemberListAction;
 import com.fishing.member.action.MemberLoginAction;
 import com.fishing.member.action.MemberPasswordUpadateAction;
 import com.fishing.member.action.MemberPasswordUpadateFormAction;
+import com.fishing.member.action.MemberUserInfoAction;
 import com.fishing.controller.ActionFactory;
 
 
@@ -78,6 +81,12 @@ public class ActionFactory {
 			action = new MemberPasswordUpadateFormAction();
 		}else if(command.equals("Member_IdCheck")){
 			action = new MemberIdCheckAction();
+		}else if(command.equals("member_modify_form")) {
+			action = new MemberModifyFormAction();
+		}else if(command.equals("member_modify")) {
+			action = new MemberModifyAction();
+		}else if(command.equals("member_userinfo")) {
+			action = new MemberUserInfoAction();
 		}else if(command.equals("index")){
 			action = new IndexAction();
 		}else if(command.equals("community_search")){
