@@ -69,7 +69,7 @@ public class MemberDao {
         ResultSet rs = null;
         
         String loginId = null;
-        String query ="select USERID from member where USERID = ? and PASSWORD = ?";
+        String query ="select USERID from member where USERID = ? and PASSWORD = ? isDelete =0";
         try {
            con = DBMangement.getConnection();
            pstmt = con.prepareStatement(query);
@@ -221,11 +221,16 @@ public class MemberDao {
 				DBMangement.close(rs, pstmt, con);
 			}
 	
+			
 	}  
+<<<<<<< HEAD
+    
+=======
     public void updateMember(MemberVO member) throws SQLException{
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
+>>>>>>> b52644c13021cb6b553d84425332279127ecb528
 
 		try {
 			//UPDATE member set password='1111', phone='010-1111-5678', email='cccc@test.com' , nickname='gff' WHERE userid='cccc';;

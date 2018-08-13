@@ -387,18 +387,19 @@ public class CommunityDAO {
 	         return indexlist;
 	      }
 
-		public List<CommunityVO> search(int page, String search1 , String search2) {
+		public List<CommunityVO> search(int page, String search1 , String search2, String cate) {
 		     Connection con = null;
 	         PreparedStatement pstmt = null;
 	         ResultSet rs = null;
-	         String sql = "select * from community where "+search1+" like ? && ref = 0 order by communityNum desc limit ?,?";
+	         String sql = "select * from community where category in(?) && "+search1+"  like ? && ref = 0 order by communityNum desc limit ?,?";
 	         List<CommunityVO> indexlist = new ArrayList<CommunityVO>();
 	         try{
 	        		con = DBMangement.getConnection();
 		            pstmt = con.prepareStatement(sql);
-		            pstmt.setString(1, "%"+search2+"%");
-		            pstmt.setInt(2, (page - 1) * 10);
-					pstmt.setInt(3, 10);
+		            pstmt.setString(1, cate);
+		            pstmt.setString(2, "%"+search2+"%");
+		            pstmt.setInt(3, (page - 1) * 10);
+					pstmt.setInt(4, 10);
 		            System.out.println(pstmt);
 		            rs = pstmt.executeQuery();
 	            while (rs.next()) {

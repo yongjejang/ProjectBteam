@@ -84,7 +84,12 @@
 	
 	
 	<form method="post" action="community.do?command=community_search">
-	
+		<select name="cate">
+    		<option value="0,1,2" selected>전체</option>
+    		<option value="1" >바다</option>
+    		<option value="0">민물</option>
+    		<option value="2">QnA</option>
+	     </select>
 	     <select name="search1">
     		 <option value="title" selected>제목</option>
     		 <option value="content" selected>내용</option>

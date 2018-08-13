@@ -86,9 +86,15 @@
 	  <form method="get" action='community.do'>
 	  <!-- ?command=community_search&page=1 -->
 				<!-- +search1+"&"+search2='+search2' -->
+		<select name="cate">
+    		<option value="0,1,2" selected>전체</option>
+    		<option value="1" >바다</option>
+    		<option value="0">민물</option>
+    		<option value="2">QnA</option>
+	     </select>
 	     <select name="search1">
     		 <option value="title" selected>제목</option>
-    		 <option value="content" selected>내용</option>
+    		 <option value="content" >내용</option>
     		 <option value="nicName">작성자</option>
 	     </select>
 		<input type="text" placeholder="내용을 입력해주세요" name="search2" class="search">

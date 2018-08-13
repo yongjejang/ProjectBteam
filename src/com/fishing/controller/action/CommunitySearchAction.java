@@ -18,6 +18,7 @@ public class CommunitySearchAction implements Action {
 	public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String search1 = request.getParameter("search1");
 		String search2 = request.getParameter("search2");
+		String cate = request.getParameter("cate");
 		System.out.println("이게1번"+search1); //어떤걸 검색을 하게 될지 
 		System.out.println("이게2번"+search2); //이거는 어떤 내용인지
 		int page = 1;
@@ -28,7 +29,7 @@ public class CommunitySearchAction implements Action {
 		
 		
 		CommunityDAO cdao = CommunityDAO.getInstance();
-		List<CommunityVO> indexlist = cdao.search(page,search1,search2);
+		List<CommunityVO> indexlist = cdao.search(page,search1,search2,cate);
 		
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
