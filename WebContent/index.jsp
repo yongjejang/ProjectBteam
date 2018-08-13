@@ -435,7 +435,7 @@ function showSlides() {
    <div class="row">
       <div class="col-3">
         <h2>바다 낚시 게시판 조회수 top5</h2>
-        <h1>${img }</h1>
+        <%-- <h1>${img }</h1> --%>
         <table border="0" width="100%" height="100%" align="center" class="table"> 
         <tr>
          <th>제목</th>   
