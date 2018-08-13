@@ -71,7 +71,7 @@ public class CommunityListAction implements Action {
 			List<CommunityVO> list = cDao.selectAllBoard(page,category);
 			int allNum= cDao.AllBoardcount(category);
 			//System.out.println(allNum);
-			System.out.println(list);
+			
 			
 			
 			

@@ -66,6 +66,18 @@ public class CommunityDAO {
 									));
 				}
 			}
+			if(category == 2){
+				while(rs.next()) {
+					list.add(
+						new CommunityVO(
+									rs.getInt("communityNum"),
+									rs.getString("title"),
+									rs.getDate("date"),
+									rs.getString("nicname"),
+									rs.getInt("count")
+									));
+				}
+			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
