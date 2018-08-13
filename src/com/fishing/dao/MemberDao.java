@@ -69,7 +69,7 @@ public class MemberDao {
         ResultSet rs = null;
         
         String loginId = null;
-        String query ="select USERID from member where USERID = ? and PASSWORD = ?";
+        String query ="select USERID from member where USERID = ? and PASSWORD = ? isDelete =0";
         try {
            con = DBMangement.getConnection();
            pstmt = con.prepareStatement(query);
@@ -221,7 +221,9 @@ public class MemberDao {
 				DBMangement.close(rs, pstmt, con);
 			}
 	
+			
 	}  
+    
 
         
     

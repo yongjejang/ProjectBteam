@@ -13,7 +13,9 @@ import com.fishing.controller.action.CommunityWriteFormAction;
 import com.fishing.controller.action.IndexAction;
 import com.fishing.member.action.MemberViewAction;
 import com.fishing.member.action.MemberDeleteAction;
+import com.fishing.member.action.MemberDeleteFormAction;
 import com.fishing.member.action.MemberIdCheckAction;
+import com.fishing.member.action.MemberInfomationAction;
 import com.fishing.member.action.MemberJoinAction;
 import com.fishing.member.action.MemberJoinFormAction;
 import com.fishing.member.action.MemberListAction;
@@ -82,6 +84,10 @@ public class ActionFactory {
 			action = new IndexAction();
 		}else if(command.equals("community_search")){
 			action = new CommunitySearchAction();
+		}else if(command.equals("member_delete_form")){
+			action = new MemberDeleteFormAction();
+		}else if(command.equals("member_infomation")){
+			action = new MemberInfomationAction();
 		}
 		
 		return action;

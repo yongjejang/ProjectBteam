@@ -25,15 +25,11 @@ public class MemberDeleteAction implements Action {
 		System.out.println(Id);
 		
 		
-		mvo.setId(Id);
-		
-		
-		boolean deleteResult = false;
-		
+		mvo.setId(Id);		
 		int deleteCount = mdao.deleteMember(Id);
 		if(deleteCount > 0){
 			
-			deleteResult = true;
+			boolean deleteResult = true;
 			 PrintWriter out = response.getWriter();
 	    	  response.setContentType("text/html;charset=utf-8");
 	    	  
