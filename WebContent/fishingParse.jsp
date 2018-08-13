@@ -112,7 +112,9 @@ margin-left: 100px;
 <h2>원하시는 낚시터 지역을 선택해주세요</h2>
 </div>
 <div id="all">
-   <select class="sido" onchange="selectCity()">
+<select class="sido" onchange="selectCity()"  data-toggle="dropdown">
+   
+   <span class="caret"></span>
       <option value="지역선택">지역선택</option>
       <option value="제주특별자치도">제주도</option>
       <option value="강원도">강원도</option>

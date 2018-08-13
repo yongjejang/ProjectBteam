@@ -132,7 +132,7 @@ function checkValue(){
 			    	 
                     <fieldset class="Edit-text">
 			    	  	<div class="form-group">
-			    		   아이디(*)  <input class="form-control" placeholder="ID" name="userId" id="userId" type="text" value="${member.id}"/>
+			    		   아이디 : ${member.id}
 			    		 
 			    		</div>
 			    		<div class="form-group">
