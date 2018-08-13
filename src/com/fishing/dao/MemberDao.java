@@ -223,14 +223,12 @@ public class MemberDao {
 	
 			
 	}  
-<<<<<<< HEAD
-    
-=======
+
     public void updateMember(MemberVO member) throws SQLException{
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
->>>>>>> b52644c13021cb6b553d84425332279127ecb528
+
 
 		try {
 			//UPDATE member set password='1111', phone='010-1111-5678', email='cccc@test.com' , nickname='gff' WHERE userid='cccc';;

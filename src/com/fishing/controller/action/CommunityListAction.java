@@ -70,15 +70,11 @@ public class CommunityListAction implements Action {
 		}else{
 			List<CommunityVO> list = cDao.selectAllBoard(page,category);
 			int allNum= cDao.AllBoardcount(category);
-			//System.out.println(allNum);
-<<<<<<< HEAD
-			
-			
-=======
+
 			System.out.println(list);
 			System.out.println(category);
 			System.out.println("규태");
->>>>>>> df1dcc7885e6906c7539c5ee8a096fdc28b056e2
+
 			
 			
 			request.setAttribute("communityList", list);
