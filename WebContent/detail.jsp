@@ -12,13 +12,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-
-<div>
-<jsp:include page="nav.jsp"></jsp:include>
-</div>
-
 <body>
-
+	<jsp:include page="nav.jsp"></jsp:include>
    <script>
 
       $(document).ready(
@@ -107,8 +102,8 @@
    <div id="map" style="width: 100%; height: 350px;"></div>
    <div id="fishInfo"></div>
    
-   <div>
+
 	<jsp:include page="footer.jsp"></jsp:include>
-	</div>
+	
 </body>
 </html>

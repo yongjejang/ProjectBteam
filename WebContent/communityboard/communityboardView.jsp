@@ -14,7 +14,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <title>Insert title here</title>
+<style type="text/css">
+.all{
 
+margin-top: 3%
+
+}
+</style>
 
 <script>
 	function boardCheck() {
@@ -84,7 +90,7 @@
 		session.getAttribute("reply");
 		
 	%>
-
+	<div class="all">
 	<div class="row">
 		<div class="col-xs-2 col-md-2"></div>
 		<div class="col-xs-8 col-md-8">
@@ -200,7 +206,7 @@
 			<input type="button" class="btn btn-info" value="등록" onclick="save()">
 		</form>
 	</div>
-
+</div>
 
 </body>
 </html>
