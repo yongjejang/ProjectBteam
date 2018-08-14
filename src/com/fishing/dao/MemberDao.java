@@ -82,7 +82,7 @@ public class MemberDao {
            }
            
         } catch (SQLException e) {
-           System.out.println("에러" + e.getMessage());
+           System.out.println("에러 :" + e.getMessage());
         } finally {
            DBMangement.close(rs, pstmt, con);
         }
@@ -171,7 +171,7 @@ public class MemberDao {
    }
     public int deleteMember(String id){
       	//delete from fishing.member where userid = 'aaaa';
-      	String query ="update from fishing.member where userid = ?, userpw = ?";
+      	String query ="delete from fishing.member where userid = ?";
   		int deleteCount = 0;
   		Connection con = null;
   		PreparedStatement pstmt = null;
@@ -194,6 +194,7 @@ public class MemberDao {
   		
       	return deleteCount;
       }
+    
     public boolean duplicateIdCheck(String id) {
 		// TODO Auto-generated method stub
 	
