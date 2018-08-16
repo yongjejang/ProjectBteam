@@ -18,8 +18,11 @@ text-align: center;
 }
 #result{
 text-align: center;
+
 }
 #sido{
+position: relative;
+left: 90px;
 margin-left: 100px;
 }
 
@@ -116,6 +119,9 @@ margin-left: 100px;
                         + "</span><span>&nbsp;&nbsp&nbsp&nbsp이용요금: "
                         + fee + "</span><hr>";
 
+                        
+                        
+                        
                   $('#result').append(box);
                }
 
@@ -155,7 +161,7 @@ margin-left: 100px;
    <br>
    </div>
    <div id="result">
-   <img  src="fishing-164977_960_720.jpg"  height="75%" width="75%">
+   <img  id ="img" src="fishing-164977_960_720.jpg"  height="75%" width="75%">
    	</div>
    	<div id="map" style="width: 500px; height: 400px; "></div>
 
