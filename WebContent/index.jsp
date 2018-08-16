@@ -376,7 +376,7 @@ to {
 <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
 
 </div>
-<div id="sajin" style="margin:auto; width: 100%;" >
+<div id="sajin" style="margin-top: 5%; width: 100%;" >
       <br>
       <c:forEach var="imgs" items="${img }" varStatus="status">
       <c:choose>
@@ -395,9 +395,15 @@ to {
       </div>
       </c:otherwise>
       </c:choose>
+<<<<<<< HEAD
       </c:forEach>
       </div class="dot">
       <div style="text-align: center;">
+=======
+      </c:forEach>	
+      </div>
+      <div style="text-align: center; margin-top: 3%"  >
+>>>>>>> f9afe8b40a00a1ac68c9b3c8f1e6ed5848344c38
          <span class="dot" onclick="currentSlide(1)"></span> 
          <span class="dot" onclick="currentSlide(2)"></span> 
          <span class="dot" onclick="currentSlide(3)"></span>
@@ -477,6 +483,9 @@ to {
                </c:forEach>
             </table>
          </div>
+      </div>
+      <div>
+         <jsp:include page="weather.jsp"></jsp:include>
       </div>
       <div>
          <jsp:include page="footer.jsp"></jsp:include>
