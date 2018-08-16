@@ -169,30 +169,31 @@ public class MemberDao {
   
           
    }
-    public int deleteMember(String id){
+    public void deleteMember(String userId,String password){
       	//delete from fishing.member where userid = 'aaaa';
-      	String query ="delete from fishing.member where userid = ?";
-  		int deleteCount = 0;
+      	String query ="UPDATE fishing.member SET isdelete =1 WHERE userid = ? and password = ?";
   		Connection con = null;
   		PreparedStatement pstmt = null;
+		
 
   		
 
   		try {
   	           con = DBMangement.getConnection();
   	           pstmt = con.prepareStatement(query);
-  	           pstmt.setString(1, id);
-  	
-  	           deleteCount = pstmt.executeUpdate();
+  	         pstmt.setString(1, userId);
+  	         pstmt.setString(2, password);
   	           
-  	           
-  	        } catch (SQLException e) {
+ 			pstmt.executeUpdate();
+ 			System.out.println("실행쿼리 : "+ pstmt);
+    
+  		} catch (SQLException e) {
   	           System.out.println("에러" + e.getMessage());
   	        } finally {
   	           DBMangement.close(pstmt, con);
   	        }
   		
-      	return deleteCount;
+   
       }
     
     public boolean duplicateIdCheck(String id) {
@@ -256,6 +257,8 @@ public class MemberDao {
 			DBMangement.close(pstmt, con);
 		}
 	} // end updateMember
+
+	
         
     
 }
