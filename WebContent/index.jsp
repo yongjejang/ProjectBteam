@@ -9,7 +9,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
 <title>Untitled Document</title>
 <meta charset="UTF-8">
 <meta name="description" content="">
@@ -17,14 +16,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-=======
-    <title>Untitled Document</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type=”text/javascript” src=”/path/to/jquery.js”></script>
->>>>>>> d162a9a2ddfed48fb583c6951c5241ce4d506fac
 
 </head>
 <style>
@@ -310,27 +301,14 @@ to {
 	z-index: 999;
 }
 #sajin{
-
+position: absolute;
+top: 0; bottom: 0;
+left:0; right: 0;
+margin: auto;
 }
 /* Blank lines for ease and view */
 /* */
 </style>
-<<<<<<< HEAD
-=======
-</head>
-<body>
-
-
-<!-- 플러스친구 -->
-<a href="http://pf.kakao.com/_xnVlxfxl" class="fltBanner1" target="_blank">
-	<img src="https://cdn.imweb.me/upload/S20170530592cf901c1430/5a5d4a959dc39.png" width="128px" height="128px">
-</a>
-
-<!-- 전화연락 -->
-<a href="tel:02-123-1234" class="fltBanner2" target="_blank">
-	<img src="https://cdn.imweb.me/upload/S20170530592cf901c1430/5a5d4a9583340.png" width="128px" height="128px">
-</a>
->>>>>>> d162a9a2ddfed48fb583c6951c5241ce4d506fac
 
 <script>
 	if (location.href.indexOf("?") == -1) {
@@ -356,7 +334,6 @@ to {
 		$(window).scroll(function() {
 			EasyPeasyParallax();
 
-<<<<<<< HEAD
 		});
 	});
 	
@@ -384,39 +361,28 @@ to {
 	<div class="slideshow-container">
 
 		<!-- <div class="mySlides fade">
-=======
-<div class="mySlides">
->>>>>>> d162a9a2ddfed48fb583c6951c5241ce4d506fac
   <div class="numbertext">1 / 3</div>
-  <img src="${img[0].file }" class="img-rounded" alt="Cinque Terre" width="100%" height="500px">
+  <img src="img1.jpg" class="img-rounded" alt="Cinque Terre" width="100%" height="500px">
   <div class="text">Caption Text</div>
-<h2>      
-</h2>
 </div>
-  
 
-<!--<div class="mySlides fade">
+<div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
-  <c:forEach var="img" items="${img }">
-  <img src="${img.file }" class="img-rounded" alt="Cinque Terre" width="100%" height="500px">
-  </c:forEach>
+  <img src="img4.jpg"class="img-rounded" alt="Cinque Terre" width="100%"height="500px">
   <div class="text">Caption Two</div>
-</div>-->
+</div>
 
-<!--<div class="mySlides fade">
+<div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
-   <c:forEach var="img" items="${img }">
-  <img src="${img.file }" class="img-rounded" alt="Cinque Terre" width="100%" height="500px">
-  </c:forEach>
+  <img src="img3.jpg" class="img-rounded" alt="Cinque Terre" width="100%"height="500px">
   <div class="text">Caption Three</div>
-</div>-->
+</div>
 
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
 
 </div>
-<<<<<<< HEAD
-<div style="width: 250px; margin: auto;" id="sajin" align="" >
+<div style="width: 250px; margin: auto;" id="sajin" >
 		<br>
 		<c:forEach var="imgs" items="${img }" varStatus="status">
 		<c:choose>
@@ -436,7 +402,7 @@ to {
 		</c:otherwise>
 		</c:choose>
 		</c:forEach>
-		<div style="text-align: center" >
+		<div style="margin: auto;" >
 			<span class="dot" onclick="currentSlide(1)"></span> 
 			<span class="dot" onclick="currentSlide(2)"></span> 
 			<span class="dot" onclick="currentSlide(3)"></span>
@@ -453,10 +419,6 @@ to {
 			imgdiv.style.display="block";
 		}
 		</script>
-=======
-<br>
-
->>>>>>> d162a9a2ddfed48fb583c6951c5241ce4d506fac
 
 		<div class="row">
 			<div class="col-3">
@@ -468,7 +430,6 @@ to {
 
 					</tr>
 
-<<<<<<< HEAD
 					<c:forEach var="bestsea" items="${communityList }">
 
 						<tr>
@@ -487,111 +448,16 @@ to {
 					class="table">
 					<tr>
 	
-=======
-		<script>
-	//	var slideIndex = 1;
-	//	showSlides(slideIndex);
-		
-	//	function plusSlides(n) {
-	//	  showSlides(slideIndex += n);
-	//	}
-		
-	//	function currentSlide(n) {
-	//	  showSlides(slideIndex = n);
-	//	}
-		
-	//	function showSlides(n) {
-	//	  var i;
-	//	  var slides = document.getElementsByClassName("mySlides");
-	//	  var dots = document.getElementsByClassName("dot");
-	//	  if (n > slides.length) {slideIndex = 1}    
-	//	  if (n < 1) {slideIndex = slides.length}
-	//	  for (i = 0; i < slides.length; i++) {
-	//	      slides[i].style.display = "none";  
-	//	  }
-	//	  for (i = 0; i < dots.length; i++) {
-	//	      dots[i].className = dots[i].className.replace(" active", "");
-	//	  }
-	//	  slides[slideIndex-1].style.display = "block";  
-	//	  dots[slideIndex-1].className += " active";
-	//	}
-	
-	 $.ajax({
-			type: 'POST',
-			url : 'Ajaxtest2',
-			data : data,//서버에게 보낼 데이터
-			success:function (data){
-				
-			}
-			,error:function(req){
-				alert('통신실패,상태 : ' +req.responseText);
-			}
-		
-		}); 
-
-	
-	
-	
-	var slideIndex = 0;
-
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-
-	colsole.log("!");
-
-    
-    
-   
-    for (i = 0; i < slides.length; i++) {
-       //slides[i].style.display = "none";
-       
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 5000); // Change image every 2 seconds
-}
-	
-
-		</script>
->>>>>>> d162a9a2ddfed48fb583c6951c5241ce4d506fac
 
 					</tr>
 
-<<<<<<< HEAD
 					<c:forEach var="bestmin" items="${minList }">
-=======
-    
-   <div class="row">
-      <div class="col-3">
-<<<<<<< HEAD
-        <h2>민물 낚시 게시판 조회수 top5</h2>
-            ${img[0].file }<br>
-            ${img[1].file }<br>
-            ${img[2].file }<br>
-            ${img[3].file }<br>
-       
-=======
-        <h2>바다 낚시 게시판 조회수 top5</h2>
-        <%-- <h1>${img }</h1> --%>
->>>>>>> aeb3b85df200779f9f16ac53842ba73dd0d7341d
-        <table border="0" width="100%" height="100%" align="center" class="table"> 
-        <tr>
-         <th>제목</th>   
->>>>>>> d162a9a2ddfed48fb583c6951c5241ce4d506fac
 
 						<tr>
 
 							<td><a
 								href='community.do?command=community_view&communityNum=${bestmin.communityNum}'>${bestmin.title }</a></td>
 
-<<<<<<< HEAD
 						</tr>
 					</c:forEach>
 				</table>
@@ -621,54 +487,4 @@ function showSlides() {
 			<jsp:include page="footer.jsp"></jsp:include>
 		</div>
 </body>
-=======
-			</tr>
-		</c:forEach>
-   </table>
-      </div>
-      
-      <div class="col-3">
-        <h2>바다 낚시 게시판 조회수 top5</h2>
-                <table border="0" width="100%" height="100%" align="center" class="table"> 
-        <tr>
-         <th>제목</th>   
-
-      	</tr>
-      
-      <c:forEach var="bestmin" items="${minList }">
-			
-			<tr>
-
-				<td><a href='community.do?command=community_view&communityNum=${bestmin.communityNum}'>${bestmin.title }</a></td>
-
-			</tr>
-		</c:forEach>
-   </table>
-      </div>
-      <div class="col-3">
-        <h2>Q&A</h2>
-        
-                <table border="0" width="100%" height="100%" align="center" class="table"> 
-        <tr>
-         <th>제목</th>   
-
-      	</tr>
-      
-      <c:forEach var="bestqna" items="${qnaList }">
-			
-			<tr>
-
-				<td><a href='community.do?command=community_view&communityNum=${bestqna.communityNum}'>${bestqna.title }</a></td>
-
-			</tr>
-		</c:forEach>
-   </table>
-      </div>
-    </div>
-   	<div>
-	<jsp:include page="footer.jsp"></jsp:include>
-	</div>
-
-  </body>
->>>>>>> d162a9a2ddfed48fb583c6951c5241ce4d506fac
 </html>
