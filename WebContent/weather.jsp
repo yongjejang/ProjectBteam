@@ -20,17 +20,18 @@
 		
 		var map = new daum.maps.Map(container, options);
         }
-        function temp(weather) { // 온도
+        function temp(weather,today) { // 온도
             $.ajax({
                 type: 'GET', // 통신방식(get/post) 
-                url: 'http://www.khoa.go.kr/oceangrid/grid/api/tideObsAirTemp/search.do?&ServiceKey=opFOJf4/Ing8bukYHXXrrVW0ju1TL0D/5OM5/pmwXx9SElX0Di8UnkUIWXlA6QmFdfoI44Z2wLRdbPgc5NGXw==&ObsCode='+ weather +'&Date=20180703&ResultType=json', // 통신할 대상 페이지
+                url: 'http://www.khoa.go.kr/oceangrid/grid/api/tideObsAirTemp/search.do?&ServiceKey=opFOJf4/Ing8bukYHXXrrVW0ju1TL0D/5OM5/pmwXx9SElX0Di8UnkUIWXlA6QmFdfoI44Z2wLRdbPgc5NGXw==&ObsCode='+ weather +'&Date='+today+'&ResultType=json', // 통신할 대상 페이지
                 dataType: 'json', //서버로부터 받을 데이터 형식
                 success: function (data) { // 통신에 성공했을때
                     console.log(data);
                    
 //                  document.getElementById('name').innerHTML=data.name;
-                    
-                    $('#temperature').text(data.result.data[0].air_temp + "℃");
+                    var i = data.result.data.length
+                    console.log("이거의 배열의 길이는" + i);
+                    $('#temperature').text(data.result.data[i-1].air_temp + "℃");
                     
                     var array = new Array();
                     var lat = data.result.meta.obs_lat;
@@ -48,17 +49,17 @@
             });
         };
     
-       function airpres(weather) { //기압
+       function airpres(weather,today) { //기압
             $.ajax({
                 type: 'GET', // 통신방식(get/post) 
-                url: 'http://www.khoa.go.kr/oceangrid/grid/api/tideObsAirPres/search.do?&ServiceKey=opFOJf4/Ing8bukYHXXrrVW0ju1TL0D/5OM5/pmwXx9SElX0Di8UnkUIWXlA6QmFdfoI44Z2wLRdbPgc5NGXw==&ObsCode='+ weather +'&Date=20180703&ResultType=json', // 통신할 대상 페이지
+                url: 'http://www.khoa.go.kr/oceangrid/grid/api/tideObsAirPres/search.do?&ServiceKey=opFOJf4/Ing8bukYHXXrrVW0ju1TL0D/5OM5/pmwXx9SElX0Di8UnkUIWXlA6QmFdfoI44Z2wLRdbPgc5NGXw==&ObsCode='+ weather +'&Date='+today+'&ResultType=json', // 통신할 대상 페이지
                 dataType: 'json', //서버로부터 받을 데이터 형식
                 success: function (data) { // 통신에 성공했을때
                     console.log(data);
-                   
+                    var i = data.result.data.length;
 //                  document.getElementById('name').innerHTML=data.name;
                     
-                    $('#atm').text(data.result.data[0].air_pres +"hPa" );
+                    $('#atm').text(data.result.data[i-1].air_pres +"hPa" );
                     
                     
                 }
@@ -68,17 +69,17 @@
             });
         };
     
-        function watertemp(weather) { //수온
+        function watertemp(weather,today) { //수온
             $.ajax({
                 type: 'GET', // 통신방식(get/post) 
-                url: 'http://www.khoa.go.kr/oceangrid/grid/api/tideObsTemp/search.do?&ServiceKey=opFOJf4/Ing8bukYHXXrrVW0ju1TL0D/5OM5/pmwXx9SElX0Di8UnkUIWXlA6QmFdfoI44Z2wLRdbPgc5NGXw==&ObsCode='+ weather +'&Date=20180703&ResultType=json', // 통신할 대상 페이지
+                url: 'http://www.khoa.go.kr/oceangrid/grid/api/tideObsTemp/search.do?&ServiceKey=opFOJf4/Ing8bukYHXXrrVW0ju1TL0D/5OM5/pmwXx9SElX0Di8UnkUIWXlA6QmFdfoI44Z2wLRdbPgc5NGXw==&ObsCode='+ weather +'&Date='+today+'&ResultType=json', // 통신할 대상 페이지
                 dataType: 'json', //서버로부터 받을 데이터 형식
                 success: function (data) { // 통신에 성공했을때
                     console.log(data);
                    
 //                  document.getElementById('name').innerHTML=data.name;
-                    
-                    $('#water_temp').text(data.result.data[0].water_temp + "℃");
+                    var i = data.result.data.length;
+                    $('#water_temp').text(data.result.data[i-1].water_temp + "℃");
                     
                     
                 }
@@ -87,19 +88,20 @@
                 }
             });
         };
-   
-        function speed(weather) { //풍속 및 풍향
+   		
+        function speed(weather,today) { //풍속 및 풍향
         	
             $.ajax({
                 type: 'GET', // 통신방식(get/post) 
-                url: 'http://www.khoa.go.kr/oceangrid/grid/api/tideObsWind/search.do?&ServiceKey=opFOJf4/Ing8bukYHXXrrVW0ju1TL0D/5OM5/pmwXx9SElX0Di8UnkUIWXlA6QmFdfoI44Z2wLRdbPgc5NGXw==&ObsCode='+weather+'&Date=20180703&ResultType=json', // 통신할 대상 페이지
+                url: 'http://www.khoa.go.kr/oceangrid/grid/api/tideObsWind/search.do?&ServiceKey=opFOJf4/Ing8bukYHXXrrVW0ju1TL0D/5OM5/pmwXx9SElX0Di8UnkUIWXlA6QmFdfoI44Z2wLRdbPgc5NGXw==&ObsCode='+weather+'&Date='+today+'&ResultType=json', // 통신할 대상 페이지
                 dataType: 'json', //서버로부터 받을 데이터 형식
                 success: function (data) { // 통신에 성공했을때
                     console.log(data);
             
+                    var i = data.result.data.length;
                     
-                    $('#Wind_speed').text(data.result.data[0].wind_speed +"m/s");
-                    $('#wind_dir').text(data.result.data[0].wind_dir);
+                    $('#Wind_speed').text(data.result.data[i-1].wind_speed +"m/s");
+                    $('#wind_dir').text(data.result.data[i-1].wind_dir);
                     $('#name').text(data.result.meta.obs_post_name);
                     
                 }
@@ -111,12 +113,23 @@
         
         function selectweather() {
     		var weather = $(".form-control").val();
-    		console.log(weather);
-    		
-    		speed(weather);
-    		watertemp(weather);
-    		airpres(weather);
-    		temp(weather);
+    		var date = new Date();
+    	    var year = date.getFullYear();
+    	    var month = date.getMonth()+1
+    	    var day = date.getDate();
+    	    if(month < 10){
+    	        month = "0"+month;
+    	    }
+    	    if(day < 10){
+    	        day = "0"+day;
+    	    }
+    	 
+    	    var today = year+""+month+""+day;
+			
+    		speed(weather,today);
+    		watertemp(weather,today);
+    		airpres(weather,today);
+    		temp(weather,today);
     	}
 
     </script>
@@ -191,6 +204,7 @@
 </h3>
 </div>
    <h5 style="margin-left: 29.5%">해당 날씨는 바닷가 기준입니다.</h5>
+   <h5 style="margin-left: 29.5%">해당 지도의 위도,경도는 관측소 기준입니다.</h5>
    </div>
  
 
