@@ -462,12 +462,17 @@ function showSlides() {
     
    <div class="row">
       <div class="col-3">
+<<<<<<< HEAD
         <h2>민물 낚시 게시판 조회수 top5</h2>
             ${img[0].file }<br>
             ${img[1].file }<br>
             ${img[2].file }<br>
             ${img[3].file }<br>
        
+=======
+        <h2>바다 낚시 게시판 조회수 top5</h2>
+        <%-- <h1>${img }</h1> --%>
+>>>>>>> aeb3b85df200779f9f16ac53842ba73dd0d7341d
         <table border="0" width="100%" height="100%" align="center" class="table"> 
         <tr>
          <th>제목</th>   
