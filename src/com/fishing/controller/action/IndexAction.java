@@ -1,6 +1,7 @@
 package com.fishing.controller.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,10 +30,9 @@ public class IndexAction implements Action {
 		session.setAttribute("img", list);
 		
 		
-		
-		
-		
-		
+
+		PrintWriter w = response.getWriter();
+			
 		
 		
 		
@@ -53,13 +53,21 @@ public class IndexAction implements Action {
 				break;
 			}
 		}
+		Gson gson = new Gson();
+        w.print(gson.toJson(list));
 		
+		
+		
+        w.flush();
+        w.close();
 		
 //		System.out.println(list);
 //		request.setAttribute("communityList", list);
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
+		
+
 	}
 	
 }

@@ -14,6 +14,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type=”text/javascript” src=”/path/to/jquery.js”></script>
 
     
 </head>
@@ -332,6 +333,7 @@ img {
 </head>
 <body>
 
+
 <!-- 플러스친구 -->
 <a href="http://pf.kakao.com/_xnVlxfxl" class="fltBanner1" target="_blank">
 	<img src="https://cdn.imweb.me/upload/S20170530592cf901c1430/5a5d4a959dc39.png" width="128px" height="128px">
@@ -344,32 +346,37 @@ img {
 
 <div class="slideshow-container">
 
-<div class="mySlides fade">
+<div class="mySlides">
   <div class="numbertext">1 / 3</div>
-  <img src="img1.jpg" class="img-rounded" alt="Cinque Terre" width="100%" height="500px">
+  <img src="${img[0].file }" class="img-rounded" alt="Cinque Terre" width="100%" height="500px">
   <div class="text">Caption Text</div>
+<h2>      
+</h2>
 </div>
+  
 
-<div class="mySlides fade">
+<!--<div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
-  <img src="img4.jpg"class="img-rounded" alt="Cinque Terre" width="100%"height="500px">
+  <c:forEach var="img" items="${img }">
+  <img src="${img.file }" class="img-rounded" alt="Cinque Terre" width="100%" height="500px">
+  </c:forEach>
   <div class="text">Caption Two</div>
-</div>
+</div>-->
 
-<div class="mySlides fade">
+<!--<div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
-  <img src="img3.jpg" class="img-rounded" alt="Cinque Terre" width="100%"height="500px">
+   <c:forEach var="img" items="${img }">
+  <img src="${img.file }" class="img-rounded" alt="Cinque Terre" width="100%" height="500px">
+  </c:forEach>
   <div class="text">Caption Three</div>
-</div>
+</div>-->
 
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
 </div>
 <br>
-<% 
-session.getAttribute("img");
-%>
+
 
 
 <div style="text-align:center">
@@ -406,18 +413,37 @@ session.getAttribute("img");
 	//	  dots[slideIndex-1].className += " active";
 	//	}
 	
+	 $.ajax({
+			type: 'POST',
+			url : 'Ajaxtest2',
+			data : data,//서버에게 보낼 데이터
+			success:function (data){
+				
+			}
+			,error:function(req){
+				alert('통신실패,상태 : ' +req.responseText);
+			}
+		
+		}); 
+
 	
 	
 	
 	var slideIndex = 0;
-showSlides();
 
 function showSlides() {
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
+
+	colsole.log("!");
+
+    
+    
+   
     for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
+       //slides[i].style.display = "none";
+       
     }
     slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1}    
@@ -428,14 +454,20 @@ function showSlides() {
     dots[slideIndex-1].className += " active";
     setTimeout(showSlides, 5000); // Change image every 2 seconds
 }
+	
+
 		</script>
 
 
     
    <div class="row">
       <div class="col-3">
-        <h2>바다 낚시 게시판 조회수 top5</h2>
-        <h1>${img }</h1>
+        <h2>민물 낚시 게시판 조회수 top5</h2>
+            ${img[0].file }<br>
+            ${img[1].file }<br>
+            ${img[2].file }<br>
+            ${img[3].file }<br>
+       
         <table border="0" width="100%" height="100%" align="center" class="table"> 
         <tr>
          <th>제목</th>   
@@ -454,7 +486,7 @@ function showSlides() {
       </div>
       
       <div class="col-3">
-        <h2>민물 낚시 게시판 조회수 top5</h2>
+        <h2>바다 낚시 게시판 조회수 top5</h2>
                 <table border="0" width="100%" height="100%" align="center" class="table"> 
         <tr>
          <th>제목</th>   
@@ -473,6 +505,7 @@ function showSlides() {
       </div>
       <div class="col-3">
         <h2>Q&A</h2>
+        
                 <table border="0" width="100%" height="100%" align="center" class="table"> 
         <tr>
          <th>제목</th>   
