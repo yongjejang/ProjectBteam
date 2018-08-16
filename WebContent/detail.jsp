@@ -4,13 +4,46 @@
 <!DOCTYPE html>
 
 <html>
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript"
    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=147083ba214eba25dfc2dc373246233c"></script>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<style type="text/css">
+
+	/* body{
+			width:100%;
+			height: 100%;
+			background-image: url("img5.jpg");
+			background-repeat: no-repeat;
+			background-size: 100%;
+	}
+	h2{
+            background-color: azure;
+             padding : 10px;
+            
+        }
+	h3{
+            background-color: azure;
+             padding : 10px;
+          
+        }  */
+	h2{
+		text-align: center;
+	}
+	#fishInfo{
+		
+		margin-top: 100px;
+	
+	}
+
+</style>
 </head>
 <body>
 	<jsp:include page="nav.jsp"></jsp:include>
@@ -54,17 +87,50 @@
                            var fishingName = data.records[i].낚시터명;
                            var fishingType = data.records[i].낚시터유형;
                            var road = data.records[i].소재지도로명주소;
-                           var addr = data.records[i].소재지번주소;
+                           var addr = data.records[i].소재지지번주소;
                            var fishingNum = data.records[i].낚시터전화번호;
+                           var ManagementagencyNum = data.records[i].관리기관전화번호;
                            var waterArea = data.records[i].수면적;
                            var fishes = data.records[i].주요어종;
                            var facility = data.records[i].수상시설물유형;
                            var convenience = data.records[i].편익시설현황;
                            var fee = data.records[i].이용요금;        
                            
-                           console.log("parseLat : "+parseLat+"    webLat : "+webLat)
+                           console.log("parseLat : "+parseLat+"    webLat : "+webLat);
+                           console.log("road : "+road+ " addr : "+ addr);
    						
-                           var box = "<h2>낚시터 : " + fishingName + "</h2><hr><h2>주소 : " + road + "</h2><h3>이용요금 : "+fee+"</h3><hr><h2>주요어종 : "+fishes+"</h2><h2>편의시설 : "+convenience+"</h2><h2>수상시설물 : "+facility+"</h2><h2>전화번호 : "+fishingNum+"</h2>";
+                           if(!fishingNum){
+                        	   fishingNum = ManagementagencyNum
+                        	   
+                           }
+                           if(!road){
+                        	   road = addr
+                        	   
+                           }
+                           
+                          /*  var box = "<h2>낚시터 : " + fishingName + "</h2><hr><h2>주소 : " + road + "</h2><h3>이용요금 : "+fee+"</h3><hr><h2>주요어종 : "+fishes+"</h2><h2>편의시설 : "+convenience+"</h2><h2>수상시설물 : "+facility+"</h2><h2>전화번호 : "+fishingNum+"</h2>";
+                           $('#fishInfo').append(box); */
+                        	var box = "";
+                           box += "<div class='container'>";
+                           box += "<table class='table table-striped table-bordered table-hover' width='10%'>";
+                           box += "<thead>";
+                           box += "<th>낚시터</th>";
+                           box += "<tr class='active'><td>"+ fishingName + "</td> </tr>";
+                           box += "<th>주소</th>";
+                           box += "<tr class='info'><td>"+ road + "</td> </tr>";
+                           box += "<th >이용요금</th>";
+                           box += "<tr class='warning'><td>"+ fee + "</td> </tr>";
+                           box += "<th>주요어종</th>";
+                           box += "<tr class='info'><td>"+ fishes + "</td> </tr>";
+                           box += "<th>편의시설</th>";
+                           box += "<tr class='danger'><td>"+ convenience + "</td> </tr>";
+                           box += "<th>수상시설물</th>";
+                           box += "<tr class='success'><td>"+ facility + "</td> </tr>";
+                           box += "<th>전화번호</th>";
+                           box += "<tr class='info'><td>"+ fishingNum + "</td> </tr>";
+                           box += "</thead>";
+                           box += "</table></div>";
+                           
                            $('#fishInfo').append(box);
                         }
                      }
@@ -99,8 +165,13 @@
             });
    </script>
 
-   <div id="map" style="width: 100%; height: 350px;"></div>
-   <div id="fishInfo"></div>
+   
+  <div id="fishInfo">
+  <h2>낚시터 정보</h2>
+  <div id="map" style="width: 100%; height: 350px;"></div>
+  </div>
+  
+   
    
 
 	<jsp:include page="footer.jsp"></jsp:include>

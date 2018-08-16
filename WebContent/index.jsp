@@ -14,8 +14,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 <style>
@@ -383,8 +382,8 @@ to {
       <c:choose>
       <c:when test="${status.first }">
       <div id="myimgs${status.count }" class="myimgscls" style="text-align: center;" >
-      <div style="width: 55% ;margin: auto; height: 55%;text-align: center;" >
-              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px; width: 750px; text-align: center;"  >
+      <div style="width: 55% ;margin: auto; height: 55%">
+              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px;width: 750px" >
               </div>
       </div>     
       </c:when>
@@ -396,9 +395,15 @@ to {
       </div>
       </c:otherwise>
       </c:choose>
+<<<<<<< HEAD
+      </c:forEach>
+      </div class="dot">
+      <div style="text-align: center;">
+=======
       </c:forEach>	
       </div>
       <div style="text-align: center; margin-top: 3%"  >
+>>>>>>> f9afe8b40a00a1ac68c9b3c8f1e6ed5848344c38
          <span class="dot" onclick="currentSlide(1)"></span> 
          <span class="dot" onclick="currentSlide(2)"></span> 
          <span class="dot" onclick="currentSlide(3)"></span>

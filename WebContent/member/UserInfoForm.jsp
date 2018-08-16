@@ -44,7 +44,7 @@
 			}else if(val == "0"){
 				location.href="member.do?command=member_modify_form";
 			}else if(val == "1"){
-				location.href="member.do?command=member_delete";
+				location.href="member.do?command=member_delete_form";
 			}
 		}
 		

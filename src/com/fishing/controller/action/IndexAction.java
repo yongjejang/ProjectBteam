@@ -31,9 +31,6 @@ public class IndexAction implements Action {
 		
 		
 
-		PrintWriter w = response.getWriter();
-			
-		
 		for(int i = 0 ;i<=2;i++){
 			switch (i) {
 			case 0:
@@ -51,18 +48,9 @@ public class IndexAction implements Action {
 				break;
 			}
 		}
-//		Gson gson = new Gson();
-//        w.print(gson.toJson(list));
-//		
-//		
-//
-//        w.flush();
-//        w.close();
-//		
-//		System.out.println(list);
-//		request.setAttribute("communityList", list);
-
-
+		
+		
+	
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 		
