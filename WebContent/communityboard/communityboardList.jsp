@@ -86,13 +86,15 @@
 	  <form method="get" action='community.do'>
 	  <!-- ?command=community_search&page=1 -->
 				<!-- +search1+"&"+search2='+search2' -->
-		<select name="cate">
+		<!-- <select name="cate">
     		<option value="0,1,2" selected>전체</option>
     		<option value="1" >바다</option>
     		<option value="0">민물</option>
     		<option value="2">QnA</option>
-	     </select>
-	     <select name="search1">
+	     </select> -->
+	     
+<div id = "search">
+		<select name="search1">
     		 <option value="title" selected>제목</option>
     		 <option value="content" >내용</option>
     		 <option value="nicName">작성자</option>
@@ -101,7 +103,10 @@
 		<input type = "hidden" value = 'community_search' name = 'command'>
 		<input type = "hidden" value = '1' name = 'page'>
 		<input type="submit" value="검색">
+	
+</div>	
 	</form>
+	
 <div class="paging">
 		<%
 // -----------------------------현제 페이지 처리----------------------
@@ -144,20 +149,20 @@
 			}
 
 			if(nowPage > 1){
-				out.print("<a href='community.do?command=community_list&page=1'>◀◀</a>&nbsp;&nbsp;&nbsp;"); // 첫페이지
-				out.print("<a href='community.do?command=community_list&page=" + prevPage + "'>&nbsp;이전</a>&nbsp;&nbsp;&nbsp;");  //이전페이지로 이동
+				out.print("<a href='community.do?command=community_list&page=1&category=1'>◀◀</a>&nbsp;&nbsp;&nbsp;"); // 첫페이지
+				out.print("<a href='community.do?command=community_list&page=" + prevPage + "&category=1'>&nbsp;이전</a>&nbsp;&nbsp;&nbsp;");  //이전페이지로 이동
 			}
 			
 			
 			for(int i=startPage; i <= endPage; i++){ 
-				out.print("<a href='community.do?command=community_list&page=" + i + "'>" + i + "</a>&nbsp;&nbsp;&nbsp;");
+				out.print("<a href='community.do?command=community_list&page=" + i + "&category=1'>" + i + "</a>&nbsp;&nbsp;&nbsp;");
 			}
 
 			int nextPage = nowPage + 1;
 			
 			if(nowPage < totalPage){
-				out.print("<a href='community.do?command=community_list&page=" + nextPage + "'>&nbsp;다음</a>&nbsp;&nbsp;&nbsp;");
-				out.print("<a href='community.do?command=community_list&page=" + totalPage + "'>▶▶</a>&nbsp;&nbsp;&nbsp;");
+				out.print("<a href='community.do?command=community_list&page=" + nextPage + "&category=1'>&nbsp;다음</a>&nbsp;&nbsp;&nbsp;");
+				out.print("<a href='community.do?command=community_list&page=" + totalPage + "&category=1'>▶▶</a>&nbsp;&nbsp;&nbsp;");
 			}
 		%>
 		

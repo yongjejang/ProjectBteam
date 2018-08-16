@@ -30,6 +30,15 @@ public class IndexAction implements Action {
 		session.setAttribute("img", list);
 		
 		
+<<<<<<< HEAD
+=======
+
+		PrintWriter w = response.getWriter();
+			
+		
+		
+		
+>>>>>>> d162a9a2ddfed48fb583c6951c5241ce4d506fac
 		for(int i = 0 ;i<=2;i++){
 			switch (i) {
 			case 0:
@@ -47,11 +56,24 @@ public class IndexAction implements Action {
 				break;
 			}
 		}
+		Gson gson = new Gson();
+        w.print(gson.toJson(list));
 		
 		
 		
+<<<<<<< HEAD
+=======
+        w.flush();
+        w.close();
+		
+//		System.out.println(list);
+//		request.setAttribute("communityList", list);
+
+>>>>>>> d162a9a2ddfed48fb583c6951c5241ce4d506fac
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
+		
+
 	}
 	
 }

@@ -32,6 +32,7 @@
 		h1{
 			font-size : 50px;
 			text-align : center;
+			margin: 50px;
 		}
 	</style>
 	
@@ -59,6 +60,9 @@
 		<c:set var="member" value="${requestScope.memberInfo}"/>
 		
 		<!-- 가져온 회원정보를 출력한다. -->
+<div>
+<jsp:include page="../nav.jsp"></jsp:include>
+</div>
 <table class="table table-striped">
  
       <tr>
@@ -89,5 +93,8 @@
 		
 		<input type="button" value="회원정보 변경" onclick="changeForm(0)">
 		<input type="button" value="회원탈퇴" onclick="changeForm(1)">
+<div>
+<jsp:include page="../footer.jsp"></jsp:include>
+</div>
 </body>
 </html>

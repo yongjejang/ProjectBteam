@@ -29,7 +29,7 @@ function checkValue(){
 	var nickname = document.frm.nickname.value; // 닉네임
 	var phone = document.frm.phone.value; // 폰
 	var email = document.frm.email.value; // 이메일 
-	var checked = frm.agree.checked;
+	var checked = document.frm.agree.checked;
 	
 	
 	
@@ -95,11 +95,18 @@ function checkValue(){
 			alert("아이디 중복체크를 해주세요.");
 			return false;
 	}
-	if(checked == false){
-		alert('이용약관에 동의해주세요.');
-		frm.agree.focus();
+ 	 
+	/* if(document.frm.agree.checked != true){
+		alert('회원약관에 동의해주세요`.');
+		
 		return false;
-	}
+	} */
+	if(document.frm.agree.checked == false){
+	    
+	    alert("회원약관을 체크해 주세요");
+	                 return false;
+	    
+	} 
 	
 }
 	
@@ -137,7 +144,7 @@ function checkValue(){
 			 	</div>
 			  	<div class="panel-body">
 			  	<!-- onsubmit="return checkValue();" -->
-			    	<form accept-charset="UTF-8" role="form" action="../member.do?command=member_join" method="post" name="frm" onSubmit = "return checkValue();">
+			    	<form accept-charset="UTF-8" role="form" action="../member.do?command=member_join" method="post" name="frm" onSubmit = "return checkValue(this);">
 			    	 
                     <fieldset class="Edit-text">
 			    	  	<div class="form-group">
@@ -163,8 +170,17 @@ function checkValue(){
 			    		</div>
 			    		<div class="checkbox">
 			    		
-                <input id="agree" name="agree" type="checkbox" autocomplete="off" chacked>
-               <a href="#">이용약관</a> 에 동의 합니다.
+						<pre>
+						수집하는 개인정보의 항목첫째, 회사는 회원가 입, 원활한 고객상담, 각종 서비스의 제공을 위해 최초 회원가입 당시 아래와 같은 최소한의 개인정보를 필수항목으로 수집하고 있습니다.
+						
+						회원가입 : 이름, 생년월일, 성별, 아이디, 비밀번호, 별명, 연락처(메일주소, 휴대폰 번호 중 선택)
+						</pre> 		
+               
+               
+                <input name="agree" id = "agree" type="checkbox" autocomplete="off"  required="required"> 위의 약관에 동의합니다.
+               
+               
+            <!--    <a href="#">이용약관</a> 에 동의 합니다. -->
 			    	    </div>
 			    	  <!--   <input type="hidden" name="command" value="member_join" /> -->
 			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="join us" >
