@@ -11,6 +11,7 @@ import com.fishing.controller.action.CommunityViewAction;
 import com.fishing.controller.action.CommunityWriteAction;
 import com.fishing.controller.action.CommunityWriteFormAction;
 import com.fishing.controller.action.IndexAction;
+import com.fishing.controller.action.abc;
 import com.fishing.member.action.MemberModifyAction;
 import com.fishing.member.action.MemberModifyFormAction;
 import com.fishing.member.action.MemberViewAction;
@@ -97,8 +98,9 @@ public class ActionFactory {
 			action = new MemberDeleteFormAction();
 		}else if(command.equals("member_infomation")){
 			action = new MemberInfomationAction();
-		}
-		
+		}else if(command.equals("abc")){
+			action = new abc();
+		}		
 		return action;
 	}
 }

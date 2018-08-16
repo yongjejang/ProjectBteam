@@ -468,7 +468,8 @@ public class CommunityDAO {
             	list.add(
                      new CommunityVO(
                         rs.getString("file"),
-                        rs.getString("title")
+                        rs.getString("title"),
+                        rs.getInt("communityNum")
                     		 )
             			);     
 			}

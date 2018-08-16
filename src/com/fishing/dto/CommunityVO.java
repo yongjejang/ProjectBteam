@@ -20,9 +20,10 @@ public class CommunityVO {
 	private int allNum;
 	
 
-	public CommunityVO(String file, String title){
+	public CommunityVO(String file, String title, int communityNum){
 		this.file = file;
 		this.title = title;
+		this.communityNum = communityNum;
 	}
 	
 	
