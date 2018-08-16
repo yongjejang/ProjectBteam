@@ -27,7 +27,7 @@ margin-left: 100px;
  <jsp:include page="nav.jsp"></jsp:include>
  
 <script>
-   function search() {
+   /* function search() {
       var inputText = $('#inputTextBox').val().trim();
 
       console.log("inputText :+"+inputText)
@@ -37,6 +37,9 @@ margin-left: 100px;
          dataType : 'json',
          success : function(data) {
             for(var i = 0; i = data.record.length; i++){ 
+            	
+            	
+            	
                var fishingName = data.records[i].낚시터명; 
                if(fishingName.indexOf(inputText)=-1){ //낚시터명.indexOf(입력값)이 없으면 
                   console.log("입력 값: "+inputText+"가 없습니다.")
@@ -46,8 +49,13 @@ margin-left: 100px;
                   var lat = data.records[i].위도;
                   var lon = data.records[i].경도;
                   var road = data.records[i].소재지도로명주소;
+             
                   var addr = data.records[i].소재지지번주소;
                   var fee = data.records[i].이용요금;
+                  
+                  
+              	  console.log(road);
+              	
                   var box = "<a href = 'detail.jsp?lat=" + lat + "&lon="
                         + lon + "'>" + fishingName
                         + "</a><span>&nbsp&nbsp&nbsp 주소: " + road
@@ -64,7 +72,7 @@ margin-left: 100px;
          }
 
       })
-   }
+   } */
    function selectCity() {
       $.ajax({
          type : 'GET',
@@ -84,12 +92,24 @@ margin-left: 100px;
                if (bigyo == sido) {
 
                   var fishingName = data.records[i].낚시터명;
-                  console.log(fishingName)
+                  console.log(fishingName);
+    
                   var lat = data.records[i].위도;
                   var lon = data.records[i].경도;
                   var road = data.records[i].소재지도로명주소;
                   var addr = data.records[i].소재지지번주소;
                   var fee = data.records[i].이용요금;
+                  
+                  console.log(road);
+                  if(!road){
+                	  road = addr;
+                  }
+                  var sido = $("#sido option:selected").val();
+				  console.log(sido);
+                  
+                  
+
+                  
                   var box = "<a href = 'detail.jsp?lat=" + lat + "&lon="
                         + lon + "'>" + fishingName
                         + "</a><span>&nbsp&nbsp&nbsp 주소: " + road
@@ -116,7 +136,7 @@ margin-left: 100px;
    
    <span class="caret"></span>
       <option value="지역선택">지역선택</option>
-      <option value="제주특별자치도">제주도</option>
+      <!-- <option value="제주특별자치도">제주도</option> -->
       <option value="강원도">강원도</option>
       <option value="경기도">경기도</option>
       <option value="서울특별시">서울특별시</option>
@@ -131,6 +151,7 @@ margin-left: 100px;
       <option value="부산광역시">부산광역시</option>
       <option value="울산광역시">울산광역시</option>
    </select>
+   
    <br>
    </div>
    <div id="result">

@@ -377,28 +377,48 @@ to {
 <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
 
 </div>
+<<<<<<< HEAD
 <div id="sajin" style="padding:30px;margin-left; width: 100%;" >
+=======
+<div id="sajin" style="margin:auto; width: 100%;" >
+>>>>>>> 8826c249725f693b889008e58a1512f3e8ebdba9
       <br>
       <c:forEach var="imgs" items="${img }" varStatus="status">
       <c:choose>
       <c:when test="${status.first }">
+<<<<<<< HEAD
       <div id="myimgs${status.count }" class="myimgscls" style="text-align: left;" >
       <div style="width: 55% ;margin: left; height: 55%">
               <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 450px;width: 550px" >
+=======
+      <div id="myimgs${status.count }" class="myimgscls" style="text-align: center;" >
+      <div style="width: 55% ;margin: auto; height: 55%;text-align: center;" >
+              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px; width: 750px; text-align: center;"  >
+>>>>>>> 8826c249725f693b889008e58a1512f3e8ebdba9
               </div>
       </div>     
       </c:when>
       <c:otherwise>
       <div id="myimgs${status.count }" class="myimgscls" style="display:none;"  >
       <div style="width: 55% ;margin: auto; height: 55%; text-align: center;">
+<<<<<<< HEAD
               <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 450px;width: 550px; text-align: center;" >
+=======
+              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px;width: 750px; text-align: center;" >
+>>>>>>> 8826c249725f693b889008e58a1512f3e8ebdba9
       </div>
       </div>
       </c:otherwise>
       </c:choose>
+<<<<<<< HEAD
       </c:forEach>
       </div >
       <div  style="text-align: center;">
+=======
+      </c:forEach>	
+      </div>
+      <div style="text-align: center;" >
+>>>>>>> 8826c249725f693b889008e58a1512f3e8ebdba9
          <span class="dot" onclick="currentSlide(1)"></span> 
          <span class="dot" onclick="currentSlide(2)"></span> 
          <span class="dot" onclick="currentSlide(3)"></span>
