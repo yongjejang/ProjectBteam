@@ -377,28 +377,28 @@ to {
 <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
 
 </div>
-<div id="sajin" style="margin:auto; width: 100%; border-left: " >
+<div id="sajin" style="margin:auto; width: 100%;" >
       <br>
       <c:forEach var="imgs" items="${img }" varStatus="status">
       <c:choose>
       <c:when test="${status.first }">
       <div id="myimgs${status.count }" class="myimgscls" style="text-align: center;" >
-      <div style="width: 55% ;margin: auto; height: 55%">
-              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px;width: 750px" >
+      <div style="width: 55% ;margin: auto; height: 55%;text-align: center;" >
+              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px; width: 750px; text-align: center;"  >
               </div>
       </div>     
       </c:when>
       <c:otherwise>
-      <div id="myimgs${status.count }" class="myimgscls" style="display:none; text-align: center;"  >
-      <div style="width: 55% ;margin: auto; height: 55%">
-              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px;width: 750px" >
+      <div id="myimgs${status.count }" class="myimgscls" style="display:none;"  >
+      <div style="width: 55% ;margin: auto; height: 55%; text-align: center;">
+              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px;width: 750px; text-align: center;" >
       </div>
       </div>
       </c:otherwise>
       </c:choose>
-      </c:forEach>
-      </div class="dot">
-      <div style="text-align: center;">
+      </c:forEach>	
+      </div>
+      <div style="text-align: center;" >
          <span class="dot" onclick="currentSlide(1)"></span> 
          <span class="dot" onclick="currentSlide(2)"></span> 
          <span class="dot" onclick="currentSlide(3)"></span>
