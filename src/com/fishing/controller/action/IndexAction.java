@@ -31,6 +31,12 @@ public class IndexAction implements Action {
 		
 		
 
+<<<<<<< HEAD
+=======
+		PrintWriter w = response.getWriter();
+			
+		
+>>>>>>> 0eca35ba974096d6817d2c1abbf414d201835359
 		for(int i = 0 ;i<=2;i++){
 			switch (i) {
 			case 0:
@@ -48,9 +54,24 @@ public class IndexAction implements Action {
 				break;
 			}
 		}
+<<<<<<< HEAD
 		
 		
 	
+=======
+//		Gson gson = new Gson();
+//        w.print(gson.toJson(list));
+//		
+//		
+//
+//        w.flush();
+//        w.close();
+//		
+//		System.out.println(list);
+//		request.setAttribute("communityList", list);
+
+
+>>>>>>> 0eca35ba974096d6817d2c1abbf414d201835359
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 		
