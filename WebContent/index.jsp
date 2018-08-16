@@ -15,11 +15,7 @@
 <meta name="keywords" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script
-<<<<<<< HEAD
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-=======
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
->>>>>>> 0eca35ba974096d6817d2c1abbf414d201835359
 
 </head>
 <style>
@@ -304,49 +300,12 @@ to {
    display: inline;
    z-index: 999;
 }
-<<<<<<< HEAD
-#sajin{
-position: absolute;
-top: 0; bottom: 0;
-left:0; right: 0;
-margin: auto;
-}
-=======
 
->>>>>>> 0eca35ba974096d6817d2c1abbf414d201835359
 /* Blank lines for ease and view */
 /* */
 </style>
 
 <script>
-<<<<<<< HEAD
-	if (location.href.indexOf("?") == -1) {
-		location.href = "community.do?command=index";
-	}
-	function EasyPeasyParallax() {
-		scrollPos = $(this).scrollTop();
-		$('.p1').css({
-			'background-position' : '50% ' + (-scrollPos / 4) + "px"
-		});
-		$('.p2').css({
-			'background-position' : '50% ' + (-scrollPos / 8) + "px"
-		});
-		$('.p3').css({
-			'background-position' : '70% ' + (-scrollPos / 16) + "px"
-		});
-		$('.parallax-text').css({
-			'margin-top' : (scrollPos / 2) + "px",
-			'opacity' : 1 - (scrollPos / 230)
-		});
-	}
-	$(document).ready(function() {
-		$(window).scroll(function() {
-			EasyPeasyParallax();
-
-		});
-	});
-	
-=======
    if (location.href.indexOf("?") == -1) {
       location.href = "community.do?command=index";
    }
@@ -373,7 +332,6 @@ margin: auto;
       });
    });
    
->>>>>>> 0eca35ba974096d6817d2c1abbf414d201835359
 </script>
 <script
    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.5.5/jquery.smooth-scroll.min.js"></script>
@@ -382,24 +340,6 @@ margin: auto;
 </head>
 <body>
 <jsp:include page="nav.jsp"></jsp:include>
-<<<<<<< HEAD
-	<!-- 플러스친구 -->
-	<a href="http://pf.kakao.com/_xnVlxfxl" class="fltBanner1"
-		target="_blank"> <img
-		src="https://cdn.imweb.me/upload/S20170530592cf901c1430/5a5d4a959dc39.png"
-		width="128px" height="128px">
-	</a>
-
-	<!-- 전화연락 -->
-	<a href="tel:02-123-1234" class="fltBanner2" target="_blank"> <img
-		src="https://cdn.imweb.me/upload/S20170530592cf901c1430/5a5d4a9583340.png"
-		width="128px" height="128px">
-	</a>
-
-	<div class="slideshow-container">
-
-		<!-- <div class="mySlides fade">
-=======
    <!-- 플러스친구 -->
    <a href="http://pf.kakao.com/_xnVlxfxl" class="fltBanner1"
       target="_blank"> <img
@@ -416,7 +356,6 @@ margin: auto;
    <div class="slideshow-container">
 
       <!-- <div class="mySlides fade">
->>>>>>> 0eca35ba974096d6817d2c1abbf414d201835359
   <div class="numbertext">1 / 3</div>
   <img src="img1.jpg" class="img-rounded" alt="Cinque Terre" width="100%" height="500px">
   <div class="text">Caption Text</div>
@@ -438,136 +377,28 @@ margin: auto;
 <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
 
 </div>
-<<<<<<< HEAD
-<div style="width: 250px; margin: auto;" id="sajin" >
-		<br>
-		<c:forEach var="imgs" items="${img }" varStatus="status">
-		<c:choose>
-		<c:when test="${status.first }">
-		<div id="myimgs${status.count }" class="myimgscls" >
-		<div style="width: 55% ;margin: auto; height: 55%">
-  				<img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px;width: 750px" >
-  				</div>
-		</div>  	
-		</c:when>
-		<c:otherwise>
-		<div id="myimgs${status.count }" class="myimgscls" style="display:none;"  >
-		<div style="width: 55% ;margin: auto; height: 55%">
-  				<img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px;width: 750px" >
-		</div>
-		</div>
-		</c:otherwise>
-		</c:choose>
-		</c:forEach>
-		<div style="margin: auto;" >
-			<span class="dot" onclick="currentSlide(1)"></span> 
-			<span class="dot" onclick="currentSlide(2)"></span> 
-			<span class="dot" onclick="currentSlide(3)"></span>
-			<span class="dot" onclick="currentSlide(4)"></span>
-			<span class="dot" onclick="currentSlide(5)"></span>
-		</div>
-</div>
-		<script>
-		function currentSlide(i){
-			var imgdiv=document.getElementById("myimgs"+i);
-			var allimgdiv=$(".myimgscls");
-			console.log(allimgdiv);
-			allimgdiv.attr("style","display:none");
-			imgdiv.style.display="block";
-		}
-		</script>
-
-		<div class="row">
-			<div class="col-3">
-				<h2>바다 낚시 게시판 조회수 top5</h2>
-				
-				<table border="0" width="100%" height="100%" align="center"
-					class="table">
-					<tr>
-
-					</tr>
-
-					<c:forEach var="bestsea" items="${communityList }">
-
-						<tr>
-
-							<td><a
-								href='community.do?command=community_view&communityNum=${bestsea.communityNum}'>${bestsea.title }</a></td>
-
-						</tr>
-					</c:forEach>
-				</table>
-			</div>
-
-			<div class="col-3">
-				<h2>민물 낚시 게시판 조회수 top5</h2>
-				<table border="0" width="100%" height="100%" align="center"
-					class="table">
-					<tr>
-	
-
-					</tr>
-
-					<c:forEach var="bestmin" items="${minList }">
-
-						<tr>
-
-							<td><a
-								href='community.do?command=community_view&communityNum=${bestmin.communityNum}'>${bestmin.title }</a></td>
-
-						</tr>
-					</c:forEach>
-				</table>
-			</div>
-			<div class="col-3">
-				<h2>Q&A</h2>
-				<table border="0" width="100%" height="100%" align="center"
-					class="table">
-					<tr>
-
-
-					</tr>
-
-					<c:forEach var="bestqna" items="${qnaList }">
-
-						<tr>
-
-							<td><a
-								href='community.do?command=community_view&communityNum=${bestqna.communityNum}'>${bestqna.title }</a></td>
-
-						</tr>
-					</c:forEach>
-				</table>
-			</div>
-		</div>
-		<div>
-			<jsp:include page="footer.jsp"></jsp:include>
-		</div>
-</body>
-</html>
-=======
-<div id="sajin" style="margin:auto; width: 100%; border-left: " >
+<div id="sajin" style="padding:30px;margin-left; width: 100%;" >
       <br>
       <c:forEach var="imgs" items="${img }" varStatus="status">
       <c:choose>
       <c:when test="${status.first }">
-      <div id="myimgs${status.count }" class="myimgscls" style="text-align: center;" >
-      <div style="width: 55% ;margin: auto; height: 55%">
-              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px;width: 750px" >
+      <div id="myimgs${status.count }" class="myimgscls" style="text-align: left;" >
+      <div style="width: 55% ;margin: left; height: 55%">
+              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 450px;width: 550px" >
               </div>
       </div>     
       </c:when>
       <c:otherwise>
-      <div id="myimgs${status.count }" class="myimgscls" style="display:none; text-align: center;"  >
-      <div style="width: 55% ;margin: auto; height: 55%">
-              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px;width: 750px" >
+      <div id="myimgs${status.count }" class="myimgscls" style="display:none;"  >
+      <div style="width: 55% ;margin: auto; height: 55%; text-align: center;">
+              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 450px;width: 550px; text-align: center;" >
       </div>
       </div>
       </c:otherwise>
       </c:choose>
       </c:forEach>
-      </div class="dot">
-      <div style="text-align: center;">
+      </div >
+      <div  style="text-align: center;">
          <span class="dot" onclick="currentSlide(1)"></span> 
          <span class="dot" onclick="currentSlide(2)"></span> 
          <span class="dot" onclick="currentSlide(3)"></span>
@@ -653,4 +484,3 @@ margin: auto;
       </div>
 </body>
 </html>
->>>>>>> 0eca35ba974096d6817d2c1abbf414d201835359
