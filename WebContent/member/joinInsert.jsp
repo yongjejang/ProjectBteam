@@ -153,10 +153,10 @@ function checkValue(){
 			    		   <input type="hidden" name="idDuplication" id="idDuplication" value="idUncheck">
 			    		</div>
 			    		<div class="form-group">
-			    			패스워드(*)  <input class="form-control" placeholder="PassWord" name="password" id="password" type="password">
+			    			비밀번호(*)  <input class="form-control" placeholder="PassWord" name="password" id="password" type="password">
 			    		</div>
 			    		<div class="form-group">
-			    			패스워드 확인(*)  <input class="form-control" placeholder="PassWord" name="passwordcheck" id="passwordcheck"  type="password" >
+			    			비밀번호 확인(*)  <input class="form-control" placeholder="PassWord" name="passwordcheck" id="passwordcheck"  type="password" >
 			    		</div>
 			    		<div class="form-group">
 			    		     닉네임  <input class="form-control" placeholder="nickName" name="nickname" id="nickname" type="text">

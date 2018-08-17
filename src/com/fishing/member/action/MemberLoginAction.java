@@ -54,10 +54,10 @@ public class MemberLoginAction implements Action {
             
          
       }else{
-         response.setContentType("text/html;charset=utf-8");
-         System.out.println("loginFail");
+        
+         System.out.println("아이디나 패스워드가 맞지 않습니다.");
          w.print("<script>");
-            w.print("alert('Login Fail!');");
+            w.print("alert('아이디나 패스워드가 맞지 않습니다.');");
             w.print("location.href='member/loginForm.jsp';");
             w.print("</script>");
       }
