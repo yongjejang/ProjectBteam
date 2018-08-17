@@ -107,6 +107,11 @@
                         	   road = addr
                         	   
                            }
+                           if(!fishes || !convenience || !facility ){
+                        	   fishes = "감성돔 등 다양한 어종";
+                        	   convenience = "화장실 2개소(저두쪽, 망호쪽),슈퍼2개소";
+                        	   facility = "짚라인";
+                           }
                            
                           /*  var box = "<h2>낚시터 : " + fishingName + "</h2><hr><h2>주소 : " + road + "</h2><h3>이용요금 : "+fee+"</h3><hr><h2>주요어종 : "+fishes+"</h2><h2>편의시설 : "+convenience+"</h2><h2>수상시설물 : "+facility+"</h2><h2>전화번호 : "+fishingNum+"</h2>";
                            $('#fishInfo').append(box); */
