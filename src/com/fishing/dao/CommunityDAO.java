@@ -91,7 +91,7 @@ public class CommunityDAO {
 	
 		// 현재 글 번호중 가장 큰 글 번호 반환
 		public int getMaxRef() {
-			String query = "select max(communityNum) as maxRef from fishing.community";
+			String query = "select max(communityNum) as maxRef from community";
 			
 			
 			int maxRef = 0;
@@ -224,11 +224,9 @@ public class CommunityDAO {
 				// update fishing.community set content = '짜파게티~', title='오늘의 요리는~' where num=3;
 				// cvo ; 새롭게 수정할 글 객체
 		public void updateBoard(CommunityVO cvo) {
-<<<<<<< HEAD
+
 			String query = "update community set title = ? , nicname= ?, content = ? where communityNum = ?";
-=======
-			String query = "update fishing.community set title = ? , nicname= ?, content = ?,file = ? where communityNum = ?";
->>>>>>> 8e22f23dd3b31b349f71ca9c08e06b464fd2f8ec
+
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -270,7 +268,7 @@ public class CommunityDAO {
 		
 		//----------------------------------------총게시글의 수를 세는 메서드---------------------------------------
 		public int AllBoardcount(int category) {
-			String query = "select count(communityNum)as allNum from fishing.community where category = ?";
+			String query = "select count(communityNum)as allNum from community where category = ?";
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;

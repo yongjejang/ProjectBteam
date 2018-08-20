@@ -396,13 +396,19 @@ to {
       </div>
       </c:otherwise>
       </c:choose>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 138f82f5ac8ddd201e677239a6bf084fd4c38e16
       </c:forEach>
       </div class="dot">
       <div style="text-align: center;">
       </div>
       <div style="text-align: center; margin-top: 3%"  >
+<<<<<<< HEAD
 
+=======
+>>>>>>> 138f82f5ac8ddd201e677239a6bf084fd4c38e16
          <span class="dot" onclick="currentSlide(1)"></span> 
          <span class="dot" onclick="currentSlide(2)"></span> 
          <span class="dot" onclick="currentSlide(3)"></span>
