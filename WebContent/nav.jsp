@@ -141,11 +141,8 @@ li.active > a.nav-button {
 	    if(session.getAttribute("memberinfo")!=null){
         
 	    %>
-<<<<<<< HEAD
 	    
-=======
 	    <%-- ${memberinfo} --%>
->>>>>>> aeb3b85df200779f9f16ac53842ba73dd0d7341d
 	    <li class="nav-item2"><a href="member/logoutPro.jsp" class="left-underline nav-button" data-scroll>로그아웃</a></li>
         <li class="nav-item1"><a href="member.do?command=member_infomation" class="left-underline nav-button" data-scroll>${memberinfo.nickName }님 로그인 중 </a></li>
      	   

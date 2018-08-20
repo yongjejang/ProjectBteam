@@ -24,7 +24,7 @@ public class CommunityDAO {
 	// ------------- 전체 글 리스트 목록 페이지를 위한 메서드 -------------------------------------
 	public List<CommunityVO> selectAllBoard(int page,int category) {
 		//select * from fishing.community
-		String query = "select * from fishing.community  where category = ? order by Communitynum desc limit ? , ?";
+		String query = "select * from community  where category = ? order by Communitynum desc limit ? , ?";
 		List<CommunityVO> list = new ArrayList<CommunityVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -163,7 +163,7 @@ public class CommunityDAO {
 		// -------------------------------- 게시판 글을 조회하는 메서드(상세보기) ---------------------------------
 		// 글번호로 찾아본다. 실패 : null
 		public CommunityVO selectOneBoard(String communityNum) {
-			String query = "select * from fishing.community where communityNum = ?";
+			String query = "select * from community where communityNum = ?";
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -202,7 +202,7 @@ public class CommunityDAO {
 		
 		//------------------------------------ 조회수 증가 메서드 -------------------------------------------
 		public void readCountUp(String communityNum) {
-			String query = "UPDATE fishing.community SET count = count + 1 WHERE communityNum = ?";
+			String query = "UPDATE community SET count = count + 1 WHERE communityNum = ?";
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -224,7 +224,7 @@ public class CommunityDAO {
 				// update fishing.community set content = '짜파게티~', title='오늘의 요리는~' where num=3;
 				// cvo ; 새롭게 수정할 글 객체
 		public void updateBoard(CommunityVO cvo) {
-			String query = "update fishing.community set title = ? , nicname= ?, content = ? where communityNum = ?";
+			String query = "update community set title = ? , nicname= ?, content = ? where communityNum = ?";
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -247,7 +247,7 @@ public class CommunityDAO {
 		}
 		//-------------------------------------------글 삭제하는 메서드--------------------------------------------
 		public void deleteBoard(String communityNum){
-		      String query = "delete from fishing.community where communityNum = ?"; //수정
+		      String query = "delete from community where communityNum = ?"; //수정
 		      Connection con = null;
 		      PreparedStatement pstmt = null;
 		      try {
@@ -361,7 +361,7 @@ public class CommunityDAO {
 	         PreparedStatement pstmt = null;
 	         ResultSet rs = null;
 	         List<CommunityVO> indexlist = new ArrayList<CommunityVO>();
-	         String sql = "select * from  fishing.community where category =?  order by count desc limit 5 ";  //여기에  getAttribute로 nickname 넣어줘야 함
+	         String sql = "select * from  community where category =?  order by count desc limit 5 ";  //여기에  getAttribute로 nickname 넣어줘야 함
 	         
 	         try{
 	            con = DBMangement.getConnection();
