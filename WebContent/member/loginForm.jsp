@@ -61,7 +61,7 @@ function goFirstForm() {
 			    	<h3 class="panel-title">로그인</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form accept-charset="UTF-8" role="form" action="../member.do?command=member_login" method="POST" name="Loginform"  onSubmit = "return LoginCheck();">
+			    	<form accept-charset="UTF-8" role="form" action="member.do?command=member_login" method="POST" name="Loginform"  onSubmit = "return LoginCheck();">
                     <fieldset>
 			    	  	<div class="form-group">
 			    		    <input class="form-control" placeholder="ID" name="id" id="id" type="text">

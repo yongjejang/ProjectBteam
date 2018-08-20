@@ -44,21 +44,19 @@ public class MemberLoginAction implements Action {
       if(mdao.login(mvo) != null){
         //MemberVO mv = mdao.getMember(id);
     	  MemberVO mv = mdao.selectDetailMember(id);
-         System.out.println(mv);
+         System.out.println("로그인시 mv에 뭐 담기냐" + mv);
          session.setAttribute("memberinfo", mv);
          // w.print("<meta charset='utf-8'>");
             w.print("<script>");
             w.print("alert('로그인 되었습니다.');");
-            w.print("location.href='index.jsp';");
+            w.print("location.href='member.do?command=index';");
             w.print("</script>");
             
          
       }else{
-        
-         System.out.println("아이디나 패스워드가 맞지 않습니다.");
          w.print("<script>");
             w.print("alert('아이디나 패스워드가 맞지 않습니다.');");
-            w.print("location.href='<a href='member.do?command=member_login_form'>';");
+            w.print("location.href='member.do?command=member_login_form';");
             w.print("</script>");
       }
       
