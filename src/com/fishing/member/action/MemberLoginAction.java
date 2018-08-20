@@ -58,7 +58,7 @@ public class MemberLoginAction implements Action {
          System.out.println("아이디나 패스워드가 맞지 않습니다.");
          w.print("<script>");
             w.print("alert('아이디나 패스워드가 맞지 않습니다.');");
-            w.print("location.href='member/loginForm.jsp';");
+            w.print("location.href='<a href='member.do?command=member_login_form'>';");
             w.print("</script>");
       }
       

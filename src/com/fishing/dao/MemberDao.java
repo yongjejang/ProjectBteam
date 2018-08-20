@@ -138,7 +138,7 @@ public class MemberDao {
           MemberVO mvo = null;
          
           
-  		String query ="select userid,password, email,phone,nickname from fishing.member where userid = ?";
+  		String query ="select userid,password, email,phone,nickname from member where userid = ?";
   		
   		
   		try {

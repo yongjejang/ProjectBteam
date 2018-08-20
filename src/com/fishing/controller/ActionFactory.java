@@ -22,6 +22,7 @@ import com.fishing.member.action.MemberJoinAction;
 import com.fishing.member.action.MemberJoinFormAction;
 import com.fishing.member.action.MemberListAction;
 import com.fishing.member.action.MemberLoginAction;
+import com.fishing.member.action.MemberLoginFormAction;
 import com.fishing.member.action.MemberPasswordUpadateAction;
 import com.fishing.member.action.MemberPasswordUpadateFormAction;
 import com.fishing.member.action.MemberUserInfoAction;
@@ -67,7 +68,10 @@ public class ActionFactory {
 			action = new CommunityViewAction();
 		}else if(command.equals("member_login")){
 			action = new MemberLoginAction();
-		}else if(command.equals("member_join")){
+		}else if(command.equals("member_login_form")){
+			action= new MemberLoginFormAction();
+		}
+		else if(command.equals("member_join")){
 			action = new MemberJoinAction();
 		}else if(command.equals("member_join_form")){
 			action = new MemberJoinFormAction();

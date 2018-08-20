@@ -172,7 +172,7 @@ li.active > a.nav-button {
         
         } else if(session.getAttribute("memberinfo")== null){
            %>
-           <li class="nav-item1"><a href="member/loginForm.jsp" class="left-underline nav-button" data-scroll>로그인</a> </li>
+           <li class="nav-item1"><a href="member.do?command=member_login_form" class="left-underline nav-button" data-scroll>로그인</a> </li>
            
           
         <%
