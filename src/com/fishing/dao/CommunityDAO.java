@@ -224,7 +224,11 @@ public class CommunityDAO {
 				// update fishing.community set content = '짜파게티~', title='오늘의 요리는~' where num=3;
 				// cvo ; 새롭게 수정할 글 객체
 		public void updateBoard(CommunityVO cvo) {
+<<<<<<< HEAD
 			String query = "update community set title = ? , nicname= ?, content = ? where communityNum = ?";
+=======
+			String query = "update fishing.community set title = ? , nicname= ?, content = ?,file = ? where communityNum = ?";
+>>>>>>> 8e22f23dd3b31b349f71ca9c08e06b464fd2f8ec
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -235,7 +239,8 @@ public class CommunityDAO {
 				pstmt.setString(1, cvo.getTitle());
 				pstmt.setString(2, cvo.getnicname());
 				pstmt.setString(3, cvo.getContent());
-				pstmt.setInt(4, cvo.getCommunityNum());
+				pstmt.setString(4, cvo.getFile());
+				pstmt.setInt(5, cvo.getCommunityNum());
 				
 				pstmt.executeUpdate();
 				

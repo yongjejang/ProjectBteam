@@ -55,10 +55,9 @@ public class MemberJoinAction implements Action {
           rd.forward(request, response);*/
     	  joinSucess = true;
     	  PrintWriter out = response.getWriter();
-    	  response.setContentType("text/html;charset=utf-8");
-    	  
+    	
     	  out.println("<script>");
-    	  out.println("alert('join Success!');");
+    	  out.println("alert('회원가입 완료되었습니다.');");
     	  out.println("location.href='index.jsp';");
     	  out.println("</script>");
     	  //response.sendRedirect("index.jsp");

@@ -74,10 +74,12 @@
 		<label for=content">내용</label>
 		<textarea class="form-control" rows="15" cols="70"name="content" required>${cboard1.content }</textarea>
 	</div>
-		<input type="image" src="${cboard1.file }"/><br />
+		<!--<input type="image" src="${cboard1.file }"/><br />-->
 		<input type="file" name = file value= "${cboard1.file }"><br />
 		<input type="submit" class="btn btn-primary" value="수정" onclick="return boardCheck()" />
 		<input type="reset" class="btn btn-primary" value="다시작성" /> 
+		
+		
 		<c:if test="${cboard1.cartegory eq 0}">
 		<input type="button" value="목록으로" class="btn btn-primary"
 			onclick="location.href='community.do?command=community_list&page=1&category=0'" />

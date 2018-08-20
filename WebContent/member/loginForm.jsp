@@ -69,13 +69,13 @@ function goFirstForm() {
 			    		<div class="form-group">
 			    			<input class="form-control" placeholder="Password" name="pw" id="pw" type="password">
 			    		</div>
-			    		<div class="checkbox">
+			    		<!-- <div class="checkbox">
 			    	    	<label>
 			    	    		<a href="../member/joinInsert.jsp">회원가입</a>
 			    	    	</label>
-			    	    </div>
+			    	    </div> -->
 			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-			    		<input class="btn btn-lg btn-success btn-block" type="reset" value="Cancel" onclick=" goFirstForm();">
+			    		<input class="btn btn-lg btn-success btn-block" type="button" value="회원가입" onClick="window.location='joinInsert.jsp'">
 			    	</fieldset>
 			      	</form>
 			    </div>

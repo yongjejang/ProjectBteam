@@ -66,9 +66,9 @@ table{
 			<a href="member.do?command=member_view&id=${member.id}">${member.id}</a>
 		</td>
 		
-		<td>
+		<%-- <td>
 			<a href="member.do?command=member_delete&id=${member.id}">삭제</a>
-		</td>
+		</td> --%>
       </tr>
       </c:forEach>
     
