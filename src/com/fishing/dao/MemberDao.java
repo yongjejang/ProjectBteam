@@ -99,7 +99,7 @@ public class MemberDao {
          ResultSet rs = null;
          MemberVO mvo = null;
          
-         String query ="select * from fishing.member";
+         String query ="select * from member";
          
          try {
          con = DBMangement.getConnection();
@@ -171,7 +171,7 @@ public class MemberDao {
    }
     public void deleteMember(String userId,String password){
       	//delete from fishing.member where userid = 'aaaa';
-      	String query ="UPDATE fishing.member SET isdelete =1 WHERE userid = ? and password = ?";
+      	String query ="UPDATE member SET isdelete =1 WHERE userid = ? and password = ?";
   		Connection con = null;
   		PreparedStatement pstmt = null;
 		
@@ -207,7 +207,7 @@ public class MemberDao {
 			try {
 				
 				StringBuffer query = new StringBuffer();
-				query.append("SELECT USERID FROM fishing.member WHERE USERID=?");
+				query.append("SELECT USERID FROM member WHERE USERID=?");
 							
 				con = DBMangement.getConnection();
 				pstmt = con.prepareStatement(query.toString());

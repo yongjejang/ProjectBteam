@@ -30,6 +30,7 @@ body {
    padding: 0;
    margin: 0;
    perspective: 1px;
+   
    transform-style: preserve-3d;
    height: 100%;
    overflow-x: hidden;
@@ -395,6 +396,13 @@ to {
       </div>
       </c:otherwise>
       </c:choose>
+<<<<<<< HEAD
+      </c:forEach>
+      </div class="dot">
+      <div style="text-align: center;">
+      </div>
+      <div style="text-align: center; margin-top: 3%"  >
+=======
 
       </c:forEach>
       </div class="dot">
@@ -404,6 +412,7 @@ to {
       </div>
       <div style="text-align: center; margin-top: 3%"  >
 
+>>>>>>> 8e22f23dd3b31b349f71ca9c08e06b464fd2f8ec
          <span class="dot" onclick="currentSlide(1)"></span> 
          <span class="dot" onclick="currentSlide(2)"></span> 
          <span class="dot" onclick="currentSlide(3)"></span>
