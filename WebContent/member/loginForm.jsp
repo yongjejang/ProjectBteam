@@ -47,7 +47,7 @@ function LoginCheck(){
 }
 //취소 버튼 클릭시 첫화면으로 이동
 function goFirstForm() {
-	location.href="../index.jsp";
+	location.href="index.jsp";
 }
 
 </script>

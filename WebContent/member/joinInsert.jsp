@@ -112,7 +112,7 @@ function checkValue(){
 	
 	//취소 버튼 클릭시 첫화면으로 이동
 	function goFirstForm() {
-		location.href="../index.jsp";
+		location.href="index.jsp";
 	}
 	// 아이디 중복체크 화면open
 	
@@ -125,7 +125,7 @@ function checkValue(){
 	function openIdChk(){
 		
 		window.name = "parentForm";
-		window.open("./IdCheckForm.jsp",
+		window.open("member/IdCheckForm.jsp",
 				"chkForm", "width=500, height=300, resizable = no, scrollbars = no");	
 	}
 
