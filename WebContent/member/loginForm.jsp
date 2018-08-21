@@ -75,7 +75,7 @@ function goFirstForm() {
 			    	    	</label>
 			    	    </div> -->
 			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
-			    		<input class="btn btn-lg btn-success btn-block" type="button" value="회원가입" onClick="window.location='/member.do?command=member_join_form'">
+			    		<input class="btn btn-lg btn-success btn-block" type="button" value="회원가입" onClick="window.location='member.do?command=member_join_form'">
 			    	</fieldset>
 			      	</form>
 			    </div>

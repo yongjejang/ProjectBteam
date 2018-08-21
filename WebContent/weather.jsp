@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3b58a34a53fb9d462d1363006082507f"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=93456e7efb933748f75cb87bc90efd86"></script>
     <script>
     	function a(array){
 		var container = document.getElementById('map');
@@ -20,6 +20,7 @@
 		
 		var map = new daum.maps.Map(container, options);
         }
+    	
         function temp(weather,today) { // 온도
             $.ajax({
                 type: 'GET', // 통신방식(get/post) 
@@ -133,8 +134,6 @@
     	}
 
     </script>
-       
-    
 </head>
 <body>
 <h2 style="margin-left: 29.5%">현재 날씨</h2>
@@ -192,7 +191,7 @@
       <option value="IE_0061">신안가거초</option>
       <option value="IE_0062">옹진소청초</option>
    </select>
-   <div id="map" style="width:100%;height:350px;"></div>
+   <div id="map" style="width:50%;height:350px;"></div>
 <div style="margin-left: 29.5%">
 <h3>
 지역 이름 : <span id="name"></span><br />   

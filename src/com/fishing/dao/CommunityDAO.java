@@ -225,7 +225,7 @@ public class CommunityDAO {
 				// cvo ; 새롭게 수정할 글 객체
 		public void updateBoard(CommunityVO cvo) {
 
-			String query = "update community set title = ? , nicname= ?, content = ? where communityNum = ?";
+			String query = "update community set title = ? , nicname= ?, content = ?,file = ? where communityNum = ?";
 
 			
 			Connection con = null;

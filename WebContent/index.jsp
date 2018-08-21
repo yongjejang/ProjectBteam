@@ -135,7 +135,7 @@ hgroup {
 
 .row>.col-3 {
    display: inline-block;
-   width: 33%;
+   width: 25%;
    height: 100%;
    box-sizing: border-box;
    padding-left: 2px;
@@ -143,6 +143,7 @@ hgroup {
    text-align: center;
    position: relative;
 }
+
 
 }
 .container {
@@ -377,14 +378,14 @@ to {
 <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
 
 </div>
-<div id="sajin" style="margin-top: 5%; width: 100%;" >
+<div id="sajin" style="margin-top: 5%; width: 100%; height: 25%;" >
       <br>
       <c:forEach var="imgs" items="${img }" varStatus="status">
       <c:choose>
       <c:when test="${status.first }">
       <div id="myimgs${status.count }" class="myimgscls" style="text-align: center;" >
       <div style="width: 55% ;margin: auto; height: 55%">
-              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px;width: 750px" >
+              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 25%;width: 25%" >
               </div>
       </div>     
       </c:when>
@@ -481,9 +482,9 @@ to {
                </c:forEach>
             </table>
          </div>
-      </div>
-      <div>
+         <div class="col-3">
          <jsp:include page="weather.jsp"></jsp:include>
+         </div>
       </div>
       <div>
          <jsp:include page="footer.jsp"></jsp:include>
