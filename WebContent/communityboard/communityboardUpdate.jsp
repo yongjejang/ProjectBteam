@@ -68,7 +68,7 @@
 		 <input type="text" class="form-control" name="title" value = '${cboard1.title }' required/> <br />
 		 
 		 <label for="subject">작성자</label> 
-		 <input type="text" class="form-control" name="title" value = '${cboard1.nicname }' required/> <br /><br />
+		 <input type="text" class="form-control" name="nicname" value = '${cboard1.nicname }' required/> <br /><br />
 		<%--  ${cboard1.nicname }<br />  --%>
 	 <div class="form-group">
 		<label for=content">내용</label>
