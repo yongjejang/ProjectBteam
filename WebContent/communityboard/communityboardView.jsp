@@ -23,6 +23,8 @@ margin-top: 3%
 </style>
 
 <script>
+	
+
 	function boardCheck() {
 		if (document.frm.userId.value.length == 0) {
 			alert("작성자를 입력하세요");
@@ -48,8 +50,15 @@ margin-top: 3%
 		}
 	}
 	
+
+	<%
+		
+		session.getAttribute("memberinfo");
+	%>
 	//밑에서 받아서 서버로 보낸다. insert 
 	function save() {
+		var noname = $('#nickname').val();
+		if(noname != ""){
 		var data = $("#frmData").serialize();
 		console.log(data);
 		$.ajax({
@@ -59,13 +68,15 @@ margin-top: 3%
 			success : function(data) { // 통신에 성공했을때
 				console.log(data);
 				$('#a').empty("");
-
 				for (var i = 0; i < data.length; i++) {
-					$('#a').append(
-							'<tr><td>' + data[i].nicname + '</td><td>'
-									+ data[i].content + '</td><td>'
-									+ data[i].date + '</td></tr>');
-
+					var name = data[i].nicname;
+				if(noname==name){
+					$('#a').append('<tr><td>' + data[i].nicname + '</td><td>' + data[i].content + '</td><td>'+ data[i].date + '</td><td>' + '<input type="button" class="btn btn-danger" value="삭제" onclick="deleteCheck()" />' + '</td></tr>');
+					}else{
+						$('#a').append('<tr><td>' + data[i].nicname + '</td><td>' + data[i].content + '</td><td>'+ data[i].date + '</td></tr>')	
+					}
+							
+									
 				}
 
 			},
@@ -73,6 +84,10 @@ margin-top: 3%
 				alert('통신실패,상태 : ' + req.responseText);
 			}
 		});
+		}else{
+		alert("로그인 후 이용해 주세요")
+		location.href = "member.do?command=member_login_form"
+		}
 	}
 </script>
 
@@ -176,22 +191,24 @@ margin-top: 3%
 					<th>닉네임</th>
 					<th>내용</th>
 					<th>작성시간</th>
+				
 				</tr>
 			</thead>
-			<tbody id='a'>
-				<c:forEach var="reply" items="${reply }">
-			<tr>
-				<td>${reply.nicname }</td>
-				<td>${reply.content }</td>
-				<td><fmt:formatDate value="${reply.date }" /></td>
-				</tr>
-		</c:forEach>
+			<tbody id = "a">
+			<c:forEach var="reply" items="${reply }">
+         <tr>
+            <td>${reply.nicname }</td>
+            <td>${reply.content }</td>
+            <td><fmt:formatDate value="${reply.date }" /></td>
+            <c:if test="${reply.nicname eq memberinfo.nickName }">
+            <td>
+            <input type="button" class="btn btn-danger" value="삭제" onclick="deleteCheck()" />
+            </td>
+            </c:if>
+            </tr>
+      </c:forEach>
 			</tbody>
-			<tbody>
-			<tr>
-			<td></td>
-			</tr>
-			</tbody>
+						
 		</table>
 	</div>
 	<div class="container">
@@ -200,7 +217,7 @@ margin-top: 3%
 				<!--<label for="comment">Comment:</label>-->
 				<textarea class="form-control" rows="5" id="comment" name="content"></textarea>
 			</div>
-			<input type="hidden" name="nickname" value=${memberinfo.nickName }>
+			<input type="hidden" id = "nickname" name="nickname" value=${memberinfo.nickName }>
 			<input type="hidden" name="command" value="community_reply">
 			<input type="hidden" name=ref value=${cboard1.communityNum }>
 			<input type="button" class="btn btn-info" value="등록" onclick="save()">

@@ -376,6 +376,7 @@ to {
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
 
+<<<<<<< HEAD
 	</div>
 	<div id="sajin" style="margin-top: 5%; width: 100%; height: 25%;">
 		<br>
@@ -502,5 +503,118 @@ to {
 	<div>
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
+=======
+</div>
+<div id="sajin" style="margin-top: 5%; width: 100%; height: 25%;" >
+      <br>
+      <c:forEach var="imgs" items="${img }" varStatus="status">
+      <c:choose>
+      <c:when test="${status.first }">
+      <div id="myimgs${status.count }" class="myimgscls" style="text-align: center;" >
+      <div style="width: 55% ;margin: auto; height: 55%">
+              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 25%;width: 25%" >
+              </div>
+      </div>     
+      </c:when>
+      <c:otherwise>
+      <div id="myimgs${status.count }" class="myimgscls" style="display:none;"  >
+      <div style="width: 55% ;margin: auto; height: 55%; text-align: center;">
+              <img src="${imgs.file }" class="img-rounded" alt="Cinque Terre" style="height: 650px;width: 750px; text-align: center;" >
+      </div>
+      </div>
+      </c:otherwise>
+      </c:choose>
+      </c:forEach>
+      </div class="dot">
+      <div style="text-align: center;">
+      </div>
+      <div style="text-align: center; margin-top: 3%"  >
+
+         <span class="dot" onclick="currentSlide(1)"></span> 
+         <span class="dot" onclick="currentSlide(2)"></span> 
+         <span class="dot" onclick="currentSlide(3)"></span>
+         <span class="dot" onclick="currentSlide(4)"></span>
+         <span class="dot" onclick="currentSlide(5)"></span>
+      </div>
+
+      <script>
+      function currentSlide(i){
+         var imgdiv=document.getElementById("myimgs"+i);
+         var allimgdiv=$(".myimgscls");
+         console.log(allimgdiv);
+         allimgdiv.attr("style","display:none");
+         imgdiv.style.display="block";
+      }
+      </script>
+
+      <div class="row">
+         <div class="col-3">
+            <h2>바다 낚시 게시판 조회수 top5</h2>
+            
+            <table border="0" width="100%" height="100%" align="center"
+               class="table">
+               <tr>
+
+               </tr>
+
+               <c:forEach var="bestsea" items="${communityList }">
+
+                  <tr>
+
+                     <td><a href='community.do?command=community_view&communityNum=${bestsea.communityNum}'>${bestsea.title }</a></td>
+
+                  </tr>
+               </c:forEach>
+            </table>
+         </div>
+
+         <div class="col-3">
+            <h2>민물 낚시 게시판 조회수 top5</h2>
+            <table border="0" width="100%" height="100%" align="center"
+               class="table">
+               <tr>
+   
+
+               </tr>
+
+               <c:forEach var="bestmin" items="${minList }">
+
+                  <tr>
+
+                     <td><a
+                        href='community.do?command=community_view&communityNum=${bestmin.communityNum}'>${bestmin.title }</a></td>
+
+                  </tr>
+               </c:forEach>
+            </table>
+         </div>
+         <div class="col-3">
+            <h2>Q&A</h2>
+            <table border="0" width="100%" height="100%" align="center"
+               class="table">
+               <tr>
+
+
+               </tr>
+
+               <c:forEach var="bestqna" items="${qnaList }">
+
+                  <tr>
+
+                     <td><a
+                        href='community.doZ?command=community_view&communityNum=${bestqna.communityNum}'>${bestqna.title }</a></td>
+
+                  </tr>
+               </c:forEach>
+            </table>
+         </div>
+         <div class="col-3">
+         <jsp:include page="weather.jsp"></jsp:include>
+         </div>
+      </div>
+      <div>
+         <jsp:include page="footer.jsp"></jsp:include>
+      </div>
+>>>>>>> c1a5fe603cb8fb2d07d59253d4672ddfd7ac9337
 </body>
 </html>

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3b58a34a53fb9d462d1363006082507f"></script>
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=93456e7efb933748f75cb87bc90efd86"></script>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
