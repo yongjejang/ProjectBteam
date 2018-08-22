@@ -25,7 +25,7 @@ public class CommunityWriteAction implements Action {
 
 	CommunityVO cvo = new CommunityVO();
 
-	
+
 	PrintWriter w = response.getWriter();
 	
 

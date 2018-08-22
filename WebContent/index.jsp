@@ -434,8 +434,7 @@ to {
 
                   <tr>
 
-                     <td><a
-                        href='community.do?command=community_view&communityNum=${bestsea.communityNum}'>${bestsea.title }</a></td>
+                     <td><a href='community.do?command=community_view&communityNum=${bestsea.communityNum}'>${bestsea.title }</a></td>
 
                   </tr>
                </c:forEach>
@@ -476,7 +475,7 @@ to {
                   <tr>
 
                      <td><a
-                        href='community.do?command=community_view&communityNum=${bestqna.communityNum}'>${bestqna.title }</a></td>
+                        href='community.doZ?command=community_view&communityNum=${bestqna.communityNum}'>${bestqna.title }</a></td>
 
                   </tr>
                </c:forEach>
