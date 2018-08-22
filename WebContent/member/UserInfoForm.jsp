@@ -74,10 +74,6 @@
         <td>${member.nickName}</td>
       </tr>
       <tr>
-      	<th>비밀번호</th>
-         <td>${member.pw}</td>
-      </tr>
-      <tr>
       	 <th>이메일</th>
          <td>${member.email}</td>
       </tr>
@@ -90,6 +86,31 @@
     </tbody>
   </table>
 		<br>
+<table class="table table-striped table-bordered table-hover">
+		<thead>
+			<tr>
+				<th width="10%">NO</th>
+				<th width="50%">제 목</th>
+				<th width="20%">작성일</th>
+		<h3>내가 쓴 글</h3>
+			</tr>
+		</thead>
+		
+		<tbody>
+		<c:forEach var="cboard1" items="${writelist }">
+			<tr>
+				<td>${cboard1.communityNum}</td>
+				<td><a href='community.do?command=community_view&communityNum=${cboard1.communityNum}'>${cboard1.title }</a></td>
+				<td>${cboard1.date }</td>	
+			</tr>
+		</c:forEach>
+
+			
+		</tbody>
+	 
+	</table>
+
+		
 		
 		<input type="button" value="회원정보 변경" onclick="changeForm(0)">
 		<input type="button" value="회원탈퇴" onclick="changeForm(1)">

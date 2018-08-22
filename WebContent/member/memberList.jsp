@@ -60,17 +60,33 @@ table{
       </tr>
     </thead>
    
-    <c:forEach var ="member" items="${sessionScope.memberList}">
-      <tr>
-       <td>
-			<a href="member.do?command=member_view&id=${member.id}">${member.id}</a>
-		</td>
-		
-		<%-- <td>
-			<a href="member.do?command=member_delete&id=${member.id}">삭제</a>
-		</td> --%>
-      </tr>
-      </c:forEach>
+    <table class="table table-striped table-bordered table-hover">
+		<thead>
+			<tr>
+				<th width="10%">제못</th>
+				<th width="50%">컨텐</th>
+				<th width="20%">작성일</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach var="cboard1" items="${communityList }">
+			<tr>
+				<td>${cboard1.communityNum }</td>
+				<td>			
+				<a href='community.do?command=community_view&communityNum=${cboard1.communityNum}'>${cboard1.title }</a>
+				</td>
+				<td>${cboard1.nicname }</td>
+				<td><fmt:formatDate value="${cboard1.date }" /></td>
+				<td>${cboard1.count }</td>	
+				
+			</tr>
+		</c:forEach>
+
+			
+		</tbody>
+	 
+	</table>
+
     
   </table>
   <a href="index.jsp" >홈으로 돌아가기</a>

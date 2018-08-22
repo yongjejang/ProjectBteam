@@ -19,6 +19,20 @@ public class CommunityVO {
 	private int communityNum;
 	private int allNum;
 	
+	
+	
+	
+
+
+	public CommunityVO(String nicname, Date date, String title, int cartegory, int communityNum) {
+		
+		this.nicname = nicname;
+		this.date = date;
+		this.title = title;
+		this.cartegory = cartegory;
+		this.communityNum = communityNum;
+	}
+
 
 	public CommunityVO(String file, String title, int communityNum){
 		this.file = file;

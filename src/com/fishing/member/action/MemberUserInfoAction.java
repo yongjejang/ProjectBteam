@@ -1,6 +1,7 @@
 package com.fishing.member.action;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.fishing.controller.action.Action;
 import com.fishing.dao.MemberDao;
+import com.fishing.dto.CommunityVO;
 import com.fishing.dto.MemberVO;
 
 
@@ -29,9 +31,10 @@ public class MemberUserInfoAction implements Action{
 		
 		MemberVO mvo= dao.selectDetailMember(id.getId());
 		
-	
+		List<CommunityVO> cvo = dao.myWritten(id.getNickName());
+		System.out.println(cvo);
 		request.setAttribute("memberInfo", mvo);
-		
+		request.setAttribute("writelist", cvo);
 		String url = "/member/UserInfoForm.jsp";
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
