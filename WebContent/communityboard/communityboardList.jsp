@@ -93,7 +93,7 @@
     		<option value="2">QnA</option>
 	     </select> -->
 	     
-<div id = "search">
+<!-- <div id = "search">
 		<select name="search1">
     		 <option value="title" selected>제목</option>
     		 <option value="content" >내용</option>
@@ -104,7 +104,7 @@
 		<input type = "hidden" value = '1' name = 'page'>
 		<input type="submit" value="검색">
 	
-</div>	
+</div>	 -->
 	</form>
 	
 <div class="paging">

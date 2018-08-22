@@ -81,14 +81,14 @@
       	
       </c:choose>
 	</div>
-	<div id = "search">
+	<!-- <div id = "search">
 	     <select>
     		 <option selected>제목</option>
     		 <option>작성자</option>
 	     </select>
 <input type="text" class="search">
 <input type="button" value="검색">
-</div>
+</div> -->
 <div class="paging">
 		<%
 // -----------------------------현제 페이지 처리----------------------
