@@ -151,7 +151,7 @@ li.active > a.nav-button {
         	MemberVO mvo = (MemberVO) session.getAttribute("memberinfo");
         		
         	//mvo.getId();
-        	System.out.println(mvo.getId().toString());
+        	//System.out.println(mvo.getId().toString());
         	if(mvo.getId().toString().equals("admin")){
            %>
            		<li class="nav-item2"><a href="member.do?command=member_list" class="left-underline nav-button" data-scroll>회원보기</a> </li>
