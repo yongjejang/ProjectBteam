@@ -35,16 +35,18 @@ public class IndexAction implements Action {
 			switch (i) {
 			case 0:
 				list = cdao.sea5(i);
-				request.setAttribute("communityList", list);
-				
+				request.setAttribute("minList", list);
+				System.out.print("민물"+ list);
 				break;
 			case 1:
 				list = cdao.sea5(i);
-				request.setAttribute("minList", list);
+				request.setAttribute("communityList", list);
+				System.out.print("바다"+list);
 				break;
 			default:
 				list = cdao.sea5(i);
 				request.setAttribute("qnaList", list);
+				System.out.print("난 필요없어"+ list);
 				break;
 			}
 		}
