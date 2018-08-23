@@ -21,8 +21,11 @@ public class CommunityDeleteAction implements Action {
 		
 		String communityNum = request.getParameter("communityNum");
 		int category = Integer.parseInt(request.getParameter("cartegory"));
+		String communityjinNum = request.getParameter("communityjinNum");
+		System.out.println("게시글번호다?" + communityjinNum);
 		System.out.println("넘값 확인" + communityNum);
 		System.out.println("카테고리" + category);
+		
 		CommunityDAO cdao = CommunityDAO.getInstance();
 		cdao.deleteBoard(communityNum);
 		PrintWriter w = response.getWriter();
@@ -30,9 +33,15 @@ public class CommunityDeleteAction implements Action {
 			response.sendRedirect("community.do?command=community_list&page=1&category=0");
 			
 		}
-		if (category == 1){
+		else if (category == 1){
 			response.sendRedirect("community.do?command=community_list&page=1&category=1");
 		
+		}
+		else if (category == 2){
+			response.sendRedirect("community.do?command=community_list&page=1&category=2");
+		
+		}else{
+			response.sendRedirect("community.do?command=community_view&communityNum=" + communityjinNum);
 		}
 		
 		

@@ -59,7 +59,8 @@ public class CommunityVO {
 		this.communityNum = communityNum;
 	}
 	
-	public CommunityVO(String nicname,String content,Date date){
+	public CommunityVO(int communityNum,String nicname,String content,Date date){
+		this.communityNum = communityNum;
 		this.nicname = nicname;
 		this.content = content;
 		this.date = date;

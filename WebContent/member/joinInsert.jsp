@@ -125,7 +125,7 @@ function checkValue(){
 	function openIdChk(){
 		
 		window.name = "parentForm";
-		window.open("member/IdCheckForm.jsp",
+		window.open("../member/idCheckForm.jsp",
 				"chkForm", "width=500, height=300, resizable = no, scrollbars = no");	
 	}
 
@@ -170,14 +170,14 @@ function checkValue(){
 			    		</div>
 			    		<div class="checkbox">
 			    		
-						<pre>
-						수집하는 개인정보의 항목첫째, 회사는 회원가 입, 원활한 고객상담, 각종 서비스의 제공을 위해 최초 회원가입 당시 아래와 같은 최소한의 개인정보를 필수항목으로 수집하고 있습니다.
+					<pre>
+수집하는 개인정보의 항목첫째, 회사는  회원가 입, 원활한 고객상담, 각종 서비스의 제공을 위해 최초 회원가입 당시 아래와 같은 최소한의 개인정보를 필수항목으로 수집하고 있습니다.
 						
-						회원가입 : 이름, 생년월일, 성별, 아이디, 비밀번호, 별명, 연락처(메일주소, 휴대폰 번호 중 선택)
-						</pre> 		
+회원가입 : 이름, 성별, 아이디, 비밀번호, 별명, 연락처(메일주소, 휴대폰 번호 중 선택)
+						</pre> 			
                
                
-                <input name="agree" id = "agree" type="checkbox" autocomplete="off"  required="required"> 위의 약관에 동의합니다.
+                <input name="agree" id = "agree" type="checkbox" autocomplete="off"> 위의 약관에 동의합니다.
                
                
             <!--    <a href="#">이용약관</a> 에 동의 합니다. -->

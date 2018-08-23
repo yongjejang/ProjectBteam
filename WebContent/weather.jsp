@@ -20,7 +20,7 @@
 		
 		var map = new daum.maps.Map(container, options);
         }
-    	
+    
         function temp(weather,today) { // 온도
             $.ajax({
                 type: 'GET', // 통신방식(get/post) 
@@ -191,7 +191,7 @@
       <option value="IE_0061">신안가거초</option>
       <option value="IE_0062">옹진소청초</option>
    </select>
-   <div id="map" style="width:50%;height:350px;"></div>
+   <div id="map" style="width:500px;height:350px;"></div>
 <div style="margin-left: 29.5%">
 <h3>
 지역 이름 : <span id="name"></span><br />   

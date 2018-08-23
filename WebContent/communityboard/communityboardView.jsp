@@ -49,7 +49,15 @@ margin-top: 3%
 			return false;
 		}
 	}
-	
+	function replydeleteCheck(a){	
+		console.log(a)
+		var deleteConfirm = confirm("정말삭제하시겠습니까?");
+		if (deleteConfirm == true) { //확인
+			location.href="community.do?command=community_delete&communityNum=" + a + "&cartegory=3" + "&communityjinNum="+${cboard1.communityNum };
+		} else if(deleteConfirm == false) { 
+			return false;
+		}
+	}
 
 	<%
 		
@@ -70,8 +78,9 @@ margin-top: 3%
 				$('#a').empty("");
 				for (var i = 0; i < data.length; i++) {
 					var name = data[i].nicname;
+					var num = data[i].communityNum;
 				if(noname==name){
-					$('#a').append('<tr><td>' + data[i].nicname + '</td><td>' + data[i].content + '</td><td>'+ data[i].date + '</td><td>' + '<input type="button" class="btn btn-danger" value="삭제" onclick="deleteCheck()" />' + '</td></tr>');
+					$('#a').append('<tr><td>' + data[i].nicname + '</td><td>' + data[i].content + '</td><td>'+ data[i].date + '</td><td>' + '<input type="button" class="btn btn-danger" value="삭제" onclick="replydeleteCheck('+ num +')" />' + '</td></tr>');
 					}else{
 						$('#a').append('<tr><td>' + data[i].nicname + '</td><td>' + data[i].content + '</td><td>'+ data[i].date + '</td></tr>')	
 					}
@@ -202,7 +211,7 @@ margin-top: 3%
             <td><fmt:formatDate value="${reply.date }" /></td>
             <c:if test="${reply.nicname eq memberinfo.nickName }">
             <td>
-            <input type="button" class="btn btn-danger" value="삭제" onclick="deleteCheck()" />
+            <input type="button" class="btn btn-danger" value="삭제" onclick="replydeleteCheck('${reply.communityNum }')" />
             </td>
             </c:if>
             </tr>

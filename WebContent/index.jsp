@@ -376,7 +376,6 @@ to {
 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 <a class="next" onclick="plusSlides(1)">&#10095;</a>-->
 
-<<<<<<< HEAD
 	</div>
 	<div id="sajin" style="margin-top: 5%; width: 100%; height: 25%;">
 		<br>
@@ -503,6 +502,9 @@ to {
 	<div>
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2c3721951d2d0860fa645c392f2fc5b5ed7a189c
 </body>
 </html>
