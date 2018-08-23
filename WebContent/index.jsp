@@ -502,9 +502,6 @@ to {
 	<div>
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
-<<<<<<< HEAD
 
-=======
->>>>>>> 2c3721951d2d0860fa645c392f2fc5b5ed7a189c
 </body>
 </html>
