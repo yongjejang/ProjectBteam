@@ -101,7 +101,7 @@ public class ActionFactory {
 			action = new MemberDeleteFormAction();
 		}else if(command.equals("member_infomation")){
 			action = new MemberInfomationAction();
-		}	
+		}
 		return action;
 	}
 }
