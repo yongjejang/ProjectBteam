@@ -17,7 +17,7 @@
 <style>
 
 	#writing{
-	margin-left : 120px;
+	margin-left : 75%;
 	}
 	#search{
 	margin : auto;
@@ -76,7 +76,7 @@
 	<div id = "writing">
 	<c:choose>
             <c:when test="${ sessionScope.memberinfo.id != null }">
-            <input type= button value="글쓰기" onclick="location.href='community.do?command=community_write_form';" />
+            <input type= "button" class="btn" value="글쓰기" onclick="location.href='community.do?command=community_write_form';" />
             </c:when>
       	
       </c:choose>

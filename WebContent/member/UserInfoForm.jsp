@@ -111,9 +111,10 @@
 	</table>
 
 		
-		
-		<input type="button" value="회원정보 변경" onclick="changeForm(0)">
-		<input type="button" value="회원탈퇴" onclick="changeForm(1)">
+		<div style="float:right">
+		<input type="button" class="btn btn-success"  value="회원정보 변경" onclick="changeForm(0)" >
+		<input type="button" class="btn btn-danger"  value="회원탈퇴" onclick="changeForm(1)">
+		</div>
 <div>
 <jsp:include page="../footer.jsp"></jsp:include>
 </div>
